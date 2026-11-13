@@ -9,7 +9,10 @@ source=(ROOT/'book/manuscript.md').read_text();pdf=fitz.open(ROOT/'dist/knowledg
 assert pdf.metadata['author']=='Dr. Mahdi Habibi'
 assert all('Dr. Mahdi Habibi' in page.get_text() for page in pdf)
 assert 'Author review draft' in pdf[0].get_text()
-assert 'No DOI has been assigned or reserved' in ' '.join(' '.join(p.get_text().split()) for p in pdf)
+record=json.loads((ROOT/'publication/zenodo-record-draft.json').read_text())
+pdf_text=' '.join(' '.join(p.get_text().split()) for p in pdf)
+assert record['doi'] and record['doi'] in pdf_text
+assert 'Reserved DOI:' in pdf_text and 'not yet an archived public release' in pdf_text
 sections=re.split(r'^=== ',source,flags=re.M)[1:]
 page_map=json.loads((ROOT/'dist/page-map.json').read_text())
 assert len(page_map)==len(sections)

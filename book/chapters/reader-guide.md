@@ -9,7 +9,7 @@
 The book is for a reader beginning with graph concepts who wants to understand RDF-based semantic systems and labeled property graphs, then reason about a practical architecture. It introduces concepts before syntax and uses one learning catalog throughout. Advanced chapters explain design issues and selected techniques; they are not a complete language specification or deployment manual.
 
 ### Version and citation status
-Version 0.1.0 identifies this review package. No DOI has been assigned or reserved for this book. A preliminary citation is: **Habibi, Mahdi. Knowledge Graphs: Semantic Graphs and Property Graphs. Version 0.1.0, author review draft, 2026.** Add the permanent archive identifier only after the real record exists.
+Version 0.1.0 identifies this review package. Reserved DOI: **10.5281/zenodo.24209668** (https://doi.org/10.5281/zenodo.24209668). The identifier will be registered when the Zenodo record is published; this draft is not yet an archived public release. Citation: **Habibi, Mahdi. Knowledge Graphs: Semantic Graphs and Property Graphs. Version 0.1.0, author review draft, 2026.**
 
 ### Reuse and feedback
 Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.

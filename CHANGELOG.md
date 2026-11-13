@@ -50,3 +50,5 @@
 
 - Adopted CC BY 4.0 for original book content, figures, and synthetic data; MIT for original code.
 - Updated book and repository notices; retained third-party font notices.
+
+- Added reserved Zenodo DOI 10.5281/zenodo.24209668 to the book and citation metadata; publication remains pending.

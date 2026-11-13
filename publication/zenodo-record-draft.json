@@ -25,7 +25,7 @@
     "ontology modeling",
     "open educational resources"
   ],
-  "doi": null,
+  "doi": "10.5281/zenodo.24209668",
   "repository_url": null,
   "orcid": null,
   "affiliation": null,
@@ -36,5 +36,6 @@
     "book_text_original_figures_data": "CC-BY-4.0",
     "code": "MIT",
     "status": "adopted by author on 2026-11-14"
-  }
+  },
+  "doi_status": "reserved; not registered until publication"
 }

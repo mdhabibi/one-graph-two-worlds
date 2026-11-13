@@ -89,6 +89,5 @@ for the checks performed and their scope.
 [LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
 their included notices.
 
-[CITATION.cff](CITATION.cff) contains a preliminary citation. No DOI, public
-repository URL, ORCID, affiliation, journal acceptance, or peer-review status is
-invented. Add real identifiers when a record and repository exist.
+[CITATION.cff](CITATION.cff) contains the draft citation. Reserved DOI:
+**10.5281/zenodo.24209668**. Zenodo publication and DOI registration are pending.
