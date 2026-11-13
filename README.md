@@ -82,13 +82,12 @@ Sources, examples, figures, and validation boundaries are supplied so reviewers
 can reproduce findings. See [the validation report](publication/VALIDATION.md)
 for the checks performed and their scope.
 
-## License proposal and citation
+## License and citation
 
-The author requested preparation of **CC BY 4.0 for book text and original
-illustrations, with MIT for code**. These are proposed public-release terms;
-this review package does not represent a completed public release or a final
-license grant. See [LICENSE.md](LICENSE.md) and the proposal. Bundled font rights
-remain governed by their included notices.
+**CC BY 4.0** covers original book text, diagrams, and synthetic example data.
+**MIT** covers original code. See [LICENSE.md](LICENSE.md) for the scope and
+[LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
+their included notices.
 
 [CITATION.cff](CITATION.cff) contains a preliminary citation. No DOI, public
 repository URL, ORCID, affiliation, journal acceptance, or peer-review status is

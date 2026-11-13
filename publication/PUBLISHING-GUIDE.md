@@ -60,8 +60,8 @@ The package contains a revised author-review PDF, the master manuscript,
 browser-friendly chapters, original SVG/PNG figures, portable font files and
 notices, build/check/export scripts, the RDF and Cypher labs, README, contribution
 and issue templates, a workflow, change log, preliminary citation metadata, and
-a draft Zenodo description. The author selected preparation of a CC BY 4.0/MIT
-license proposal. No external publication action has been taken.
+a draft Zenodo description. The author adopted CC BY 4.0 for original content/data and MIT for code
+on 14 November 2026. No external publication action has been taken.
 
 The new manuscript adds the RDF database/server/library distinction, a query
 walkthrough, learning goals, and self-checks. Baseline Cypher checks now pass on
@@ -75,8 +75,8 @@ certification, and independent execution remain outside the completed checks.
 1. **Author review.** Read the final PDF, especially the foundation sequence,
    RDF database explanation, inference-versus-validation chapters, and validation
    report. Decide whether to invite public review under a draft label.
-2. **License adoption.** Review the prepared CC BY 4.0 scope for text/figures/data
-   and MIT scope for code. Apply the adopted notices consistently. Include the
+2. **Licenses adopted.** CC BY 4.0 covers original text/figures/data; MIT covers
+   original code. Apply these notices to future editions and retain the
    existing font licenses. CC BY permits adaptation and redistribution with credit;
    MIT permits broad code reuse with its notice retained. The precise legal texts
    govern. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/),

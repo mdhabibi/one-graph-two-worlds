@@ -12,7 +12,7 @@ The book is for a reader beginning with graph concepts who wants to understand R
 Version 0.1.0 identifies this review package. No DOI has been assigned or reserved for this book. A preliminary citation is: **Habibi, Mahdi. Knowledge Graphs: Semantic Graphs and Property Graphs. Version 0.1.0, author review draft, 2026.** Add the permanent archive identifier only after the real record exists.
 
 ### Reuse and feedback
-The prepared public-release proposal is CC BY 4.0 for original text, illustrations, and synthetic data, with MIT for code. Final adoption remains pending; this draft does not claim that an open license has already been granted. The publication package contains the proposed options and metadata. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.
+Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.
 
 The next sections explain how to study the book. Begin with the catalog story rather than trying to memorize the technology names on the cover.
 

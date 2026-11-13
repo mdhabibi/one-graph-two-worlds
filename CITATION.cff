@@ -6,6 +6,7 @@ authors:
   - family-names: "Habibi"
     given-names: "Mahdi"
 version: "0.1.0"
+license: MIT
 preferred-citation:
   type: book
   title: "Knowledge Graphs: Semantic Graphs and Property Graphs"
@@ -15,3 +16,4 @@ preferred-citation:
   year: 2026
   version: "0.1.0"
   notes: "Author review draft. DOI and public archive pending."
+  license: CC-BY-4.0

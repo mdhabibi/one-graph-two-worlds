@@ -1,15 +1,15 @@
 # Public review release: concrete decisions remaining
 
 Already prepared: book PDF, editable sources, browser chapters, original figures,
-RDF/Cypher lab checks, citation metadata, license proposal, build instructions,
+RDF/Cypher lab checks, citation metadata, adopted license notices, build instructions,
 and a public-feedback issue template.
 
 Before pressing Publish:
 
 - Read and approve the exact final PDF and author details.
 - Decide whether this version should be shared as a public review draft.
-- Adopt and apply the prepared license scopes consistently to PDF, repository,
-  and Zenodo record. Retain the bundled font notices.
+- Select the adopted CC BY 4.0 content license in the Zenodo record; retain the
+  separate MIT code grant and bundled font notices.
 - Choose the real GitHub owner/repository and visibility; create it only with
   explicit authorization. Do not invent a URL in documentation or citation data.
 - Create a Zenodo draft in the author's account, choose the book/publication type,

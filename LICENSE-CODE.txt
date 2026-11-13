@@ -1,7 +1,3 @@
-AUTHOR-REVIEW PROPOSAL ONLY. This is the text prepared for possible adoption,
-not the license declaration of the current unpublished review package.
-Proposed scope: original lab, query, build, export, checking, and workflow code.
-
 MIT License
 
 Copyright (c) 2026 Mahdi Habibi

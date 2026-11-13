@@ -45,3 +45,8 @@
 - Added executable HermiT profile, consistency and entailment fixtures and their
   technical validation record. Public package contains the book, source, labs,
   build tools, and test evidence.
+
+## 14 November 2026 — license adoption
+
+- Adopted CC BY 4.0 for original book content, figures, and synthetic data; MIT for original code.
+- Updated book and repository notices; retained third-party font notices.

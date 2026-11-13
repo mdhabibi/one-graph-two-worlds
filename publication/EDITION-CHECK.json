@@ -18,7 +18,7 @@
     123
   ],
   "scope": "Editorial consistency and local executable checks. Targeted HermiT OWL 2 DL fixtures pass. Production-system guarantees and real-reader testing are not established.",
-  "pdf_sha256": "6688ec3059a070444d9be4b31157c5bc757c3b49beb110572ed3db54a5447fba",
+  "pdf_sha256": "b6edf6eb995a84ccc2bb8da1b8d3c2d9661e77a5cff01925979c5f848d463f0f",
   "page_metadata": "Regenerated from PDF text by scripts/check_package.py",
   "additional_writing_tasks": 6,
   "writing_task_pages": [
