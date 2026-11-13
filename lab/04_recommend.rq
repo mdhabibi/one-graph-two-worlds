@@ -1,0 +1,13 @@
+PREFIX ex: <https://example.org/>
+SELECT DISTINCT ?id ?title
+WHERE {
+  ex:maya a ex:Person ; ex:likesTopic ?topic .
+  ?c a ex:Course ; ex:id ?id ; ex:title ?title ;
+     ex:about ?topic .
+  FILTER NOT EXISTS { ex:maya ex:completed ?c }
+  FILTER NOT EXISTS {
+    ?c ex:requires ?required .
+    FILTER NOT EXISTS { ex:maya ex:completed ?required }
+  }
+}
+ORDER BY ?id

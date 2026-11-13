@@ -1,0 +1,23 @@
+@prefix ex: <https://example.org/> .
+
+ex:maya a ex:Person ; ex:name "Maya" ;
+  ex:likesTopic ex:graphs ; ex:completed ex:c1 .
+ex:leo a ex:Person ; ex:name "Leo" ;
+  ex:likesTopic ex:data ; ex:completed ex:c1 .
+
+ex:graphs a ex:Topic ; ex:name "Graphs" .
+ex:data a ex:Topic ; ex:name "Data" .
+ex:ethics a ex:Topic ; ex:name "Ethics" .
+
+ex:c1 a ex:Course ; ex:id "c1" ;
+  ex:title "Graph Basics" ; ex:durationMinutes 60 ;
+  ex:about ex:graphs .
+ex:c2 a ex:Course ; ex:id "c2" ;
+  ex:title "Graph Search" ; ex:durationMinutes 90 ;
+  ex:about ex:graphs ; ex:requires ex:c1 .
+ex:c3 a ex:Course ; ex:id "c3" ;
+  ex:title "Query Patterns" ; ex:durationMinutes 75 ;
+  ex:about ex:data ; ex:requires ex:c1 .
+ex:c4 a ex:Course ; ex:id "c4" ;
+  ex:title "Data Ethics" ; ex:durationMinutes 45 ;
+  ex:about ex:ethics .

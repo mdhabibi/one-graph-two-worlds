@@ -1,0 +1,40 @@
+{
+  "status": "AUTHOR-REVIEW-DRAFT \u2014 not an API upload payload",
+  "title": "Knowledge Graphs: Semantic Graphs and Property Graphs",
+  "creators": [
+    {
+      "family_name": "Habibi",
+      "given_name": "Mahdi",
+      "display_name": "Dr. Mahdi Habibi"
+    }
+  ],
+  "resource_type_proposal": "Publication / Book",
+  "version": "0.1.0",
+  "language": "English",
+  "description": "A beginner-to-practitioner tutorial comparing RDF-based semantic knowledge graphs and labeled property graphs using a synthetic course catalog. Covers RDF, RDFS, OWL, SPARQL, SHACL, Neo4j, Cypher, ontology and event modeling, interoperability, architecture decisions, governance, performance, and graph RAG. Includes original figures, scoped worked examples, expected query outputs, and executable RDF and Cypher fixture checks. Version 0.1.0 is an author review draft.",
+  "keywords": [
+    "knowledge graphs",
+    "RDF",
+    "OWL",
+    "SPARQL",
+    "SHACL",
+    "property graphs",
+    "Neo4j",
+    "Cypher",
+    "graph RAG",
+    "ontology modeling",
+    "open educational resources"
+  ],
+  "license_proposal": {
+    "book_text_original_figures_data": "CC-BY-4.0",
+    "code": "MIT",
+    "status": "proposal prepared; final adoption pending"
+  },
+  "doi": null,
+  "repository_url": null,
+  "orcid": null,
+  "affiliation": null,
+  "publication_date": null,
+  "prepared_on": "2026-11-13",
+  "notes": "Do not turn preparation date into publication date until the record is actually published. Add verified identifiers and adopted licenses in the live form."
+}

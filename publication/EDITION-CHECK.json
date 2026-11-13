@@ -1,0 +1,33 @@
+{
+  "review_questions": {
+    "I \u00b7 Foundations": 17,
+    "II \u00b7 RDF and semantic graphs": 20,
+    "III \u00b7 Querying RDF": 23,
+    "IV \u00b7 Property graphs and Cypher": 24,
+    "V \u00b7 Modeling and interoperability": 24,
+    "VI \u00b7 Strengths, tradeoffs, and decisions": 20,
+    "VII \u00b7 Performance and operations": 20,
+    "VIII \u00b7 Graph RAG and analytics": 23
+  },
+  "total_review_questions": 171,
+  "sequential_questions_and_answers": "pass",
+  "reference_order": "1\u201335 uninterrupted",
+  "manuscript_copies": "identical",
+  "chapter_7_review_pages": [
+    119,
+    123
+  ],
+  "scope": "Editorial consistency and local executable checks. Targeted HermiT OWL 2 DL fixtures pass. Production-system guarantees and real-reader testing are not established.",
+  "pdf_sha256": "6688ec3059a070444d9be4b31157c5bc757c3b49beb110572ed3db54a5447fba",
+  "page_metadata": "Regenerated from PDF text by scripts/check_package.py",
+  "additional_writing_tasks": 6,
+  "writing_task_pages": [
+    60,
+    79
+  ],
+  "writing_solution_pages": [
+    61,
+    80
+  ],
+  "targeted_owl_dl_report": "owl-dl-validation.json"
+}

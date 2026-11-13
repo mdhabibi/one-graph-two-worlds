@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "engine": {
+    "version": "5.26.30",
+    "edition": "community"
+  },
+  "checks": [
+    "Loader rerun: 9 nodes, 10 relationships",
+    "Graph-topic query",
+    "Duration query",
+    "Topic aggregation",
+    "Bounded prerequisite path",
+    "Baseline eligibility",
+    "Unmet prerequisite exclusion",
+    "Multi-topic DISTINCT result",
+    "Baseline restored"
+  ],
+  "scope": "Synthetic baseline and named policy cases only; not concurrency or production performance."
+}

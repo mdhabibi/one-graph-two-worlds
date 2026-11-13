@@ -1,0 +1,5 @@
+{
+  "same_environment_rebuild": "pass",
+  "sha256": "6688ec3059a070444d9be4b31157c5bc757c3b49beb110572ed3db54a5447fba",
+  "scope": "Two fresh renderer invocations with the same final sources, fonts, installed dependencies, and fixed source timestamp; cross-platform equality not asserted."
+}

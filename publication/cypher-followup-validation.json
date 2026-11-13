@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "engine": {
+    "version": "5.26.30",
+    "edition": "community"
+  },
+  "checks": [
+    "Loader rerun: 9 nodes, 10 relationships",
+    "Published query blocks 1\u20135 verbatim",
+    "maxMinutes=75 parameter",
+    "Baseline eligibility",
+    "Unmet prerequisite exclusion",
+    "Multi-topic DISTINCT result",
+    "Untyped prerequisite excludes candidate",
+    "Missing title excludes candidate",
+    "Missing id excludes candidate",
+    "List title: one LPG row, outside scalar contract",
+    "Untyped shared topic includes c5",
+    "Learner without Person label still matches by stable key",
+    "Baseline restored"
+  ],
+  "scope": "Synthetic baseline and named review cases only; title-list case documents non-equivalence outside the contract; not concurrency or production performance."
+}

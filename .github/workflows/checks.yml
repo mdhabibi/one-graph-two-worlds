@@ -1,0 +1,35 @@
+name: Book and lab checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  book-and-rdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements-build.txt -r lab/requirements.txt
+      - run: python lab/check_rdf.py
+      - run: python scripts/build_pdf.py
+      - run: python scripts/export_web.py
+      - run: python scripts/check_package.py
+  cypher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Start disposable, unexposed exercise database
+        run: >-
+          docker run -d --name kg-book-lab --hostname localhost --memory=2g
+          -e NEO4J_AUTH=none
+          -e NEO4J_server_memory_heap_initial__size=256m
+          -e NEO4J_server_memory_heap_max__size=512m
+          -e NEO4J_server_memory_pagecache_size=128m
+          neo4j:5.26.30
+      - run: python lab/check_cypher.py --container kg-book-lab
+      - if: always()
+        run: docker rm -fv kg-book-lab

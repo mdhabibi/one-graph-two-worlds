@@ -1,0 +1,7 @@
+{
+  "runner_default": "c1 | Graph Basics; c2 | Graph Search",
+  "data_argument": "practice.ttl: duplicate c2 observed",
+  "query_argument": "optional.rq accepted",
+  "unbound_output": "(unbound)",
+  "scope": "Local Python execution on temporary copies; no Python edits needed for file selection."
+}

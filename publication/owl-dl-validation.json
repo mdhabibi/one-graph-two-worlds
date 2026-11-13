@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "reasoner": "HermiT",
+  "reasoner_version": "1.3.8.1099",
+  "java_version": "21.0.12",
+  "hermit_jar_sha256": "97e53f519720a0a2e328556e03b806aa239347c85e57637a935e6433ed2ad3a8",
+  "sources": {
+    "ontology.ttl": "8c0d3d4c460c611276468e15fac3df49050e047c839454d6212584379cdfdf8c",
+    "catalog.ttl": "662a1ab6d6629394ca3bb3b6f08041fb6d9a7dd52a036182ccf617a57e3832dd",
+    "CheckOwlDl.java": "454702aa91c86459f13e905dc38c56b51643dacdfeaf515a8764b308df34d35f",
+    "check_owl_dl.py": "2e2c9458dbc8768da335e80faacf950b12f3cef64ee38d77c2a24e9d2830986e",
+    "fetch_hermit.py": "2d8d36e664a5fc998c81bf3feafe53798ffef9c1519baf14722b2d6aa153d11a"
+  },
+  "generated_input_sha256": {
+    "contradiction.rdf": "60dc69b2a2e485218fa97d768419afc836c8bf841afe249cdbeb3d796be8e355",
+    "graduate.rdf": "0ad4e6c3a6d5ce8083f1c09291073fc0c9a67774368b9385ee0289b728c8ef02",
+    "without-about.rdf": "5f3c42123797be598cae5b7f30c00ce8e0eb173c8316b63e15bfef51205a07ea",
+    "without-disjointness.rdf": "f9687fb92cd12840fd846cd81b29d182fb5181c2f4e4606431540b7327c5bdab"
+  },
+  "docker_image": "neo4j:5-community",
+  "stdout": "JAVA=21.0.12\nHERMIT=1.3.8.1099\ngraduate: OWL2DL=true; consistent=true\ngraduate: Maya=true; Leo=true; noCompletion=not-entailed; Graduate-satisfiable=true; Graduate-subclass-Person=true\ncontradiction: OWL2DL=true; consistent=false\nwithout-disjointness: OWL2DL=true; consistent=true\nwithout-disjointness: Maya-LearningResource=true\nwithout-about: OWL2DL=true; consistent=true\nwithout-about: Maya-LearningResource=not-entailed\nPASS: OWL 2 DL profiles, Graduate entailments, disjointness contradiction, and controls.\n",
+  "stderr": "",
+  "scope": "Targeted OWL 2 DL profile, consistency and entailment checks for the Graduate example and Exercise 5, with counterfactual controls; not a verification of every OWL example, production system, or independent execution.",
+  "runtime_image_id": "sha256:07ae69e32057621c2a896b9e1e80fc13a51928aa6aecab08d0cdec92d2bf5d56",
+  "runtime_role": "Java only; Neo4j server not started; --rm --network none; read-only mounts",
+  "download_provenance": {
+    "source": "https://files.pythonhosted.org/packages/62/06/de9eab54845aeb1a60d1b9bfe115e55540e00bab50d1ec52a4c503f33097/owlready2-0.49.tar.gz",
+    "archive_sha256": "f076f0a89f64cf27088b69f2ff65c7d5c27da15c0ac6c5ac57ec726e89baf928",
+    "hermit_jar_sha256": "97e53f519720a0a2e328556e03b806aa239347c85e57637a935e6433ed2ad3a8"
+  }
+}

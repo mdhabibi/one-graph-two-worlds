@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "engine": "Neo4j Community 5.26.30",
+  "startup_flags": [
+    "--hostname localhost",
+    "--memory=2g",
+    "heap initial 256m",
+    "heap maximum 512m",
+    "page cache 128m"
+  ],
+  "image_used": "cached neo4j:5-community; observed server version 5.26.30",
+  "documented_image": "neo4j:5.26.30",
+  "bulk_loader": "docker exec -i <disposable-name> cypher-shell < catalog.cypher, from lab folder",
+  "nodes": 9,
+  "relationships": 10,
+  "book_readme_ci_startup_flags_match": true,
+  "scope": "Local startup and bulk-load workflow only; no new GitHub Actions execution or independent Neo4j run."
+}

@@ -1,0 +1,20 @@
+{
+  "pages": 156,
+  "chapter_covers": 12,
+  "sections": 69,
+  "diagrams": 13,
+  "targeted_owl_dl_evidence": "pass",
+  "references": 35,
+  "bookmarks": 353,
+  "internal_links": 192,
+  "syntax_checked": {
+    "turtle": 9,
+    "json": 1,
+    "sparql": 14
+  },
+  "page_margin_bounds": "pass",
+  "local_links": "pass",
+  "author_on_every_page": true,
+  "pdf_sha256": "6688ec3059a070444d9be4b31157c5bc757c3b49beb110572ed3db54a5447fba",
+  "scope": "Automated document and fixture checks; not independent peer review or PDF/UA certification."
+}
