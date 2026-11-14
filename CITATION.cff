@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the exact version you read. This is an author review draft; DOI 10.5281/zenodo.24209668 is reserved; Zenodo publication is pending."
+message: "Please cite the archived version using its DOI."
 type: software
 title: "Knowledge Graphs: Semantic Graphs and Property Graphs — book sources and labs"
 authors:
@@ -16,5 +16,7 @@ preferred-citation:
   year: 2026
   version: "0.1.0"
   doi: "10.5281/zenodo.24209668"
-  notes: "Author review draft. DOI reserved; Zenodo publication pending."
+  notes: "Public review draft. Archived on Zenodo."
   license: CC-BY-4.0
+  url: "https://zenodo.org/records/24209668"
+  date-published: 2026-11-14

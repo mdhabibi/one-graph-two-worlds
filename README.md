@@ -17,7 +17,8 @@
 </p>
 
 <p align="center">
-  <a href="dist/knowledge-graphs-tutorial.pdf"><strong>Read the PDF</strong></a> ·
+  <a href="https://zenodo.org/records/24209668"><strong>Published book and DOI</strong></a> ·
+  <a href="dist/knowledge-graphs-tutorial.pdf">Read the PDF</a> ·
   <a href="book/index.md">Browse the chapters</a> ·
   <a href="lab/README.md">Explore the lab</a> ·
   <a href="publication/VALIDATION.md">Validation evidence</a>
@@ -88,5 +89,9 @@ for the checks performed and their scope.
 [LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
 their included notices.
 
-[CITATION.cff](CITATION.cff) contains the draft citation. Reserved DOI:
-**10.5281/zenodo.24209668**. Zenodo publication and DOI registration are pending.
+Cite the archived version using [DOI: 10.5281/zenodo.24209668](https://doi.org/10.5281/zenodo.24209668).
+The [Zenodo record](https://zenodo.org/records/24209668) preserves the version 0.1.0 PDF and companion package.
+[CITATION.cff](CITATION.cff) provides structured citation metadata.
+
+Habibi, M. (2026). *Knowledge Graphs: Semantic Graphs and Property Graphs*
+(Version 0.1.0, public review draft). Zenodo. https://doi.org/10.5281/zenodo.24209668

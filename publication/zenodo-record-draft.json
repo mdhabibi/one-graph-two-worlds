@@ -26,16 +26,17 @@
     "open educational resources"
   ],
   "doi": "10.5281/zenodo.24209668",
-  "repository_url": null,
+  "repository_url": "https://github.com/mdhabibi/one-graph-two-worlds",
   "orcid": null,
   "affiliation": null,
-  "publication_date": null,
+  "publication_date": "2026-11-14",
   "prepared_on": "2026-11-13",
-  "notes": "Do not turn preparation date into publication date until the record is actually published. Add verified identifiers and adopted licenses in the live form.",
+  "notes": "Version 0.1.0 published on Zenodo. This metadata file is a local record; archived files remain unchanged.",
   "licenses": {
     "book_text_original_figures_data": "CC-BY-4.0",
     "code": "MIT",
     "status": "adopted by author on 2026-11-14"
   },
-  "doi_status": "reserved; not registered until publication"
+  "doi_status": "published",
+  "record_url": "https://zenodo.org/records/24209668"
 }

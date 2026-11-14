@@ -52,3 +52,8 @@
 - Updated book and repository notices; retained third-party font notices.
 
 - Added reserved Zenodo DOI 10.5281/zenodo.24209668 to the book and citation metadata; publication remains pending.
+
+## Version 0.1.0 — Zenodo publication
+
+- Published the PDF and companion snapshot at https://doi.org/10.5281/zenodo.24209668.
+- Added permanent archive and citation links; archived files remain unchanged.
