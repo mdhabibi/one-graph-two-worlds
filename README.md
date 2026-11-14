@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>Dr. Mahdi Habibi</strong><br>
-  Version 0.1.0 · Author review draft
+  Version 0.1.0 · Public review draft
 </p>
 
 <p align="center">
@@ -34,7 +34,6 @@ operations, graph RAG, and analytics.
 - [Read the chapters in a browser](book/index.md)
 - [Run the companion lab](lab/README.md)
 - [See the actual validation results](publication/VALIDATION.md)
-- [Publication and Zenodo plan](publication/PUBLISHING-GUIDE.md)
 
 The intended audience begins with graph concepts. New terms are introduced by
 the question they answer. Baseline data, isolated variations, model extensions,
