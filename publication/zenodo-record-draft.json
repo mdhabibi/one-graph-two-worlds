@@ -24,20 +24,20 @@
     "ontology modeling",
     "open educational resources"
   ],
-  "doi": null,
+  "doi": "10.5281/zenodo.24228810",
   "repository_url": "https://github.com/mdhabibi/one-graph-two-worlds",
   "orcid": "0000-0001-8530-7746",
   "affiliation": null,
   "publication_date": null,
   "prepared_on": "2026-11-14",
-  "notes": "Corrected 0.1.1 release candidate. Existing 0.1.0 record and files remain unchanged. Do not publish before final DOI insertion and validation.",
+  "notes": "Final 0.1.1 upload candidate. DOI reserved in the existing new-version draft. Existing 0.1.0 archive and tag remain unchanged; publication is pending.",
   "licenses": {
     "book_text_original_figures_data": "CC-BY-4.0",
     "code": "MIT",
     "status": "adopted by author on 2026-11-14"
   },
-  "doi_status": "awaiting new-version DOI",
-  "record_url": null,
+  "doi_status": "reserved; registered upon publication",
+  "record_url": "https://zenodo.org/records/24228810",
   "resource_type": "Publication / Book",
   "previous_edition": {
     "version": "0.1.0",

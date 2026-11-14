@@ -1,14 +1,14 @@
 {
   "edition": "0.1.1",
   "same_environment_rebuild": "pass",
-  "sha256": "eb322d171e93646870c07a31976a65e48af9f75c960f374815087a7cb3a1433b",
-  "first_rebuild_sha256": "eb322d171e93646870c07a31976a65e48af9f75c960f374815087a7cb3a1433b",
-  "second_rebuild_sha256": "eb322d171e93646870c07a31976a65e48af9f75c960f374815087a7cb3a1433b",
+  "sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
+  "first_rebuild_sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
+  "second_rebuild_sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
   "matches_tracked_pdf": true,
   "python": "3.12.14",
   "input_sha256": {
     "VERSION": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c",
-    "book/manuscript.md": "52bbe2541bb4e00ef6e2d32b3aa2500f6f67aabdfb762570d7353265f11a486c",
+    "book/manuscript.md": "d8cb99c8eb544eb37dd9ccaa5b1e66200d320fbf64bee7d37b318dbc35884156",
     "scripts/build_pdf.py": "692bbd0df8936d9332797b859f4725e582bb887967bcd2c894ac19951e65a801",
     "requirements-build.txt": "4dfcc95e21dade1b5aed0057a2081b4c460d189640a4aff6916bb71fae036694",
     "assets/fonts/DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",

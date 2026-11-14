@@ -48,8 +48,8 @@ publication-status wording, cover/browser labels, citation details, and packagin
 The technical examples are unchanged. The book and labs are available above.
 
 The [published 0.1.0 archive](https://zenodo.org/records/24209668) remains available.
-The corrected 0.1.1 archive is being prepared; its own DOI will be added before
-publication. The existing 0.1.0 archive and tag are unchanged.
+The corrected 0.1.1 archive is being prepared with edition DOI
+**10.5281/zenodo.24228810** (reserved; registered on publication). The existing 0.1.0 archive and tag are unchanged.
 
 ## What has been checked
 
@@ -99,9 +99,11 @@ for the checks performed and their scope.
 [LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
 their included notices.
 
-Until 0.1.1 is archived, cite the published 0.1.0 version using [DOI: 10.5281/zenodo.24209668](https://doi.org/10.5281/zenodo.24209668).
-The [Zenodo record](https://zenodo.org/records/24209668) preserves the version 0.1.0 PDF and companion package.
-[CITATION.cff](CITATION.cff) provides structured citation metadata.
+Version 0.1.1 edition DOI: **10.5281/zenodo.24228810** (reserved; archive publication pending).
+[CITATION.cff](CITATION.cff) provides this edition's structured citation metadata.
 
 Habibi, M. (2026). *Knowledge Graphs: Semantic Graphs and Property Graphs*
-(Version 0.1.0, public review draft). Zenodo. https://doi.org/10.5281/zenodo.24209668
+(Version 0.1.1, public review draft). Zenodo. https://doi.org/10.5281/zenodo.24228810
+
+The [published 0.1.0 archive](https://zenodo.org/records/24209668) remains available
+under its own DOI. Cite the exact edition you use.

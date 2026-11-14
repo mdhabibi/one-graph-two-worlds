@@ -10,8 +10,9 @@
 - Refreshed reproducibility evidence against the current PDF.
 - Corrected the PDF front matter and cover to say public review draft, removed
   obsolete publication-status wording, and updated generated chapters.
-- The archived 0.1.0 PDF and tag remain unchanged. The 0.1.1 candidate awaits
-  its own Zenodo DOI and final archive publication.
+- Added edition DOI 10.5281/zenodo.24228810 to the corrected PDF and citation metadata.
+- The archived 0.1.0 PDF and tag remain unchanged. The 0.1.1 files are ready for
+  upload to the new-version draft; archive publication is pending.
 
 ## 0.1.0 — public review draft, published 2026-11-14
 

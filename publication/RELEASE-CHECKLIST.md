@@ -17,8 +17,8 @@ are a known editorial defect in the immutable 0.1.0 files, not current status.
 ## Corrected 0.1.1 candidate
 
 - Completed: corrected PDF publication wording, cover label, and browser exports.
-- Version set to 0.1.1. Obtain that version's actual DOI through
-  the archive's new-version process; do not reuse the 0.1.0 DOI for a new edition.
+- Version set to 0.1.1; new edition DOI 10.5281/zenodo.24228810 reserved through
+  the archive's new-version draft. Existing 0.1.0 DOI is retained for that edition.
 - Rebuild, check examples and links, inspect affected rendered pages, and refresh
   PDF-derived page metadata and reproducibility evidence.
 - Inspect public files, citation metadata, licenses, and final package hashes.
