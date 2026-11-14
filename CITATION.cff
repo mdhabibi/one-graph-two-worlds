@@ -1,10 +1,12 @@
 cff-version: 1.2.0
 message: "Please cite the archived version using its DOI."
 type: software
+repository-code: "https://github.com/mdhabibi/one-graph-two-worlds"
 title: "Knowledge Graphs: Semantic Graphs and Property Graphs — book sources and labs"
 authors:
   - family-names: "Habibi"
     given-names: "Mahdi"
+    orcid: "https://orcid.org/0000-0001-8530-7746"
 version: "0.1.0"
 license: MIT
 preferred-citation:
@@ -13,6 +15,9 @@ preferred-citation:
   authors:
     - family-names: "Habibi"
       given-names: "Mahdi"
+      orcid: "https://orcid.org/0000-0001-8530-7746"
+  publisher:
+    name: "Zenodo"
   year: 2026
   version: "0.1.0"
   doi: "10.5281/zenodo.24209668"

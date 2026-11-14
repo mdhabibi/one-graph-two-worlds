@@ -41,6 +41,13 @@ the question they answer. Baseline data, isolated variations, model extensions,
 and pseudocode are labeled separately. Each technical part has learning goals
 and a short self-check.
 
+## Edition status
+
+Version 0.1.0 is published as a public review draft. The archived PDF still contains
+pre-publication wording in its front matter; the book is available at the DOI
+above. This editorial defect is tracked in the [next-edition checklist](publication/RELEASE-CHECKLIST.md).
+The archived PDF and release tag remain unchanged.
+
 ## What has been checked
 
 The RDF fixture runs six SPARQL queries, positive and negative SHACL cases,

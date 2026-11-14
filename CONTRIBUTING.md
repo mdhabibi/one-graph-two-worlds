@@ -19,6 +19,8 @@ If changing an illustration, check arrow direction against the accompanying
 sentence and add meaningful alternate text. If changing prose, introduce the
 need before a new technology name and say what every example is meant to show.
 
-Before accepting outside contributions for a public release, finalize the project
-license and contribution terms. No outside contribution is being solicited under
-unapproved terms by this local preparation package.
+Corrections, questions, and proposed improvements are welcome through issues and
+pull requests. Original book text, diagrams, and synthetic data use CC BY 4.0;
+original code uses MIT. Submit only material you have the right to contribute,
+and identify third-party material and its license. Contributions to each scope
+are made under that scope's existing license; see LICENSE.md.

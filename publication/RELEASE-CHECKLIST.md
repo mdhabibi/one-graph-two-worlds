@@ -1,25 +1,30 @@
-# Public review release: concrete decisions remaining
+# Release status and next-edition checklist
 
-Already prepared: book PDF, editable sources, browser chapters, original figures,
-RDF/Cypher lab checks, citation metadata, adopted license notices, build instructions,
-and a public-feedback issue template.
+## Published version 0.1.0
 
-Before pressing Publish:
+- Public repository: https://github.com/mdhabibi/one-graph-two-worlds
+- GitHub release: https://github.com/mdhabibi/one-graph-two-worlds/releases/tag/v0.1.0
+- Archive: https://zenodo.org/records/24209668
+- Edition DOI: https://doi.org/10.5281/zenodo.24209668
+- Licenses adopted: CC BY 4.0 content/data and MIT code; font notices retained.
+- Automated book/RDF and Cypher jobs passed for the release commit.
 
-- Read and approve the exact final PDF and author details.
-- Decide whether this version should be shared as a public review draft.
-- Select the adopted CC BY 4.0 content license in the Zenodo record; retain the
-  separate MIT code grant and bundled font notices.
-- Choose the real GitHub owner/repository and visibility; create it only with
-  explicit authorization. Do not invent a URL in documentation or citation data.
-- Create a Zenodo draft in the author's account, choose the book/publication type,
-  and copy the prepared metadata. Add an ORCID only if the author provides one.
-- Reserve a real DOI, if desired, then add it to the book and citation metadata
-  and rebuild. Recheck the exact final files.
-- Publish only after the author approves that concrete record and its files.
-- Update README, citation metadata, and any launch announcement with real links.
+The archived PDF contains pre-publication wording (including “Reserved DOI” and
+“not yet an archived public release”). The record is published; those sentences
+are a known editorial defect in the immutable 0.1.0 files, not current status.
+“Review draft” describes maturity and does not mean the record is unpublished.
 
-Independent specialist feedback is strongly useful, especially on OWL semantics,
-SHACL targeting, query equivalence, and the teaching sequence. A transparent
-public review draft is a possible route to obtaining it; do not label the book
-peer-reviewed without an actual review process.
+## Before a corrected edition
+
+- Correct the PDF's publication wording, cover label, and browser exports together.
+- Set the new version consistently and obtain that version's actual DOI through
+  the archive's new-version process; do not reuse the 0.1.0 DOI for a new edition.
+- Rebuild, check examples and links, inspect affected rendered pages, and refresh
+  PDF-derived page metadata and reproducibility evidence.
+- Inspect public files, citation metadata, licenses, and final package hashes.
+- Review CI on the exact candidate commit and the archive preview with both files.
+- Obtain authorization for publishing that concrete new version; retain the
+  existing archive and tag unchanged.
+
+Further beginner sessions and independent specialist feedback remain useful.
+Ordinary CI success does not establish human peer review or production readiness.
