@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased — repository maintenance
+## 0.1.1 — release candidate
 
 - Corrected contribution and publication metadata; added citation publisher,
   repository URL, and the ORCID present in the public Zenodo author record.
@@ -8,8 +8,10 @@
   pre-publication checklist with release status and next-edition checks.
 - Stopped enforcing obsolete unpublished wording in the package checker.
 - Refreshed reproducibility evidence against the current PDF.
-- The archived 0.1.0 PDF and GitHub tag are unchanged. Its front matter contains
-  pre-publication wording; this is a known editorial defect for a future edition.
+- Corrected the PDF front matter and cover to say public review draft, removed
+  obsolete publication-status wording, and updated generated chapters.
+- The archived 0.1.0 PDF and tag remain unchanged. The 0.1.1 candidate awaits
+  its own Zenodo DOI and final archive publication.
 
 ## 0.1.0 — public review draft, published 2026-11-14
 

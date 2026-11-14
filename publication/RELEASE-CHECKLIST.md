@@ -14,10 +14,10 @@ The archived PDF contains pre-publication wording (including “Reserved DOI” 
 are a known editorial defect in the immutable 0.1.0 files, not current status.
 “Review draft” describes maturity and does not mean the record is unpublished.
 
-## Before a corrected edition
+## Corrected 0.1.1 candidate
 
-- Correct the PDF's publication wording, cover label, and browser exports together.
-- Set the new version consistently and obtain that version's actual DOI through
+- Completed: corrected PDF publication wording, cover label, and browser exports.
+- Version set to 0.1.1. Obtain that version's actual DOI through
   the archive's new-version process; do not reuse the 0.1.0 DOI for a new edition.
 - Rebuild, check examples and links, inspect affected rendered pages, and refresh
   PDF-derived page metadata and reproducibility evidence.

@@ -1,5 +1,5 @@
 {
-  "status": "PUBLISHED — local metadata summary, not an API payload",
+  "status": "PREPARED — corrected 0.1.1 candidate; not an API payload",
   "title": "Knowledge Graphs: Semantic Graphs and Property Graphs",
   "creators": [
     {
@@ -8,9 +8,9 @@
       "display_name": "Dr. Mahdi Habibi"
     }
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "language": "English",
-  "description": "A beginner-to-practitioner tutorial comparing RDF-based semantic knowledge graphs and labeled property graphs using a synthetic course catalog. Covers RDF, RDFS, OWL, SPARQL, SHACL, Neo4j, Cypher, ontology and event modeling, interoperability, architecture decisions, governance, performance, and graph RAG. Includes original figures, scoped worked examples, expected query outputs, and executable RDF and Cypher fixture checks. Version 0.1.0 is a public review draft.",
+  "description": "A beginner-to-practitioner tutorial comparing RDF-based semantic knowledge graphs and labeled property graphs using a synthetic course catalog. Covers RDF, RDFS, OWL, SPARQL, SHACL, Neo4j, Cypher, ontology and event modeling, interoperability, architecture decisions, governance, performance, and graph RAG. Includes original figures, scoped worked examples, expected query outputs, and executable RDF and Cypher fixture checks. Version 0.1.1 is a public review draft.",
   "keywords": [
     "knowledge graphs",
     "RDF",
@@ -24,19 +24,24 @@
     "ontology modeling",
     "open educational resources"
   ],
-  "doi": "10.5281/zenodo.24209668",
+  "doi": null,
   "repository_url": "https://github.com/mdhabibi/one-graph-two-worlds",
   "orcid": "0000-0001-8530-7746",
   "affiliation": null,
-  "publication_date": "2026-11-14",
-  "prepared_on": "2026-11-13",
-  "notes": "Version 0.1.0 published on Zenodo. This metadata file is a local record; archived files remain unchanged.",
+  "publication_date": null,
+  "prepared_on": "2026-11-14",
+  "notes": "Corrected 0.1.1 release candidate. Existing 0.1.0 record and files remain unchanged. Do not publish before final DOI insertion and validation.",
   "licenses": {
     "book_text_original_figures_data": "CC-BY-4.0",
     "code": "MIT",
     "status": "adopted by author on 2026-11-14"
   },
-  "doi_status": "published",
-  "record_url": "https://zenodo.org/records/24209668",
-  "resource_type": "Publication / Book"
+  "doi_status": "awaiting new-version DOI",
+  "record_url": null,
+  "resource_type": "Publication / Book",
+  "previous_edition": {
+    "version": "0.1.0",
+    "doi": "10.5281/zenodo.24209668",
+    "record_url": "https://zenodo.org/records/24209668"
+  }
 }

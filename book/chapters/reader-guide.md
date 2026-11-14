@@ -2,14 +2,14 @@
 
 ## Edition, authorship, and review status
 
-### Version 0.1.0 — author review draft
-**Author: Dr. Mahdi Habibi. Prepared: 13 November 2026.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
+### Version 0.1.1 — public review draft
+**Author: Dr. Mahdi Habibi. Prepared: 14 November 2026.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
 
 ### Audience and promise
 The book is for a reader beginning with graph concepts who wants to understand RDF-based semantic systems and labeled property graphs, then reason about a practical architecture. It introduces concepts before syntax and uses one learning catalog throughout. Advanced chapters explain design issues and selected techniques; they are not a complete language specification or deployment manual.
 
 ### Version and citation status
-Version 0.1.0 identifies this review package. Reserved DOI: **10.5281/zenodo.24209668** (https://doi.org/10.5281/zenodo.24209668). The identifier will be registered when the Zenodo record is published; this draft is not yet an archived public release. Citation: **Habibi, Mahdi. Knowledge Graphs: Semantic Graphs and Property Graphs. Version 0.1.0, author review draft, 2026.**
+Version 0.1.1 is a corrected public review edition. It aligns the book's publication labels and companion metadata; the technical examples are unchanged from version 0.1.0. Cite the exact edition you use. Author: Mahdi Habibi. Title: Knowledge Graphs: Semantic Graphs and Property Graphs. Version: 0.1.1. Year: 2026. The companion repository is https://github.com/mdhabibi/one-graph-two-worlds.
 
 ### Reuse and feedback
 Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.

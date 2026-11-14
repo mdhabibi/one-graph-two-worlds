@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>Dr. Mahdi Habibi</strong><br>
-  Version 0.1.0 · Public review draft
+  Version 0.1.1 · Public review draft · Release candidate
 </p>
 
 <p align="center">
@@ -43,10 +43,13 @@ and a short self-check.
 
 ## Edition status
 
-Version 0.1.0 is published as a public review draft. The archived PDF still contains
-pre-publication wording in its front matter; the book is available at the DOI
-above. This editorial defect is tracked in the [next-edition checklist](publication/RELEASE-CHECKLIST.md).
-The archived PDF and release tag remain unchanged.
+The repository contains the corrected **0.1.1 release candidate**. It fixes
+publication-status wording, cover/browser labels, citation details, and packaging.
+The technical examples are unchanged. The book and labs are available above.
+
+The [published 0.1.0 archive](https://zenodo.org/records/24209668) remains available.
+The corrected 0.1.1 archive is being prepared; its own DOI will be added before
+publication. The existing 0.1.0 archive and tag are unchanged.
 
 ## What has been checked
 
@@ -96,7 +99,7 @@ for the checks performed and their scope.
 [LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
 their included notices.
 
-Cite the archived version using [DOI: 10.5281/zenodo.24209668](https://doi.org/10.5281/zenodo.24209668).
+Until 0.1.1 is archived, cite the published 0.1.0 version using [DOI: 10.5281/zenodo.24209668](https://doi.org/10.5281/zenodo.24209668).
 The [Zenodo record](https://zenodo.org/records/24209668) preserves the version 0.1.0 PDF and companion package.
 [CITATION.cff](CITATION.cff) provides structured citation metadata.
 

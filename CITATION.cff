@@ -7,7 +7,7 @@ authors:
   - family-names: "Habibi"
     given-names: "Mahdi"
     orcid: "https://orcid.org/0000-0001-8530-7746"
-version: "0.1.0"
+version: "0.1.1"
 license: MIT
 preferred-citation:
   type: book

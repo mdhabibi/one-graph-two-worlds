@@ -12,6 +12,8 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parent.parent
+VERSION=(ROOT/'VERSION').read_text().strip()
+EDITION_DATE='14 November 2026'
 OUT=ROOT/'dist'
 OUT.mkdir(parents=True,exist_ok=True)
 FONT_DIR=ROOT/'assets'/'fonts'
@@ -209,7 +211,7 @@ class Cover(Flowable):
         for a,b in [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(7,0),(0,6),(2,6),(2,5),(1,3)]:
             c.setStrokeColor(colors.HexColor('#395974'));c.setLineWidth(1.5);c.line(*pts[a],*pts[b])
         for i,(x,y) in enumerate(pts):c.setFillColor([TEAL,colors.HexColor('#EBA05D'),colors.HexColor('#8EA7F0'),colors.HexColor('#AA91D2')][i%4]);c.circle(x,y,11 if i%3 else 17,fill=1,stroke=0)
-        c.setFillColor(colors.white);c.setFont('Body',11);c.drawString(0,67,'BEGINNER → PRACTITIONER → ARCHITECT');c.setFont('Body',9);c.drawString(0,42,'Running examples • Original diagrams • Worked queries • Decision frameworks');c.setFillColor(colors.HexColor('#B9CBD9'));c.drawString(0,15,'Version 0.1.0  |  Author review draft  |  13 November 2026')
+        c.setFillColor(colors.white);c.setFont('Body',11);c.drawString(0,67,'BEGINNER → PRACTITIONER → ARCHITECT');c.setFont('Body',9);c.drawString(0,42,'Running examples • Original diagrams • Worked queries • Decision frameworks');c.setFillColor(colors.HexColor('#B9CBD9'));c.drawString(0,15,f'Version {VERSION}  |  Public review draft  |  {EDITION_DATE}')
 
 def parse(body):
     lines=body.strip().splitlines();result=[];i=0

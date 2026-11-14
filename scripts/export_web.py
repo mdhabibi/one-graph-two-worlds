@@ -23,7 +23,7 @@ for block in re.split(r'^=== ',source,flags=re.M)[1:]:
     heading,body=block.split('\n',1);part,title=heading.split(' | ',1)
     parts.setdefault(part,[]).append((title,body))
 roman=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII']
-index=['# Read the book','', '**Dr. Mahdi Habibi · Version 0.1.0 · Public review draft**','',
+index=['# Read the book','', f'**Dr. Mahdi Habibi · Version {render.VERSION} · Public review draft**','',
        'Use the chapters in sequence for a first reading. The PDF has matching part and section labels.','']
 for part,sections in parts.items():
     token=part.split('·')[0].strip();slug=re.sub(r'[^a-z0-9]+','-',part.lower()).strip('-')

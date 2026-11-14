@@ -1,18 +1,19 @@
 {
+  "edition": "0.1.1",
   "same_environment_rebuild": "pass",
-  "sha256": "1ea690c1f91b09c2245a390d50aa5710a87d1c9c30a2a01b8ba4cc0a63cac8f2",
-  "first_rebuild_sha256": "1ea690c1f91b09c2245a390d50aa5710a87d1c9c30a2a01b8ba4cc0a63cac8f2",
-  "second_rebuild_sha256": "1ea690c1f91b09c2245a390d50aa5710a87d1c9c30a2a01b8ba4cc0a63cac8f2",
+  "sha256": "eb322d171e93646870c07a31976a65e48af9f75c960f374815087a7cb3a1433b",
+  "first_rebuild_sha256": "eb322d171e93646870c07a31976a65e48af9f75c960f374815087a7cb3a1433b",
+  "second_rebuild_sha256": "eb322d171e93646870c07a31976a65e48af9f75c960f374815087a7cb3a1433b",
   "matches_tracked_pdf": true,
   "python": "3.12.14",
-  "method": "Two fresh renderer processes in an isolated copy of the repository, using the fixed source timestamp and the same installed dependencies. Tracked PDF was not modified.",
   "input_sha256": {
-    "book/manuscript.md": "869b1b69c2d50ed14114bbd18a0c0582c8ed788e6586b2523965375c7408d7ef",
-    "scripts/build_pdf.py": "ff3475d06330d670a9792ab291bab39d45914f366d41c7d1e26acc3ecb3fce74",
+    "VERSION": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c",
+    "book/manuscript.md": "52bbe2541bb4e00ef6e2d32b3aa2500f6f67aabdfb762570d7353265f11a486c",
+    "scripts/build_pdf.py": "692bbd0df8936d9332797b859f4725e582bb887967bcd2c894ac19951e65a801",
     "requirements-build.txt": "4dfcc95e21dade1b5aed0057a2081b4c460d189640a4aff6916bb71fae036694",
     "assets/fonts/DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
     "assets/fonts/DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
     "assets/fonts/DejaVuSansMono.ttf": "b4a6c3e4faab8773f4ff761d56451646409f29abedd68f05d38c2df667d3c582"
   },
-  "scope": "Current 0.1.0 PDF. Same-environment byte equality only; cross-platform equality not asserted."
+  "scope": "Two renderer processes using the same sources, fonts, installed dependencies, and fixed timestamp. Cross-platform equality not asserted."
 }
