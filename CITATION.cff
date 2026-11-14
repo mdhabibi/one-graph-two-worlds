@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite this edition using its DOI. The 0.1.1 archive is being prepared."
+message: "Please cite the archived version using its DOI."
 type: software
 repository-code: "https://github.com/mdhabibi/one-graph-two-worlds"
 title: "Knowledge Graphs: Semantic Graphs and Property Graphs — book sources and labs"
@@ -21,6 +21,7 @@ preferred-citation:
   year: 2026
   version: "0.1.1"
   doi: "10.5281/zenodo.24228810"
-  notes: "Public review draft. Edition DOI allocated; archive publication pending."
+  notes: "Public review draft. Archived on Zenodo."
   license: CC-BY-4.0
   url: "https://zenodo.org/records/24228810"
+  date-published: 2026-11-14

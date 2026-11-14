@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>Dr. Mahdi Habibi</strong><br>
-  Version 0.1.1 · Public review draft · Release candidate
+  Version 0.1.1 · Public review draft
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zenodo.org/records/24209668"><strong>Published book and DOI</strong></a> ·
+  <a href="https://zenodo.org/records/24228810"><strong>Published book and DOI</strong></a> ·
   <a href="dist/knowledge-graphs-tutorial.pdf">Read the PDF</a> ·
   <a href="book/index.md">Browse the chapters</a> ·
   <a href="lab/README.md">Explore the lab</a> ·
@@ -43,13 +43,12 @@ and a short self-check.
 
 ## Edition status
 
-The repository contains the corrected **0.1.1 release candidate**. It fixes
-publication-status wording, cover/browser labels, citation details, and packaging.
-The technical examples are unchanged. The book and labs are available above.
+Version **0.1.1** is the corrected public review edition, published on
+[Zenodo](https://zenodo.org/records/24228810). It fixes publication-status wording, cover/browser
+labels, citation details, and packaging. The technical examples are unchanged.
 
-The [published 0.1.0 archive](https://zenodo.org/records/24209668) remains available.
-The corrected 0.1.1 archive is being prepared with edition DOI
-**10.5281/zenodo.24228810** (reserved; registered on publication). The existing 0.1.0 archive and tag are unchanged.
+The [published 0.1.0 archive](https://zenodo.org/records/24209668) and its release
+tag remain available. Cite the exact edition you use.
 
 ## What has been checked
 
@@ -99,7 +98,7 @@ for the checks performed and their scope.
 [LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
 their included notices.
 
-Version 0.1.1 edition DOI: **10.5281/zenodo.24228810** (reserved; archive publication pending).
+Version 0.1.1 edition DOI: [**10.5281/zenodo.24228810**](https://doi.org/10.5281/zenodo.24228810).
 [CITATION.cff](CITATION.cff) provides this edition's structured citation metadata.
 
 Habibi, M. (2026). *Knowledge Graphs: Semantic Graphs and Property Graphs*

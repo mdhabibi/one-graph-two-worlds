@@ -14,17 +14,16 @@ The archived PDF contains pre-publication wording (including “Reserved DOI” 
 are a known editorial defect in the immutable 0.1.0 files, not current status.
 “Review draft” describes maturity and does not mean the record is unpublished.
 
-## Corrected 0.1.1 candidate
+## Published corrected version 0.1.1
 
-- Completed: corrected PDF publication wording, cover label, and browser exports.
-- Version set to 0.1.1; new edition DOI 10.5281/zenodo.24228810 reserved through
-  the archive's new-version draft. Existing 0.1.0 DOI is retained for that edition.
-- Rebuild, check examples and links, inspect affected rendered pages, and refresh
-  PDF-derived page metadata and reproducibility evidence.
-- Inspect public files, citation metadata, licenses, and final package hashes.
-- Review CI on the exact candidate commit and the archive preview with both files.
-- Obtain authorization for publishing that concrete new version; retain the
-  existing archive and tag unchanged.
+- Archive: https://zenodo.org/records/24228810
+- Edition DOI: https://doi.org/10.5281/zenodo.24228810
+- Corrected PDF publication wording, cover label, and browser exports.
+- Citation schema, edition identity, layout/package checks, and two-render
+  reproducibility checks passed before upload.
+- Both published files match the approved upload files by checksum.
+- The repository adds publication-status and citation updates after the archived
+  snapshot; the published PDF and companion files remain unchanged.
 
 Further beginner sessions and independent specialist feedback remain useful.
 Ordinary CI success does not establish human peer review or production readiness.

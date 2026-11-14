@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.1 — release candidate
+## 0.1.1 — public review draft, published 2026-11-14
 
 - Corrected contribution and publication metadata; added citation publisher,
   repository URL, and the ORCID present in the public Zenodo author record.
@@ -11,8 +11,10 @@
 - Corrected the PDF front matter and cover to say public review draft, removed
   obsolete publication-status wording, and updated generated chapters.
 - Added edition DOI 10.5281/zenodo.24228810 to the corrected PDF and citation metadata.
-- The archived 0.1.0 PDF and tag remain unchanged. The 0.1.1 files are ready for
-  upload to the new-version draft; archive publication is pending.
+- Published the corrected PDF and companion snapshot at https://doi.org/10.5281/zenodo.24228810.
+- Verified both archived file checksums against the approved upload files.
+- The archived 0.1.0 PDF and tag remain unchanged. Repository citation status
+  and publication links were updated after the 0.1.1 snapshot.
 
 ## 0.1.0 — public review draft, published 2026-11-14
 
