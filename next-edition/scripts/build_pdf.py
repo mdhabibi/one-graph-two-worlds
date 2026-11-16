@@ -1,8 +1,9 @@
 from pathlib import Path
-import re, math, json, html, os, hashlib
+import re, math, json, html, os, hashlib, platform, zlib
+from importlib.metadata import version as package_version
 from functools import partial
 from datetime import datetime, timezone
-os.environ.setdefault("SOURCE_DATE_EPOCH",str(int(datetime(2026,11,13,tzinfo=timezone.utc).timestamp())))
+os.environ.setdefault("SOURCE_DATE_EPOCH",str(int(datetime(2026,11,16,tzinfo=timezone.utc).timestamp())))
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Flowable, KeepTogether, Preformatted, CondPageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -305,12 +306,13 @@ def build():
                 else:story.extend([Spacer(1,18),CondPageBreak(180)])
             part_label=P(part.upper(),'small');part_label.keepWithNext=True
             story.extend([part_label,Title(title,f's{j}',part)]);story.extend(parse(body))
-        doc=Doc(str(OUT/'knowledge-graphs-tutorial.pdf'),pagesize=(W,H),rightMargin=56,leftMargin=56,topMargin=68,bottomMargin=66,title='Knowledge Graphs: Semantic Graphs and Property Graphs',author='Dr. Mahdi Habibi',subject='RDF, OWL, SPARQL, SHACL and Neo4j/Cypher tutorial',pageCompression=1)
+        doc=Doc(str(OUT/'knowledge-graphs-tutorial.pdf'),pagesize=(W,H),rightMargin=56,leftMargin=56,topMargin=68,bottomMargin=66,title='Knowledge Graphs: Semantic Graphs and Property Graphs (unpublished draft)',author='Dr. Mahdi Habibi',subject='RDF, OWL, SPARQL, SHACL and Neo4j/Cypher tutorial',pageCompression=1)
         doc.record=[];doc.build(story,canvasmaker=partial(canvas.Canvas,invariant=1))
         records=doc.section_record
     (OUT/'page-map.json').write_text(json.dumps(records,indent=2))
     inputs=['book/manuscript.md','scripts/build_pdf.py','VERSION',*['assets/fonts/'+p.name for p in sorted(FONT_DIR.glob('*.ttf'))]]
     metadata={'inputs':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},'pdf_sha256':hashlib.sha256((OUT/'knowledge-graphs-tutorial.pdf').read_bytes()).hexdigest(),'page_map_sha256':hashlib.sha256((OUT/'page-map.json').read_bytes()).hexdigest()}
+    metadata['environment']={'python':platform.python_version(),'platform':platform.platform(),'zlib_compile':zlib.ZLIB_VERSION,'zlib_runtime':zlib.ZLIB_RUNTIME_VERSION,'reportlab':package_version('reportlab'),'source_date_epoch':os.environ['SOURCE_DATE_EPOCH']}
     (OUT/'build-inputs.json').write_text(json.dumps(metadata,indent=2)+'\n')
     reader=PdfReader(OUT/'knowledge-graphs-tutorial.pdf')
     print(json.dumps({'pages':len(reader.pages),'sections':len(sections),'bytes':(OUT/'knowledge-graphs-tutorial.pdf').stat().st_size,'section_pages':[(r[0],r[1]) for r in records]},indent=2))

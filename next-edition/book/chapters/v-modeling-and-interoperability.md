@@ -1,5 +1,7 @@
 # V · Modeling and interoperability
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 5.1 Model events when relationships have a lifecycle
 
 > **Learning goals for this part:** Choose direct relationships versus identified events; retain evidence and context; describe what a mapping must preserve, decide where a meaning change belongs, and identify who owns each authoritative fact.
@@ -97,7 +99,7 @@ Within one document, duplicate extraction spans can be deduplicated, and an expl
 
 In this example, GB and Graph Basics may link to provider A's same edition when the document's identity evidence supports it. The title match in doc-b must not merge provider B's different edition. If the provider or edition cannot be established, retain the local mention ID and an unresolved status. An unsupported merge is not repaired by assigning a high extraction score. The companion exercise in extensions/identity-evidence retains the two source/version locators while checking these contrasting cases.
 
-Asking an extractor for the label requires can guide candidate outputs, but does not establish the correct predicate IRI, direction, course identity, units, datatype or shape conformance. Review those mappings separately. Keep extraction confidence, identity-resolution status, mapping status and claim review status distinct. A successfully mapped IRI can still express a false claim.
+Asking an extractor for the label `requires` can guide candidate outputs, but does not establish the correct predicate IRI, direction, course identity, units, datatype or shape conformance. Review those mappings separately. Keep extraction confidence, identity-resolution status, mapping status and claim review status distinct. A successfully mapped IRI can still express a false claim.
 
 After linking, retain each original claim and its evidence rather than overwriting the source with the canonical ID. Repeated sentences, duplicated PDFs and several extraction runs are not automatically independent corroboration. A support count describes recorded support events under a deduplication policy; it is not a truth probability. Chapter 8 uses these distinctions in the construction pipeline.
 
@@ -334,4 +336,3 @@ This chapter extended the baseline: e1 is an identified completion event and d1 
 **Answer:** No. Confirm predicate identity and direction, argument identities and meaning, datatypes, units and applicable constraints. The sentences may repeat one source rather than provide independent support. Retain extraction, mapping, identity and review statuses separately, and evaluate the evidence rather than treating label agreement or a count as proof.
 
 **Ready to continue:** You should be able to distinguish an event from a claim about it, choose where evidence belongs, define a mapping's preservation contract, assign authority and freshness responsibilities, and distinguish mapping, ontology, validation and policy changes. The next part uses these modeling choices to compare complete architectures against actual requirements.
-

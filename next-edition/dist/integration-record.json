@@ -9,6 +9,7 @@
   ],
   "changed_original_sections": [
     "Reader guide | Edition, authorship, and review status",
+    "Reader guide | Running the examples",
     "II \u00b7 RDF and semantic graphs | Open world, identity, and consistency",
     "II \u00b7 RDF and semantic graphs | Reasoning strategies and OWL profiles",
     "II \u00b7 RDF and semantic graphs | Validation and inference answer different questions",
@@ -42,32 +43,28 @@
     "ED-004 extraction/identity/evidence",
     "ED-005 missing/optional/entailed data"
   ],
-  "current_pdf_sha256": "536f1082f565f783d87997b81e0e616044bc9885a3139852de8dfa0be2b9df6b",
+  "current_pdf_sha256": "92325528d4c8c1e4a6841ab4ab96f9bcaad7a1ec772277f79bfe11d6922a5a7b",
   "current_pages": 173,
   "qa_pairs": 183,
   "browser_chapters": 13,
   "retained_baseline_lab_and_research": "byte-identical; no graph-engine rerun",
   "current_visual_pages": [
-    3,
-    42,
-    43,
-    46,
+    8,
     52,
-    61,
-    69,
     80,
-    94,
-    95,
-    107,
-    113,
-    138,
-    146,
-    154,
-    164,
-    165,
-    166
+    95
   ],
   "validation": "See draft-validation.json, validator-regressions.json and extension reports in this directory.",
-  "review": "Consolidated technical review pending; independent paired reproduction remains open.",
-  "publication": "No assigned next-edition DOI, remote push or publication."
+  "review": "Consolidated review evaluated; confirmed minor corrections implemented and checked. Author release evaluation pending; independent paired reproduction open.",
+  "publication": "No assigned next-edition DOI, remote push or publication.",
+  "consolidated_corrections": [
+    "C-01 Review numbering",
+    "C-02 structural editorial guards",
+    "C-03 standalone chapter draft notices",
+    "C-04 layout guidance",
+    "C-05 enforcement attribution",
+    "C-06 committed-first validation and rebuild comparison",
+    "E-1 label styling",
+    "E-2 draft metadata and fixed epoch"
+  ]
 }

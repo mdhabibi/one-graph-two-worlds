@@ -1,4 +1,31 @@
 {
+  "editorial_checks": {
+    "qa_pairs": {
+      "I \u00b7 Foundations": 17,
+      "II \u00b7 RDF and semantic graphs": 22,
+      "III \u00b7 Querying RDF": 24,
+      "IV \u00b7 Property graphs and Cypher": 25,
+      "V \u00b7 Modeling and interoperability": 29,
+      "VI \u00b7 Strengths, tradeoffs, and decisions": 21,
+      "VII \u00b7 Performance and operations": 20,
+      "VIII \u00b7 Graph RAG and analytics": 25
+    },
+    "review_headings": {
+      "I \u00b7 Foundations": 3,
+      "II \u00b7 RDF and semantic graphs": 5,
+      "III \u00b7 Querying RDF": 6,
+      "IV \u00b7 Property graphs and Cypher": 5,
+      "V \u00b7 Modeling and interoperability": 7,
+      "VI \u00b7 Strengths, tradeoffs, and decisions": 5,
+      "VII \u00b7 Performance and operations": 5,
+      "VIII \u00b7 Graph RAG and analytics": 6
+    },
+    "core_question_references": 82,
+    "glossary_entries": 75
+  },
+  "exported_code_fences_checked": 45,
+  "pdf_section_bookmarks_checked": 72,
+  "web_chapter_draft_labels_checked": 13,
   "web_chapters_checked": 13,
   "qa_pairs_checked": {
     "I \u00b7 Foundations": 17,
@@ -13,7 +40,7 @@
   "new_exercise_reports_checked": 3,
   "semantic_evolution_checks": 10,
   "status": "pass",
-  "pdf_sha256": "536f1082f565f783d87997b81e0e616044bc9885a3139852de8dfa0be2b9df6b",
+  "pdf_sha256": "92325528d4c8c1e4a6841ab4ab96f9bcaad7a1ec772277f79bfe11d6922a5a7b",
   "pages": 173,
   "margin_violations": [],
   "contents_links": 72,

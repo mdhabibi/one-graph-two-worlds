@@ -1,6 +1,7 @@
 """Validate an unpublished PDF, source syntax, local links and retained input hashes."""
 import argparse,hashlib,json,re,subprocess,sys
 from pathlib import Path
+from check_editorial import check_source,check_exports
 import fitz
 from pypdf import PdfReader
 from rdflib import Graph
@@ -21,9 +22,12 @@ def validate(root):
     require(set(build['inputs'])==required_inputs,'Build input inventory mismatch')
     for name,digest in build['inputs'].items():require(hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,('Build input drift',name))
     require(hashlib.sha256((root/'dist/page-map.json').read_bytes()).hexdigest()==build['page_map_sha256'],'Page map differs from build')
+    editorial=check_source(source)
+    exported=check_exports(root,source)
     page_ids={p.indirect_reference.idnum:i for i,p in enumerate(reader.pages)}
     texts=[p.get_text() for p in doc];full=' '.join(' '.join(t.split()) for t in texts)
     require(doc.metadata['author']=='Dr. Mahdi Habibi','PDF author metadata')
+    require('(unpublished draft)' in doc.metadata.get('title',''),'PDF metadata lacks draft marker')
     for i,text in enumerate(texts):
         require('Dr. Mahdi Habibi' in text,('Author missing',i+1))
         require('\ufffd' not in text,('Replacement character',i+1))
@@ -55,6 +59,8 @@ def validate(root):
     for title,page,*_ in records:
         require(compact(title) in compact(texts[page-1]),('Heading/page mismatch',title,page));expected.append(page-1)
     require(targets==expected,'Contents destinations differ from section headings')
+    section_outline=[(title,page) for level,title,page in doc.get_toc() if level==2]
+    require(section_outline==[(title,page) for title,page,*_ in records],'PDF section outline differs from page map')
     covers=[i for i,t in enumerate(texts) if re.search(r'CHAPTER \d{2}  /',t)]
     require(len(covers)==12,('Chapter cover count',len(covers)))
     for number,i in enumerate(covers,1):
@@ -140,7 +146,7 @@ def validate(root):
     require(extension.returncode==0,('Semantic evolution exercise failed',extension.stderr))
     extension_report=json.loads(extension.stdout)
     require(extension_report==json.loads((root/'dist/semantic-evolution.json').read_text()),'Semantic evolution report drift')
-    result={'web_chapters_checked':web['chapters'],'qa_pairs_checked':{part:len(numbers) for part,numbers in questions.items()},'new_exercise_reports_checked':3,'semantic_evolution_checks':len(extension_report['checks']),'status':'pass','pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'pages':len(doc),'margin_violations':bounds,'contents_links':len(targets),'section_headings_checked':len(records),'chapter_covers':len(covers),'author_and_draft_status_on_every_page':True,'task_pages':task,'solution_pages':solutions,'rendered_citation_numbers_checked':rendered_citations,'build_inputs_checked':len(build['inputs']),'citation_links_checked':citations,'references':len(references),'syntax_checked':syntax,'local_links_checked':local_links,'retained_research_hashes':'pass','scope':'Document margins, status, author, covers, contents, task separation, citation targets, RDF/SPARQL syntax, local links, semantic-evolution exercise and retained hashes. No new graph-engine run, remote-link or accessibility certification.'}
+    result={'editorial_checks':editorial,'exported_code_fences_checked':exported['code_fences'],'pdf_section_bookmarks_checked':len(section_outline),'web_chapter_draft_labels_checked':exported['chapters'],'web_chapters_checked':web['chapters'],'qa_pairs_checked':{part:len(numbers) for part,numbers in questions.items()},'new_exercise_reports_checked':3,'semantic_evolution_checks':len(extension_report['checks']),'status':'pass','pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'pages':len(doc),'margin_violations':bounds,'contents_links':len(targets),'section_headings_checked':len(records),'chapter_covers':len(covers),'author_and_draft_status_on_every_page':True,'task_pages':task,'solution_pages':solutions,'rendered_citation_numbers_checked':rendered_citations,'build_inputs_checked':len(build['inputs']),'citation_links_checked':citations,'references':len(references),'syntax_checked':syntax,'local_links_checked':local_links,'retained_research_hashes':'pass','scope':'Document margins, status, author, covers, contents, task separation, citation targets, RDF/SPARQL syntax, local links, semantic-evolution exercise and retained hashes. No new graph-engine run, remote-link or accessibility certification.'}
     dest.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ['scope','pdf_sha256']},indent=2))
     return result
 if __name__=='__main__':

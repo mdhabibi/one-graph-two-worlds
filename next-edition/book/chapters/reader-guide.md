@@ -1,5 +1,7 @@
 # Reader guide
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## Edition, authorship, and review status
 
 ### Next-edition working draft — not an archived release
@@ -70,7 +72,7 @@ When an exercise changes a fact, start from a fresh baseline copy unless it expl
 ## Running the examples
 
 ### Locate the companion files
-This PDF is distributed with a companion ZIP package. Extract that ZIP and open its top-level folder. The lab is the folder named lab, beside book, scripts, publication, and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. No public download address has been assigned to this draft. If you received only the PDF, request the companion package from the author. You can still read every explanation and predict the printed results without installing software.
+This PDF is distributed with a companion ZIP package. Extract that ZIP and open its top-level folder. In the complete repository package, open the next-edition folder for this unpublished draft. Its lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. No public download address has been assigned to this draft. If you received only the PDF, request the companion package from the author. You can still read every explanation and predict the printed results without installing software.
 
 The commands below go into a terminal, not into a graph query editor. Open a terminal in the extracted lab folder. On macOS, use your terminal's New Terminal at Folder action if available, or type cd followed by a space and drag the lab folder into the terminal, then press Enter. Use a fresh copy of the lab for experiments. Python 3.10 or newer is needed for the RDF route; the Neo4j route additionally needs a working Docker installation. Installation of those tools is outside this tutorial.
 
@@ -131,4 +133,3 @@ These symbols will be explained again immediately before their first use. The sa
 | Cypher | (c:Course) | A node, query variable c, label Course |
 | Cypher | -[:REQUIRES]-> | A directed relationship of type REQUIRES |
 | Cypher | {id: 'c1'} / $maxMinutes | Property map / separately supplied parameter |
-

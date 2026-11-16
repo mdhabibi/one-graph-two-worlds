@@ -1,5 +1,7 @@
 # XII · References
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 12.1 References: semantic foundations
 
 Core references were checked on 10 November 2026; the RDF implementation references [33, 34, 35] were checked on 13 November 2026. Examples and illustrations are original. Citations identify the relevant specifications; they do not imply that every implementation supports every feature. Versioned baselines are deliberate, rather than a claim that older syntax is the newest available.
@@ -184,4 +186,3 @@ https://jena.apache.org/documentation/fuseki2/
 
 [35] **RDF4J: The Repository API.** Official documentation, checked 13 November 2026. Repository interfaces, storage choices, and configuration-dependent inference.
 https://rdf4j.org/documentation/programming/repository/
-

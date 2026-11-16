@@ -67,7 +67,7 @@ When an exercise changes a fact, start from a fresh baseline copy unless it expl
 
 === Reader guide | Running the examples
 ### Locate the companion files
-This PDF is distributed with a companion ZIP package. Extract that ZIP and open its top-level folder. The lab is the folder named lab, beside book, scripts, publication, and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. No public download address has been assigned to this draft. If you received only the PDF, request the companion package from the author. You can still read every explanation and predict the printed results without installing software.
+This PDF is distributed with a companion ZIP package. Extract that ZIP and open its top-level folder. In the complete repository package, open the next-edition folder for this unpublished draft. Its lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. No public download address has been assigned to this draft. If you received only the PDF, request the companion package from the author. You can still read every explanation and predict the printed results without installing software.
 
 The commands below go into a terminal, not into a graph query editor. Open a terminal in the extracted lab folder. On macOS, use your terminal's New Terminal at Folder action if available, or type cd followed by a space and drag the lab folder into the terminal, then press Enter. Use a fresh copy of the lab for experiments. Python 3.10 or newer is needed for the RDF route; the Neo4j route additionally needs a working Docker installation. Installation of those tools is outside this tutorial.
 
@@ -911,7 +911,7 @@ This review follows the chapter's sequence: first read RDF statements, then dist
 
 **Answer:** Logical consistency alone is insufficient for acceptance. Parse the submitted RDF, validate the candidate graph with the declared shape version, and record the missing-duration violation. Under a policy that requires a conforming record before publication, hold the record for correction and rerun the checks after repair. A later passing shape establishes conformance to those rules, not that the duration is factually accurate. Preserve the data snapshot, validation configuration, and reports, and run the relevant consistency and competency checks before publication.
 
-### Review 6 · Choose the right test
+### Review 5 · Choose the right test
 **Question 21: Is a missing duration always a SHACL violation, and is every unstated triple unresolved under OWL?**
 
 **Answer:** No. A targeted minimum count can require duration; datatype alone does not require a value, and targeting must include the node. An unstated triple may be entailed. In a consistent ontology, unresolved means neither the proposition nor its negation follows. Inspect the selected graph, constraints and reasoning configuration.
@@ -1557,10 +1557,10 @@ ORDER BY id;
 Expected result: c2 / Graph Search. `EXISTS` subqueries ask whether a matching pattern exists, using variables from the surrounding query. Negating the outer prerequisite existence test excludes courses for which at least one unsatisfied requirement can be found.
 
 ### Compare meaning before comparing syntax
-**When are the two queries equivalent?** Both return c2 on the baseline. The baseline loader and intake checks use these stricter **data rules**:
-- Each Course has exactly one id and title, both plain strings, and matching course identity across representations.
-- Every prerequisite target is a Course.
-- The learner is explicitly recorded as Person in RDF and labeled Person in the LPG, with a defined mapping between the learner IRI and the label-scoped Person.id key.
+**When are the two queries equivalent?** Both return c2 on the baseline. Distinguish **single-representation intake rules** from **paired correspondence checks**:
+- The RDF shapes require exactly one plain-string id and title for each targeted Course, Course membership for prerequisite targets, and Person membership for targeted learners.
+- The baseline LPG loader creates the intended labels and scalar fields. Community uniqueness constraints enforce the declared label-scoped id uniqueness; the remaining intake conditions need separate pipeline checks.
+- A paired comparison additionally needs matching course identities and a defined correspondence between the learner IRI and the label-scoped Person.id key. Neither a single-side loader nor SHACL alone checks that cross-model correspondence; Section 10.3's alignment contract and Section 10.4's broader fixture comparison make it explicit.
 
 These baseline rules alone are not a sufficient equivalence contract. Section 10.3 states the scoped alignment condition: identities, memberships and relationships correspond in both directions, with a consistent learner anchor, snapshot, inference and output mapping. It also explains why matching missing fields or missing learner membership can still produce equal answers even when intake rules fail.
 
@@ -1852,7 +1852,7 @@ Within one document, duplicate extraction spans can be deduplicated, and an expl
 
 In this example, GB and Graph Basics may link to provider A's same edition when the document's identity evidence supports it. The title match in doc-b must not merge provider B's different edition. If the provider or edition cannot be established, retain the local mention ID and an unresolved status. An unsupported merge is not repaired by assigning a high extraction score. The companion exercise in extensions/identity-evidence retains the two source/version locators while checking these contrasting cases.
 
-Asking an extractor for the label requires can guide candidate outputs, but does not establish the correct predicate IRI, direction, course identity, units, datatype or shape conformance. Review those mappings separately. Keep extraction confidence, identity-resolution status, mapping status and claim review status distinct. A successfully mapped IRI can still express a false claim.
+Asking an extractor for the label `requires` can guide candidate outputs, but does not establish the correct predicate IRI, direction, course identity, units, datatype or shape conformance. Review those mappings separately. Keep extraction confidence, identity-resolution status, mapping status and claim review status distinct. A successfully mapped IRI can still express a false claim.
 
 After linking, retain each original claim and its evidence rather than overwriting the source with the canonical ID. Repeated sentences, duplicated PDFs and several extraction runs are not automatically independent corroboration. A support count describes recorded support events under a deduplication policy; it is not a truth probability. Chapter 8 uses these distinctions in the construction pipeline.
 

@@ -1,5 +1,7 @@
 # VI · Strengths, tradeoffs, and decisions
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 6.1 Comparison: model and semantics
 
 > **Learning goals for this part:** Compare complete candidate systems by requirement; distinguish hard requirements from weighted preferences; record an evidence-based architecture decision.
@@ -221,4 +223,3 @@ This chapter moved from understanding the models to choosing a complete architec
 **Answer:** Not while that consequence is a mandatory requirement. First reject or repair candidates that fail the required answers; then compare the costs of adequate designs. Record query and update behavior, inference maintenance and operational effort. Revisit the requirement if the business accepts a different scope, rather than silently scoring an incorrect answer as a speed advantage.
 
 **Ready to continue:** You should be able to distinguish a model capability from an implemented guarantee, apply hard gates before preference scoring, explain the limits of the worked matrix, and propose evidence that could change a decision. The next part turns the operational requirements into concrete performance, recovery, governance, and security questions.
-

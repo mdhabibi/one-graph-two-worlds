@@ -9,7 +9,7 @@ Read [the changes](next-edition/INTEGRATION-CHANGES.md),
 [browser chapters](next-edition/book/index.md).
 
 Review the complete next-edition manuscript and companion materials together.
-The draft has no assigned edition number or DOI. Its review remains pending.
+The draft has no assigned edition number or DOI. Consolidated review corrections are incorporated; author release evaluation remains pending.
 
 Repository-root book/, lab/, dist/, VERSION and citation files describe the
 published 0.1.1 edition and remain unchanged. The published DOI and older files

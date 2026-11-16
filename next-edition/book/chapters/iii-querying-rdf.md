@@ -1,5 +1,7 @@
 # III · Querying RDF
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 3.1 SPARQL patterns and variable bindings
 
 > **Learning goals for this part:** Trace variable bindings, optional matches, paths, and duplicate rows; reproduce the baseline outputs; explain the completeness assumptions behind eligibility.
@@ -415,4 +417,3 @@ This review follows the query chapter from matching facts to making a policy dec
 **Answer:** Yes. The query can see identical relevant records while goals, available time or circumstances differ. Its answer establishes only satisfaction of the stated policy under its data assumptions. Define and evaluate the additional criteria before claiming suitability. If the required evidence is absent, label suitability as not assessed; that does not imply either suitability or unsuitability.
 
 **Ready to continue:** You should be able to trace shared variables, predict optional and duplicate results, distinguish a returned graph from an update, and explain a recommendation through its recorded evidence and policy assumptions. The next part rebuilds the same baseline in Neo4j and Cypher; a change of representation does not change Maya's starting facts.
-

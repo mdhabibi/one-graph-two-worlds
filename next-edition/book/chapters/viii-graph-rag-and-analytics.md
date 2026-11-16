@@ -1,5 +1,7 @@
 # VIII · Graph RAG and analytics
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 8.1 What graph RAG adds to retrieval
 
 > **Learning goals for this part:** Explain where a graph helps retrieval; separate reviewed facts from extracted claims; evaluate evidence and permission failures; distinguish prediction from eligibility.
@@ -259,4 +261,3 @@ This chapter added retrieval, generation, and analytics to the catalog; it did n
 **Answer:** Check which provider and edition each passage concerns, whether the edge direction and meaning match the intended predicate, and whether the passages share an underlying source. Preserve source versions and locators. A count does not establish independent corroboration, and a citation to a different course does not support the requested claim.
 
 **Ready to continue:** You should be able to trace a supported answer, identify where extraction and prediction remain uncertain, explain permission and freshness boundaries, and design checks for the pipeline's actual failure modes. Chapter 9 now applies these distinctions through mistakes, guided exercises, and architecture cases.
-

@@ -1,5 +1,7 @@
 # VII · Performance and operations
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 7.1 Performance: measure the workload, not the slogan
 
 > **Learning goals for this part:** Design a fair workload experiment; separate replication, recovery, and scale; preserve meaning, lineage, and permissions through updates and derived views.
@@ -215,4 +217,3 @@ This chapter tested what a graph system needs beyond a correct small example: re
 **Answer:** Identify the affected versions and decisions, stop or contain further faulty publication, and recover a valid authoritative state using the appropriate procedure. Restore or roll back compatible mappings and related rules, then rebuild or invalidate affected projections and caches. Reconcile the recovered relationships and run expected eligibility queries before treating the service as repaired. Measure data loss and restoration time against the RPO and RTO. The replica count and presence of a backup do not, by themselves, establish a correct recovery.
 
 **Ready to continue:** You should be able to design a meaningful performance comparison, distinguish replication from recovery, identify the dependencies needed to reproduce decisions, and follow permission and deletion requirements into derived views. The graph RAG chapter applies those same boundaries to retrieval, generation, and learned signals.
-

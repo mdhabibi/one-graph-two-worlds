@@ -1,5 +1,7 @@
 # II · RDF and semantic graphs
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 2.1 RDF statements, terms, and datasets
 
 > **Learning goals for this part:** Read a triple and a Turtle fragment; separate RDFS/OWL consequences from SHACL acceptance checks; explain what a missing fact does and does not imply.
@@ -472,7 +474,7 @@ This review follows the chapter's sequence: first read RDF statements, then dist
 
 **Answer:** Logical consistency alone is insufficient for acceptance. Parse the submitted RDF, validate the candidate graph with the declared shape version, and record the missing-duration violation. Under a policy that requires a conforming record before publication, hold the record for correction and rerun the checks after repair. A later passing shape establishes conformance to those rules, not that the duration is factually accurate. Preserve the data snapshot, validation configuration, and reports, and run the relevant consistency and competency checks before publication.
 
-### Review 6 · Choose the right test
+### Review 5 · Choose the right test
 **Question 21: Is a missing duration always a SHACL violation, and is every unstated triple unresolved under OWL?**
 
 **Answer:** No. A targeted minimum count can require duration; datatype alone does not require a value, and targeting must include the node. An unstated triple may be entailed. In a consistent ontology, unresolved means neither the proposition nor its negation follows. Inspect the selected graph, constraints and reasoning configuration.
@@ -482,4 +484,3 @@ This review follows the chapter's sequence: first read RDF statements, then dist
 **Answer:** No. RDFS already supports the shown subclass entailment. Name a required competency question and identify the constructs and tasks needed. Then compare semantically adequate candidates against representative query and update costs, including maintenance. The Graduate definition motivates a richer semantic requirement, but these teaching fixtures supply no universal performance threshold.
 
 **Ready to continue:** You should be able to read a small RDF fragment, predict a simple RDFS consequence, distinguish unstated, entailed and unresolved facts, and choose a shape for a required submitted field. The next part introduces SPARQL to ask precise questions about the catalog; it will distinguish explicit data from any configured inferences.
-

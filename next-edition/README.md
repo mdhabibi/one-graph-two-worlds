@@ -5,8 +5,8 @@ Dr. Mahdi Habibi · 16 November 2026 · Unpublished
 This private working package integrates the reviewed query-equivalence material
 into three new Chapter 10 sections. The 0.1.1 baseline queries and fixtures are
 unchanged. All five queued reader-feedback additions are integrated across the manuscript,
-Q&A, glossary, navigation and relevant companion exercises. Consolidated technical
-review remains pending.
+Q&A, glossary, navigation and relevant companion exercises. Consolidated review corrections are incorporated; author release
+evaluation remains pending.
 No edition number or DOI is assigned to this draft. Published 0.1.1 and its
 archived artifacts remain unchanged.
 
@@ -55,3 +55,11 @@ for the isolated mapping and effective-policy extension. Run its checker with
 Rebuild the browser chapters with `python scripts/export_web.py` after building
 the PDF. Read [book/index.md](book/index.md) for chapter navigation.
 All extensions are separate from the original lab and retained research evidence.
+
+Editorial checks now enforce glossary ordering, core-question references,
+consecutive Review headings, numbered Q&A placement, exported code-fence identity,
+chapter draft labels and section bookmarks. These checks do not judge whether
+an answer or citation is semantically correct. See VALIDATION.md for scope and
+fresh-path rebuild-comparison commands. No cross-environment PDF byte identity
+is promised; CI validates delivered artifacts before rebuilding and compares
+normalized page text/navigation afterward.

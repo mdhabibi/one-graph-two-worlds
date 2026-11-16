@@ -1,5 +1,7 @@
 # X · Reproducible lab
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 10.1 Files, versions, and execution boundaries
 
 We now move from reading examples to reproducing them. This section identifies the complete lab files and separates checks you can run locally from behaviors that require a configured database or reasoning engine. Begin with a clean baseline before trying any model extension.
@@ -174,4 +176,3 @@ These questions ask you to reason about the contract and evidence rather than wr
 **Solution 5.** No. A deliberately ignores that node; B checks a broader fixture. The strict runner stops on undeclared fixture differences. A future study could declare an A-only paired case, but this suite currently demonstrates the distinction through function-level controls.
 
 > Start with the decision policy, specify the mapping, compare actual state as well as answers, and state precisely which conclusions the evidence supports.
-

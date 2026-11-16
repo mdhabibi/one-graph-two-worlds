@@ -28,7 +28,7 @@ index=['# Read the book','', '**Dr. Mahdi Habibi · Unpublished next-edition wor
        'Use the chapters in sequence for a first reading. The PDF has matching part and section labels.','']
 for part,sections in parts.items():
     token=part.split('·')[0].strip();slug=re.sub(r'[^a-z0-9]+','-',part.lower()).strip('-')
-    path=ROOT/'book/chapters'/f'{slug}.md';text=['# '+part,'']
+    path=ROOT/'book/chapters'/f'{slug}.md';text=['# '+part,'','**Unpublished next-edition working draft. No edition number or DOI assigned.**','']
     for i,(title,body) in enumerate(sections):
         numbered=f'{roman.index(token)+1}.{i+1} {title}' if token in roman else title
         body=re.sub(r'^@diagram (\w+)',lambda m:f'![{render.FIGURE_LABELS[m[1]]}](../../assets/figures/{m[1]}.svg)',body,flags=re.M)
@@ -44,7 +44,7 @@ for part,sections in parts.items():
         else:
             body=re.sub(r'^\[(\d+)\] ',lambda m:f'<a id="ref{m[1]}"></a>\n\n[{m[1]}] ',body,flags=re.M)
         text.extend(['## '+numbered,'',body.strip(),''])
-    path.write_text('\n'.join(text)+'\n')
+    path.write_text('\n'.join(text).rstrip()+'\n')
     index.append(f'- [{part}](chapters/{slug}.md)')
 (ROOT/'book/index.md').write_text('\n'.join(index)+'\n')
 pdf=fitz.open(ROOT/'dist/knowledge-graphs-tutorial.pdf')

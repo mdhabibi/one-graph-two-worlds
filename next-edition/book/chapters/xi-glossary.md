@@ -1,5 +1,7 @@
 # XI · Glossary
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 11.1 Glossary A–D
 
 **ACID:** atomicity, consistency, isolation, and durability; a family of transaction properties. Consistency concerns enforced invariants, not factual truth.
@@ -160,4 +162,3 @@
 
 ### Notation quick reference
 `ex:` abbreviates `https://example.org/`. `a` is Turtle shorthand for `rdf:type`. `?x` is a SPARQL variable. `(n:Course)` is a Cypher node pattern with a label. `[:REQUIRES]` is a relationship-type pattern. `$value` is a Cypher parameter. `*` and `+` have context-specific path meanings; read the surrounding language and bounds before interpreting them.
-

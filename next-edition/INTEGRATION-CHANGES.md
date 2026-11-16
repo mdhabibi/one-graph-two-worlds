@@ -24,6 +24,18 @@ code-fence and inline-code contents rather than turning indexing literals into
 citation links. A new validator checks Q&A sequencing and exported-file hashes.
 
 See VALIDATION.md for executed checks and their limits. The 173-page PDF is an
-unpublished working draft; no edition number or DOI has been assigned. Complete
-consolidated technical review before release preparation. Published 0.1.1 and
+unpublished working draft; no edition number or DOI has been assigned. Consolidated review corrections are incorporated; complete author release
+evaluation before final release preparation. Published 0.1.1 and
 prior draft packages remain unchanged.
+
+Consolidated-review corrections:
+- Chapter 2 Review numbering repaired and enforced.
+- Added actual editorial guards for glossary/core references, per-question answer
+  placement, consecutive Review headings, web/source code and section bookmarks.
+- Every exported chapter now carries an unpublished notice.
+- Reader guide describes the actual next-edition folder layout.
+- Section 4.6 separates single-side intake checks from paired correspondence.
+- The requires label uses code styling, and PDF metadata identifies the draft.
+- CI validates committed artifacts first, then compares text/navigation after
+  rebuilding. Runtime metadata and byte-reproducibility limits are explicit.
+- Nineteen document regression probes and five rebuild comparison controls pass.

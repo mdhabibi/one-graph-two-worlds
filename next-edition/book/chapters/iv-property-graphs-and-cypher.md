@@ -1,5 +1,7 @@
 # IV · Property graphs and Cypher
 
+**Unpublished next-edition working draft. No edition number or DOI assigned.**
+
 ## 4.1 Labeled property graphs from first principles
 
 > **Learning goals for this part:** Represent the same catalog as labeled nodes and relationships; read Cypher patterns; reproduce equivalent policy results; identify what constraints do not enforce.
@@ -231,10 +233,10 @@ ORDER BY id;
 Expected result: c2 / Graph Search. `EXISTS` subqueries ask whether a matching pattern exists, using variables from the surrounding query. Negating the outer prerequisite existence test excludes courses for which at least one unsatisfied requirement can be found.
 
 ### Compare meaning before comparing syntax
-**When are the two queries equivalent?** Both return c2 on the baseline. The baseline loader and intake checks use these stricter **data rules**:
-- Each Course has exactly one id and title, both plain strings, and matching course identity across representations.
-- Every prerequisite target is a Course.
-- The learner is explicitly recorded as Person in RDF and labeled Person in the LPG, with a defined mapping between the learner IRI and the label-scoped Person.id key.
+**When are the two queries equivalent?** Both return c2 on the baseline. Distinguish **single-representation intake rules** from **paired correspondence checks**:
+- The RDF shapes require exactly one plain-string id and title for each targeted Course, Course membership for prerequisite targets, and Person membership for targeted learners.
+- The baseline LPG loader creates the intended labels and scalar fields. Community uniqueness constraints enforce the declared label-scoped id uniqueness; the remaining intake conditions need separate pipeline checks.
+- A paired comparison additionally needs matching course identities and a defined correspondence between the learner IRI and the label-scoped Person.id key. Neither a single-side loader nor SHACL alone checks that cross-model correspondence; Section 10.3's alignment contract and Section 10.4's broader fixture comparison make it explicit.
 
 These baseline rules alone are not a sufficient equivalence contract. Section 10.3 states the scoped alignment condition: identities, memberships and relationships correspond in both directions, with a consistent learner anchor, snapshot, inference and output mapping. It also explains why matching missing fields or missing learner membership can still produce equal answers even when intake rules fail.
 
@@ -431,4 +433,3 @@ This review follows the chapter from the property-graph model through Cypher que
 **Answer:** No. With aligned inputs, the query expresses the same recorded catalog policy. A different representation does not create missing contextual evidence. Keep the distinction between an eligible candidate, its ranking and any broader suitability assessment explicit in the interface and explanation.
 
 **Ready to continue:** You should be able to read and load the baseline property graph, predict the main Cypher results, explain null and row multiplicity, and separate uniqueness, domain validity, and transaction guarantees. We now extend the domain model itself rather than merely translating the same facts between query languages.
-
