@@ -1,0 +1,5 @@
+@prefix ex: <https://example.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+ex:OptionalShape a sh:NodeShape ; sh:targetNode ex:c2 ;
+  sh:property [ sh:path ex:durationMinutes ; sh:datatype xsd:integer ] .

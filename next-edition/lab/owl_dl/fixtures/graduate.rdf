@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ex="https://example.org/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="https://example.org/maya">
+    <ex:name>Maya</ex:name>
+    <rdf:type rdf:resource="https://example.org/Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:completed rdf:resource="https://example.org/c1"/>
+    <ex:likesTopic rdf:resource="https://example.org/graphs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/completed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ethics">
+    <rdf:type rdf:resource="https://example.org/Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:name>Ethics</ex:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/c4">
+    <ex:about rdf:resource="https://example.org/ethics"/>
+    <ex:title>Data Ethics</ex:title>
+    <rdf:type rdf:resource="https://example.org/Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:durationMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</ex:durationMinutes>
+    <ex:id>c4</ex:id>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/leo">
+    <ex:completed rdf:resource="https://example.org/c1"/>
+    <ex:likesTopic rdf:resource="https://example.org/data"/>
+    <rdf:type rdf:resource="https://example.org/Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:name>Leo</ex:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/c3">
+    <ex:about rdf:resource="https://example.org/data"/>
+    <ex:requires rdf:resource="https://example.org/c1"/>
+    <ex:id>c3</ex:id>
+    <ex:title>Query Patterns</ex:title>
+    <rdf:type rdf:resource="https://example.org/Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:durationMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</ex:durationMinutes>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/noCompletion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b3">
+    <rdf:first rdf:resource="https://example.org/Person"/>
+    <rdf:rest rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b4">
+    <rdf:first rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b2"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/completed"/>
+    <owl:someValuesFrom rdf:resource="https://example.org/Course"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/c2">
+    <ex:id>c2</ex:id>
+    <ex:requires rdf:resource="https://example.org/c1"/>
+    <ex:about rdf:resource="https://example.org/graphs"/>
+    <rdf:type rdf:resource="https://example.org/Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:durationMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</ex:durationMinutes>
+    <ex:title>Graph Search</ex:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/c1">
+    <ex:durationMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</ex:durationMinutes>
+    <ex:about rdf:resource="https://example.org/graphs"/>
+    <ex:id>c1</ex:id>
+    <rdf:type rdf:resource="https://example.org/Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:title>Graph Basics</ex:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/data">
+    <rdf:type rdf:resource="https://example.org/Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:name>Data</ex:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/id">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/durationMinutes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/graphs">
+    <rdf:type rdf:resource="https://example.org/Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ex:name>Graphs</ex:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/Course">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/requires">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/Graduate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="na1b4bff83c5545938ec11c7a1033d4c8b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/likesTopic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/Topic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/about">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+</rdf:RDF>

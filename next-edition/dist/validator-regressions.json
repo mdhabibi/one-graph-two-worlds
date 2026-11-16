@@ -1,0 +1,19 @@
+{
+  "scope": "Deliberately modified temporary copies; no graph-engine run.",
+  "checks": {
+    "margin": "rejected; no stale pass report",
+    "draft-label": "rejected; no stale pass report",
+    "citation-target": "rejected; no stale pass report",
+    "syntax": "rejected; no stale pass report",
+    "local-link": "rejected; no stale pass report",
+    "chapter-cover-label": "rejected; no stale pass report",
+    "citation-coverage": "rejected; no stale pass report",
+    "stale-manuscript": "rejected; no stale pass report",
+    "extension-replay": "rejected; no stale pass report",
+    "missing-shape": "rejected; no stale pass report",
+    "identity-locator": "rejected; no stale pass report",
+    "web-drift": "rejected; no stale pass report"
+  },
+  "validator_sha256": "c52e86288a9a175affaddeb3dd63c5ebc60314a7fbaad83335872a37ffd3cf08",
+  "driver_sha256": "98adc9336630d23adf0cce86fdb8a747934fee740cc23ecf8c4a0081d89ddda3"
+}

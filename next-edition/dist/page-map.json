@@ -1,0 +1,362 @@
+[
+  [
+    "Edition, authorship, and review status",
+    5,
+    "Reader guide"
+  ],
+  [
+    "How to use this book",
+    6,
+    "Reader guide"
+  ],
+  [
+    "How to follow the examples",
+    7,
+    "Reader guide"
+  ],
+  [
+    "Running the examples",
+    8,
+    "Reader guide"
+  ],
+  [
+    "1.1 The running example and its questions",
+    12,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.2 A graph is a language for connections",
+    13,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.3 Two approaches to the same graph",
+    14,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.4 Meet the RDF approach and its languages",
+    16,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.5 Where the RDF database fits",
+    17,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.6 Meet labeled property graphs and Neo4j",
+    19,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.7 Separate the five layers",
+    21,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.8 What schema means in each approach",
+    23,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "1.9 Identity before intelligence",
+    24,
+    "I \u00b7 Foundations"
+  ],
+  [
+    "2.1 RDF statements, terms, and datasets",
+    31,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.2 Turtle, JSON-LD, and reading syntax",
+    32,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.3 A complete RDF catalog",
+    34,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.4 RDFS: vocabulary and simple inference",
+    35,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.5 Ontology is a model, not an algorithm",
+    36,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.6 OWL: express meaning precisely",
+    38,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.7 Open world, identity, and consistency",
+    39,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.8 Reasoning strategies and OWL profiles",
+    41,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.9 SHACL validates a chosen data graph",
+    43,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "2.10 Validation and inference answer different questions",
+    45,
+    "II \u00b7 RDF and semantic graphs"
+  ],
+  [
+    "3.1 SPARQL patterns and variable bindings",
+    54,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "3.2 Walk through one query, row by row",
+    55,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "3.3 Optional data, filters, and duplicate results",
+    56,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "3.4 Paths, aggregation, and graph construction",
+    58,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "3.5 A policy-aware recommendation query",
+    60,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "3.6 Named graphs, updates, and federation",
+    61,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "4.1 Labeled property graphs from first principles",
+    71,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.2 Create the same catalog in Cypher",
+    72,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.3 MATCH, WHERE, RETURN, and parameters",
+    74,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.4 OPTIONAL MATCH, null, and aggregation",
+    76,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.5 Paths, cycles, and bounded expansion",
+    78,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.6 The equivalent recommendation in Cypher",
+    79,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.7 Constraints, transactions, and evolution",
+    81,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "5.1 Model events when relationships have a lifecycle",
+    91,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "5.2 Statements about statements and provenance",
+    93,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "5.3 Ontology design and semantic evolution",
+    95,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "5.4 Map RDF and LPG without losing meaning",
+    98,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "5.5 Integration architecture: one graph or two?",
+    99,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "6.1 Comparison: model and semantics",
+    109,
+    "VI \u00b7 Strengths, tradeoffs, and decisions"
+  ],
+  [
+    "6.2 Strengths and weaknesses in practice",
+    110,
+    "VI \u00b7 Strengths, tradeoffs, and decisions"
+  ],
+  [
+    "6.3 A requirements-first decision framework",
+    111,
+    "VI \u00b7 Strengths, tradeoffs, and decisions"
+  ],
+  [
+    "6.4 A worked scoring matrix and ADR",
+    113,
+    "VI \u00b7 Strengths, tradeoffs, and decisions"
+  ],
+  [
+    "6.5 Explain the decision to stakeholders",
+    114,
+    "VI \u00b7 Strengths, tradeoffs, and decisions"
+  ],
+  [
+    "7.1 Performance: measure the workload, not the slogan",
+    122,
+    "VII \u00b7 Performance and operations"
+  ],
+  [
+    "7.2 Design a fair benchmark",
+    123,
+    "VII \u00b7 Performance and operations"
+  ],
+  [
+    "7.3 Scale, transactions, backup, and recovery",
+    124,
+    "VII \u00b7 Performance and operations"
+  ],
+  [
+    "7.4 Governance, lineage, and schema ownership",
+    125,
+    "VII \u00b7 Performance and operations"
+  ],
+  [
+    "7.5 Security and privacy across graph boundaries",
+    127,
+    "VII \u00b7 Performance and operations"
+  ],
+  [
+    "8.1 What graph RAG adds to retrieval",
+    134,
+    "VIII \u00b7 Graph RAG and analytics"
+  ],
+  [
+    "8.2 Build evidence before generating answers",
+    136,
+    "VIII \u00b7 Graph RAG and analytics"
+  ],
+  [
+    "8.3 A retrieval plan for the running example",
+    137,
+    "VIII \u00b7 Graph RAG and analytics"
+  ],
+  [
+    "8.4 Evaluate graph RAG by failure mode",
+    139,
+    "VIII \u00b7 Graph RAG and analytics"
+  ],
+  [
+    "8.5 Graph algorithms and learned representations",
+    140,
+    "VIII \u00b7 Graph RAG and analytics"
+  ],
+  [
+    "9.1 Common mistakes and how to repair them",
+    149,
+    "IX \u00b7 Applied mastery"
+  ],
+  [
+    "9.2 Guided exercises with answer explanations",
+    150,
+    "IX \u00b7 Applied mastery"
+  ],
+  [
+    "9.3 Architecture case studies and model answers",
+    151,
+    "IX \u00b7 Applied mastery"
+  ],
+  [
+    "10.1 Files, versions, and execution boundaries",
+    154,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.2 Expected outputs and extension checklist",
+    155,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.3 When do the two recommendation queries mean the same thing?",
+    157,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.4 Separate query alignment, fixture integrity and intake validation",
+    159,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.5 Reproduce and challenge the equivalence experiment",
+    161,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "11.1 Glossary A\u2013D",
+    164,
+    "XI \u00b7 Glossary"
+  ],
+  [
+    "11.2 Glossary E\u2013L",
+    165,
+    "XI \u00b7 Glossary"
+  ],
+  [
+    "11.3 Glossary M\u2013R",
+    166,
+    "XI \u00b7 Glossary"
+  ],
+  [
+    "11.4 Glossary S\u2013Z and notation",
+    168,
+    "XI \u00b7 Glossary"
+  ],
+  [
+    "12.1 References: semantic foundations",
+    170,
+    "XII \u00b7 References"
+  ],
+  [
+    "12.2 References: modeling and queries",
+    171,
+    "XII \u00b7 References"
+  ],
+  [
+    "12.3 References: implementation and architecture",
+    172,
+    "XII \u00b7 References"
+  ],
+  [
+    "12.4 References: governance, RAG, and further study",
+    172,
+    "XII \u00b7 References"
+  ]
+]

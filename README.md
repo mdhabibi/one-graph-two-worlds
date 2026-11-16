@@ -1,3 +1,7 @@
+> **Unpublished next edition — local review branch.** Read the
+> [review entry point](REVIEW-START-HERE.md) for the updated book and companion
+> exercises. The published 0.1.1 materials below remain available unchanged.
+
 <h1 align="center">Knowledge Graphs:<br>Semantic Graphs and Property Graphs</h1>
 
 <p align="center">

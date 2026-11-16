@@ -1,0 +1,2 @@
+@prefix ex: <https://example.org/> .
+ex:c2 a ex:Course .

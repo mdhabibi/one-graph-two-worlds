@@ -1,0 +1,52 @@
+{
+  "status": "pass",
+  "observations": [
+    {
+      "case": "required-missing",
+      "conforms": false,
+      "results": 1,
+      "components": [
+        "http://www.w3.org/ns/shacl#MinCountConstraintComponent"
+      ]
+    },
+    {
+      "case": "datatype-only-missing",
+      "conforms": true,
+      "results": 0,
+      "components": []
+    },
+    {
+      "case": "different-target-class",
+      "conforms": true,
+      "results": 0,
+      "components": []
+    },
+    {
+      "case": "datatype-only-wrong-type",
+      "conforms": false,
+      "results": 1,
+      "components": [
+        "http://www.w3.org/ns/shacl#DatatypeConstraintComponent"
+      ]
+    },
+    {
+      "case": "unstated-but-rdfs-entailed",
+      "explicit_before": false,
+      "entailed_after": true
+    }
+  ],
+  "versions": {
+    "rdflib": "7.1.4",
+    "pyshacl": "0.30.1",
+    "owlrl": "7.1.4"
+  },
+  "inputs": {
+    "check_missing_data.py": "60334a528736a3f8cc3513eead2659b8daef2848f46ded961d0d421bc57aadda",
+    "data.ttl": "be5a152490f3b5e846de40da41771c399a6d8acf2d41349cd2cbbbc7ff79f92a",
+    "required.ttl": "c8ddc3d62e26b2c657e6385ec7cba9069f6eff2ba63d845f07894b112247f8bb",
+    "datatype-only.ttl": "45e890475c0003b8da81a9953d561733e4a4c596563c06b76bcac91a3f939239",
+    "other-target.ttl": "adf52102a921c2ae1bce0c9c9cb3f9653da61b1947c783352a29ee297c918c58",
+    "requirements.txt": "d63550d95befa6d02403729c616cdc948ddb8990280ffa05e6cd805d11436045"
+  },
+  "scope": "Four SHACL cases, inference none, and one separate RDFS closure. No OWL DL consistency check, negative-entailment decision, write enforcement or production assessment."
+}

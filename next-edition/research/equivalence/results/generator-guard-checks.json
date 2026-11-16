@@ -1,0 +1,16 @@
+{
+  "scope": "Generator-only synthetic input regressions; no new graph-engine execution.",
+  "checks": {
+    "reported-three-change-reproducer": "rejected before summary write",
+    "malformed-case-alignment-changed": "rejected before summary write",
+    "malformed-case-integrity-changed": "rejected before summary write",
+    "malformed-case-shacl-changed": "rejected before summary write",
+    "malformed-case-empty-answer-changed": "rejected before summary write",
+    "expected-disagreement-erased": "rejected before summary write",
+    "duplicate-case-id": "rejected before summary write",
+    "unchanged-retained-report": "accepted using standard library only",
+    "evidence-inventory": "complete with package-root-relative paths"
+  },
+  "generator_sha256": "0aa6aaf2404be656e98b3f5aad382848d594a1f59e648e37e7fe5429757b75cd",
+  "driver_sha256": "0eabf111747a473f14240eb4a0ea058c6500be3f44390cde916ea0b92a69ac22"
+}

@@ -1,0 +1,9 @@
+{
+  "pdf_sha256": "6015af97ee74ba246243fcbb3e30e58d0d90707a6e8c9e44ee45de9b3c201ca1",
+  "report_sha256": "1852c276e4901eb16fa562976d140a3e0f6876fd6714166f73db2c102b2822b5",
+  "page_count": 11,
+  "margin_violations": [],
+  "missing_expected_text": [],
+  "external_link_count": 6,
+  "scope": "Defined text margins with header/footer bands, report-derived counts, required text and link annotations. No remote-link, PDF/UA or screen-reader claim."
+}

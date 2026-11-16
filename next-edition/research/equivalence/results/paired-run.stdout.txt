@@ -1,0 +1,584 @@
+case_id, rows
+"S-C01-baseline", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"C01-baseline", [["c2", "Graph Search"]]
+case_id, rows
+"S-C02-unmet-prerequisite", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c4"]]]
+case_id, rows
+"C02-unmet-prerequisite", []
+case_id, rows
+"S-C03-already-completed", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"C03-already-completed", []
+case_id, rows
+"S-C04-two-matching-topics", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "data"]]]
+case_id, rows
+"C04-two-matching-topics", [["c2", "Graph Search"], ["c3", "Query Patterns"]]
+case_id, rows
+"S-C05-untyped-topic", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", [], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"C05-untyped-topic", [["c2", "Graph Search"]]
+case_id, rows
+"S-C06-missing-title", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], []], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"C06-missing-title", []
+case_id, rows
+"S-C07-untyped-learner", [[["maya", [], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"C07-untyped-learner", []
+case_id, rows
+"S-C08-non-Course-prerequisite", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["c9", [], ["c9"], []]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c9"]]]
+case_id, rows
+"C08-non-Course-prerequisite", []
+case_id, rows
+"S-C09-self-prerequisite", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c2"]]]
+case_id, rows
+"C09-self-prerequisite", []
+case_id, rows
+"S-C10-direct-not-transitive-policy", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["c1", "REQUIRES", "c4"]]]
+case_id, rows
+"C10-direct-not-transitive-policy", [["c2", "Graph Search"]]
+case_id, rows
+"S-C11-missing-id", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], [], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"C11-missing-id", []
+case_id, rows
+"S-B01-multivalued-title", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], [["Graph Search", "Alternate title"]]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"B01-multivalued-title", [["c2", ["Graph Search", "Alternate title"]]]
+case_id, rows
+"S-B02-parallel-completions", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"B02-parallel-completions", [["c2", "Graph Search"]]
+case_id, rows
+"D-parallel-count", 2
+case_id, rows
+"S-B03-asymmetric-inference", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["OnlineCourse"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"B03-asymmetric-inference", []
+case_id, rows
+"S-B04-explicit-completion-events", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["e1", ["Completion"], ["e1"], []], ["e2", ["Completion"], ["e2"], []]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["e1", "LEARNER", "maya"], ["e1", "COURSE", "c1"], ["e2", "LEARNER", "maya"], ["e2", "COURSE", "c1"]]]
+case_id, rows
+"B04-explicit-completion-events", [["c2", "Graph Search"]]
+case_id, rows
+"D-event-count", 2
+case_id, rows
+"S-G-000", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-000", []
+case_id, rows
+"S-G-001", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-001", [["c1", "Graph Basics"], ["c2", "Graph Search"]]
+case_id, rows
+"S-G-002", [[["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]]], [["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-002", []
+case_id, rows
+"S-G-003", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-003", [["c1", "Graph Basics"], ["c2", "Graph Search"]]
+case_id, rows
+"S-G-010", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-010", []
+case_id, rows
+"S-G-011", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-011", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-012", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-012", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-013", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-013", [["c2", "Graph Search"], ["c3", "Query Patterns"]]
+case_id, rows
+"S-G-020", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"G-020", []
+case_id, rows
+"S-G-021", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-021", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-022", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-022", []
+case_id, rows
+"S-G-023", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-023", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-030", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"G-030", []
+case_id, rows
+"S-G-031", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-031", []
+case_id, rows
+"S-G-032", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-032", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-033", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "COMPLETED", "c2"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-033", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-040", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c3"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-040", []
+case_id, rows
+"S-G-041", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-041", [["c1", "Graph Basics"], ["c2", "Graph Search"]]
+case_id, rows
+"S-G-042", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-042", []
+case_id, rows
+"S-G-043", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-043", [["c1", "Graph Basics"], ["c2", "Graph Search"]]
+case_id, rows
+"S-G-050", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-050", []
+case_id, rows
+"S-G-051", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-051", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-052", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-052", []
+case_id, rows
+"S-G-053", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-053", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-060", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "COMPLETED", "c2"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c3"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-060", []
+case_id, rows
+"S-G-061", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["maya", "COMPLETED", "c2"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-061", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-062", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-062", []
+case_id, rows
+"S-G-063", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-063", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-070", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["c1", "ABOUT", "graphs"]]]
+case_id, rows
+"G-070", []
+case_id, rows
+"S-G-071", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["c1", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-071", []
+case_id, rows
+"S-G-072", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c1", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "data"], ["leo", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-072", []
+case_id, rows
+"S-G-073", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-073", []
+case_id, rows
+"S-G-100", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-100", []
+case_id, rows
+"S-G-101", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-101", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-102", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-102", []
+case_id, rows
+"S-G-103", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-103", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-110", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-110", []
+case_id, rows
+"S-G-111", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["leo", "LIKES_TOPIC", "data"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-111", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-112", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-112", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-113", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-113", [["c2", "Graph Search"], ["c3", "Query Patterns"]]
+case_id, rows
+"S-G-120", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-120", []
+case_id, rows
+"S-G-121", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"], ["c1", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-121", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-122", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-122", []
+case_id, rows
+"S-G-123", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-123", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-130", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c1"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-130", []
+case_id, rows
+"S-G-131", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c2"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-131", []
+case_id, rows
+"S-G-132", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-132", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-133", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-133", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-140", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-140", []
+case_id, rows
+"S-G-141", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-141", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-142", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-142", []
+case_id, rows
+"S-G-143", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "data"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-143", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-150", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-150", []
+case_id, rows
+"S-G-151", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-151", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-152", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-152", []
+case_id, rows
+"S-G-153", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-153", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-160", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-160", []
+case_id, rows
+"S-G-161", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-161", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-162", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["c2", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-162", []
+case_id, rows
+"S-G-163", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-163", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-170", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["c3", "REQUIRES", "c1"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-170", []
+case_id, rows
+"S-G-171", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["c3", "ABOUT", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"]]]
+case_id, rows
+"G-171", []
+case_id, rows
+"S-G-172", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "ABOUT", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["c4", "ABOUT", "ethics"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["c1", "ABOUT", "graphs"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"]]]
+case_id, rows
+"G-172", []
+case_id, rows
+"S-G-173", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c1", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-173", []
+case_id, rows
+"S-G-200", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"]]]
+case_id, rows
+"G-200", []
+case_id, rows
+"S-G-201", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c3", "ABOUT", "data"], ["leo", "LIKES_TOPIC", "data"], ["c1", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c2", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "COMPLETED", "c1"]]]
+case_id, rows
+"G-201", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-202", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-202", []
+case_id, rows
+"S-G-203", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-203", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-210", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-210", []
+case_id, rows
+"S-G-211", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-211", []
+case_id, rows
+"S-G-212", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-212", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-213", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "LIKES_TOPIC", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "data"], ["leo", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-213", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-220", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"G-220", []
+case_id, rows
+"S-G-221", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-221", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-222", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-222", []
+case_id, rows
+"S-G-223", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-223", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-230", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"G-230", []
+case_id, rows
+"S-G-231", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c1", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-231", []
+case_id, rows
+"S-G-232", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-232", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-233", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"]]]
+case_id, rows
+"G-233", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-240", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c3"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-240", []
+case_id, rows
+"S-G-241", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-241", [["c1", "Graph Basics"], ["c2", "Graph Search"]]
+case_id, rows
+"S-G-242", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["leo", "LIKES_TOPIC", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-242", []
+case_id, rows
+"S-G-243", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-243", [["c1", "Graph Basics"], ["c2", "Graph Search"]]
+case_id, rows
+"S-G-250", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c1", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-250", []
+case_id, rows
+"S-G-251", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-251", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-252", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c3", "REQUIRES", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "REQUIRES", "c3"], ["c4", "ABOUT", "ethics"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["c2", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-252", []
+case_id, rows
+"S-G-253", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c3", "ABOUT", "data"], ["leo", "LIKES_TOPIC", "data"], ["c1", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-253", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-260", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-260", []
+case_id, rows
+"S-G-261", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"G-261", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-262", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["maya", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-262", []
+case_id, rows
+"S-G-263", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-263", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-270", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-270", []
+case_id, rows
+"S-G-271", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c3"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["leo", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-271", []
+case_id, rows
+"S-G-272", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c4", "ABOUT", "ethics"], ["c2", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["c1", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"]]]
+case_id, rows
+"G-272", []
+case_id, rows
+"S-G-273", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["leo", "COMPLETED", "c1"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["c1", "ABOUT", "graphs"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-273", []
+case_id, rows
+"S-G-300", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"]]]
+case_id, rows
+"G-300", []
+case_id, rows
+"S-G-301", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-301", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-302", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c1", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-302", []
+case_id, rows
+"S-G-303", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-303", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-310", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-310", []
+case_id, rows
+"S-G-311", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["maya", "LIKES_TOPIC", "graphs"], ["c2", "REQUIRES", "c3"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-311", []
+case_id, rows
+"S-G-312", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["maya", "LIKES_TOPIC", "data"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"]]]
+case_id, rows
+"G-312", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-313", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["maya", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["c2", "REQUIRES", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"]]]
+case_id, rows
+"G-313", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-320", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["c2", "REQUIRES", "c3"], ["c3", "REQUIRES", "c1"], ["maya", "COMPLETED", "c2"], ["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-320", []
+case_id, rows
+"S-G-321", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["c2", "REQUIRES", "c3"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["c3", "REQUIRES", "c1"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-321", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-322", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["c3", "REQUIRES", "c1"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c1"]]]
+case_id, rows
+"G-322", []
+case_id, rows
+"S-G-323", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-323", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-330", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-330", []
+case_id, rows
+"S-G-331", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c3", "REQUIRES", "c1"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c2", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["c3", "ABOUT", "data"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-331", []
+case_id, rows
+"S-G-332", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c4", "ABOUT", "ethics"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-332", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-333", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c4", "ABOUT", "ethics"], ["leo", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-333", [["c3", "Query Patterns"]]
+case_id, rows
+"S-G-340", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-340", []
+case_id, rows
+"S-G-341", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c1", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["c2", "ABOUT", "graphs"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "COMPLETED", "c1"], ["leo", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-341", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-342", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["c1", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["c2", "ABOUT", "graphs"], ["maya", "COMPLETED", "c3"], ["leo", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"], ["leo", "COMPLETED", "c1"]]]
+case_id, rows
+"G-342", []
+case_id, rows
+"S-G-343", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c3", "ABOUT", "data"], ["c1", "ABOUT", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"]]]
+case_id, rows
+"G-343", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-350", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["c4", "ABOUT", "ethics"], ["c1", "ABOUT", "graphs"], ["leo", "COMPLETED", "c1"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["c3", "ABOUT", "data"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-350", []
+case_id, rows
+"S-G-351", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c3", "ABOUT", "data"], ["c3", "REQUIRES", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["c2", "ABOUT", "graphs"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-351", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-352", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["c2", "ABOUT", "graphs"], ["maya", "LIKES_TOPIC", "data"], ["c3", "ABOUT", "data"]]]
+case_id, rows
+"G-352", []
+case_id, rows
+"S-G-353", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["leo", "COMPLETED", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-353", [["c2", "Graph Search"]]
+case_id, rows
+"S-G-360", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-360", []
+case_id, rows
+"S-G-361", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "LIKES_TOPIC", "graphs"], ["maya", "COMPLETED", "c3"]]]
+case_id, rows
+"G-361", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-362", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"]]]
+case_id, rows
+"G-362", []
+case_id, rows
+"S-G-363", [[["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []], ["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"]]]
+case_id, rows
+"G-363", [["c1", "Graph Basics"]]
+case_id, rows
+"S-G-370", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["leo", "LIKES_TOPIC", "data"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["maya", "COMPLETED", "c3"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"]]]
+case_id, rows
+"G-370", []
+case_id, rows
+"S-G-371", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "COMPLETED", "c1"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c1"]]]
+case_id, rows
+"G-371", []
+case_id, rows
+"S-G-372", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["maya", "LIKES_TOPIC", "data"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["maya", "COMPLETED", "c3"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"]]]
+case_id, rows
+"G-372", []
+case_id, rows
+"S-G-373", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["leo", "LIKES_TOPIC", "data"], ["c2", "REQUIRES", "c1"], ["maya", "COMPLETED", "c1"], ["maya", "COMPLETED", "c2"], ["maya", "COMPLETED", "c3"], ["maya", "LIKES_TOPIC", "data"], ["maya", "LIKES_TOPIC", "graphs"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"G-373", []
+case_id, rows
+"S-C12-all-multiple-prerequisites-completed", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["c4", "ABOUT", "ethics"], ["c3", "REQUIRES", "c1"], ["c2", "REQUIRES", "c1"], ["c2", "REQUIRES", "c3"], ["maya", "COMPLETED", "c3"], ["c3", "ABOUT", "data"], ["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "ABOUT", "graphs"]]]
+case_id, rows
+"C12-all-multiple-prerequisites-completed", [["c2", "Graph Search"]]
+case_id, rows
+"S-C13-aligned-membership-control", [[["c1", ["Course"], ["c1"], ["Graph Basics"]], ["c2", ["Course", "OnlineCourse"], ["c2"], ["Graph Search"]], ["c3", ["Course"], ["c3"], ["Query Patterns"]], ["c4", ["Course"], ["c4"], ["Data Ethics"]], ["maya", ["Person"], ["maya"], []], ["leo", ["Person"], ["leo"], []], ["graphs", ["Topic"], ["graphs"], []], ["data", ["Topic"], ["data"], []], ["ethics", ["Topic"], ["ethics"], []]], [["maya", "LIKES_TOPIC", "graphs"], ["leo", "LIKES_TOPIC", "data"], ["maya", "COMPLETED", "c1"], ["leo", "COMPLETED", "c1"], ["c3", "REQUIRES", "c1"], ["c1", "ABOUT", "graphs"], ["c2", "REQUIRES", "c1"], ["c2", "ABOUT", "graphs"], ["c3", "ABOUT", "data"], ["c4", "ABOUT", "ethics"]]]
+case_id, rows
+"C13-aligned-membership-control", [["c2", "Graph Search"]]

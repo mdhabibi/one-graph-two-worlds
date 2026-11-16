@@ -1,0 +1,45 @@
+{
+  "web_chapters_checked": 13,
+  "qa_pairs_checked": {
+    "I \u00b7 Foundations": 17,
+    "II \u00b7 RDF and semantic graphs": 22,
+    "III \u00b7 Querying RDF": 24,
+    "IV \u00b7 Property graphs and Cypher": 25,
+    "V \u00b7 Modeling and interoperability": 29,
+    "VI \u00b7 Strengths, tradeoffs, and decisions": 21,
+    "VII \u00b7 Performance and operations": 20,
+    "VIII \u00b7 Graph RAG and analytics": 25
+  },
+  "new_exercise_reports_checked": 3,
+  "semantic_evolution_checks": 10,
+  "status": "pass",
+  "pdf_sha256": "536f1082f565f783d87997b81e0e616044bc9885a3139852de8dfa0be2b9df6b",
+  "pages": 173,
+  "margin_violations": [],
+  "contents_links": 72,
+  "section_headings_checked": 72,
+  "chapter_covers": 12,
+  "author_and_draft_status_on_every_page": true,
+  "task_pages": [
+    63,
+    82,
+    161
+  ],
+  "solution_pages": [
+    64,
+    83,
+    162
+  ],
+  "rendered_citation_numbers_checked": 95,
+  "build_inputs_checked": 6,
+  "citation_links_checked": 133,
+  "references": 35,
+  "syntax_checked": {
+    "turtle": 9,
+    "json": 1,
+    "sparql": 14
+  },
+  "local_links_checked": 137,
+  "retained_research_hashes": "pass",
+  "scope": "Document margins, status, author, covers, contents, task separation, citation targets, RDF/SPARQL syntax, local links, semantic-evolution exercise and retained hashes. No new graph-engine run, remote-link or accessibility certification."
+}

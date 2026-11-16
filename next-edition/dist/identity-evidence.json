@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "checks": [
+    "explicit local alias links; same title with different provider/edition stays separate",
+    "both mention locators survive linking to one entity",
+    "missing edition leaves the local mention unresolved",
+    "ambiguous registry leaves identity unresolved",
+    "two mention records retain one document/version origin",
+    "identity linking does not change claim review status",
+    "wrong version rejected",
+    "wrong span rejected"
+  ],
+  "linked_mentions": [
+    {
+      "mention": "ma1",
+      "entity": "course-a-2026",
+      "identity_status": "linked",
+      "evidence": {
+        "document": "doc-a",
+        "version": "v1",
+        "page": 1,
+        "span": [
+          0,
+          12
+        ]
+      },
+      "claim_review": "unreviewed"
+    },
+    {
+      "mention": "ma2",
+      "entity": "course-a-2026",
+      "identity_status": "linked",
+      "evidence": {
+        "document": "doc-a",
+        "version": "v1",
+        "page": 1,
+        "span": [
+          14,
+          16
+        ]
+      },
+      "claim_review": "unreviewed"
+    },
+    {
+      "mention": "mb1",
+      "entity": "course-b-2027",
+      "identity_status": "linked",
+      "evidence": {
+        "document": "doc-b",
+        "version": "v1",
+        "page": 1,
+        "span": [
+          0,
+          12
+        ]
+      },
+      "claim_review": "unreviewed"
+    }
+  ],
+  "inputs": {
+    "fixture.json": "14427c5ab7329e72de8959f3d04af7b0a6441ea3034c33bbbf8f6149c125c977",
+    "check_identity.py": "84f3b00fa5fc78ef8f500f9f895e9f9ec23c4072241d17aec42bfe7eb45889c6"
+  },
+  "scope": "Synthetic deterministic identity lookup and evidence retention. No extraction, statistical entity resolution, independent-corroboration measurement or truth validation."
+}

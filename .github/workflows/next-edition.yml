@@ -1,0 +1,21 @@
+name: Unpublished next-edition checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: next-edition
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements-build.txt
+      - run: python scripts/build_pdf.py
+      - run: python scripts/export_web.py
+      - run: python scripts/validate_draft.py
+      - name: Check deliberate document and extension defects
+        run: python scripts/verify_draft_validation.py --out "$RUNNER_TEMP/kg-next-draft-probes"

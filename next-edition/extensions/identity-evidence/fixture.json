@@ -1,0 +1,71 @@
+{
+  "documents": {
+    "doc-a": {
+      "version": "v1",
+      "text": "Graph Basics (GB) is provider A's 2026 edition.",
+      "aliases": {
+        "GB": "Graph Basics"
+      }
+    },
+    "doc-b": {
+      "version": "v1",
+      "text": "Graph Basics is provider B's 2027 edition.",
+      "aliases": {}
+    }
+  },
+  "registry": [
+    {
+      "id": "course-a-2026",
+      "title": "Graph Basics",
+      "provider": "provider-a",
+      "edition": 2026
+    },
+    {
+      "id": "course-b-2027",
+      "title": "Graph Basics",
+      "provider": "provider-b",
+      "edition": 2027
+    }
+  ],
+  "mentions": [
+    {
+      "id": "ma1",
+      "document": "doc-a",
+      "version": "v1",
+      "page": 1,
+      "span": [
+        0,
+        12
+      ],
+      "surface": "Graph Basics",
+      "provider": "provider-a",
+      "edition": 2026
+    },
+    {
+      "id": "ma2",
+      "document": "doc-a",
+      "version": "v1",
+      "page": 1,
+      "span": [
+        14,
+        16
+      ],
+      "surface": "GB",
+      "provider": "provider-a",
+      "edition": 2026
+    },
+    {
+      "id": "mb1",
+      "document": "doc-b",
+      "version": "v1",
+      "page": 1,
+      "span": [
+        0,
+        12
+      ],
+      "surface": "Graph Basics",
+      "provider": "provider-b",
+      "edition": 2027
+    }
+  ]
+}

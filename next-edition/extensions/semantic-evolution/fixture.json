@@ -1,0 +1,19 @@
+{
+  "source_snapshots": {
+    "legacy": {"learner_id": "maya", "course_id": "c1", "meaning": "assessment-score-percent", "score": 65},
+    "renamed": {"student_key": "maya", "course_id": "c1", "meaning": "assessment-score-percent", "score": 65},
+    "attendance": {"student_key": "maya", "course_id": "c1", "meaning": "attendance", "completed": true}
+  },
+  "mappings": {
+    "m1": {"identity_field": "learner_id", "accepted_meaning": "assessment-score-percent"},
+    "m2": {"identity_field": "student_key", "accepted_meaning": "assessment-score-percent"}
+  },
+  "policies": [
+    {"id": "p60", "effective_from": "2026-01-01", "effective_until": "2026-11-01", "threshold_percent": 60},
+    {"id": "p70", "effective_from": "2026-11-01", "effective_until": null, "threshold_percent": 70}
+  ],
+  "expected_replays": [
+    {"decision_date": "2026-10-31", "policy": "p60", "status": "pass"},
+    {"decision_date": "2026-11-01", "policy": "p70", "status": "fail"}
+  ]
+}

@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — next edition under review
+
+- Added the unpublished integrated draft in next-edition/, including the
+  query-equivalence material and five reader-feedback additions.
+- Synchronized contents, browser chapters, Q&A, glossary, cross-references and
+  isolated semantic-evolution, identity/evidence and missing-data exercises.
+- Added reasoning-cost and suitability-scope worksheets and a separate draft
+  validation workflow. No new edition number or DOI is assigned.
+- Published 0.1.1 source, baseline labs, citation files and archived artifacts
+  remain unchanged; review and release preparation are still pending.
+
 ## 0.1.1 — public review draft, published 2026-11-14
 
 - Corrected contribution and publication metadata; added citation publisher,

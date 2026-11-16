@@ -1,0 +1,7 @@
+PREFIX ex: <https://example.org/>
+SELECT ?id ?title ?summary
+WHERE {
+  ?c a ex:Course ; ex:id ?id ; ex:title ?title .
+  OPTIONAL { ?c ex:summary ?summary }
+}
+ORDER BY ?id

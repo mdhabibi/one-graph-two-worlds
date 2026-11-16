@@ -1,0 +1,33 @@
+# Task 1
+PREFIX ex: <https://example.org/>
+SELECT DISTINCT ?id ?title
+WHERE {
+  ex:leo a ex:Person ; ex:likesTopic ?topic .
+  ?c a ex:Course ; ex:id ?id ; ex:title ?title ;
+     ex:about ?topic .
+  FILTER NOT EXISTS { ex:leo ex:completed ?c }
+  FILTER NOT EXISTS {
+    ?c ex:requires ?required .
+    FILTER NOT EXISTS { ex:leo ex:completed ?required }
+  }
+}
+ORDER BY ?id
+
+# Task 2
+PREFIX ex: <https://example.org/>
+SELECT ?id ?title
+WHERE {
+  ex:maya ex:completed ?course .
+  ?course a ex:Course ; ex:id ?id ; ex:title ?title .
+}
+ORDER BY ?id
+
+# Task 3
+PREFIX ex: <https://example.org/>
+SELECT ?topic (COUNT(DISTINCT ?course) AS ?courses)
+WHERE {
+  ?course a ex:Course ; ex:about ?topic .
+  FILTER(?topic != ex:ethics)
+}
+GROUP BY ?topic
+ORDER BY DESC(?courses) ?topic

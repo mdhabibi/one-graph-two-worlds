@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "checks": [
+    "source rename preserves learner, course and score",
+    "attendance substitution rejected",
+    "changed identity is observable; meaning requires external review",
+    "dated policy replay matches expected outcomes",
+    "policy change leaves score fact unchanged",
+    "six threshold boundary cases match",
+    "missing score yields insufficient evidence",
+    "uncovered policy date rejected",
+    "ambiguous overlapping policy date rejected",
+    "Boolean score rejected"
+  ],
+  "replays": [
+    {
+      "decision_date": "2026-10-31",
+      "policy": "p60",
+      "status": "pass"
+    },
+    {
+      "decision_date": "2026-11-01",
+      "policy": "p70",
+      "status": "fail"
+    }
+  ],
+  "inputs": {
+    "fixture.json": "323a4bf1967ab3cf56bed68a85104e34f315d927b5763a347bd5fc878f09ce61",
+    "check_evolution.py": "90c736ee2e2f4afe8aeba07c6f1babe6bd63c7b04a9c2fb2ad18375a71569b9b"
+  },
+  "scope": "Synthetic mapping and decision-policy exercise. No OWL inference, SHACL or database execution; no proof of business definitions."
+}

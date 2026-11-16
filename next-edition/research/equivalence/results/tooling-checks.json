@@ -1,0 +1,35 @@
+{
+  "scope": "Local tooling regression checks; synthetic metadata and margin probes are not graph-engine results.",
+  "checks": {
+    "generate_results.py_existing_output_refused": {
+      "passed": true,
+      "seconds": 0.026
+    },
+    "verify_revision.py_existing_output_refused": {
+      "passed": true,
+      "seconds": 0.121
+    },
+    "build_pdf.py_existing_output_refused": {
+      "passed": true,
+      "seconds": 0.105
+    },
+    "check_document.py_existing_output_refused": {
+      "passed": true,
+      "seconds": 0.078
+    },
+    "retained_outputs_unchanged": true,
+    "standard_library_only_generator_fresh_path_matches": true,
+    "runtime_reference_and_counts_derived_from_input": true,
+    "fresh_pdf_and_document_check_paths_pass": true,
+    "introduced_margin_violation_rejected": true,
+    "rdf_only_verification_fields_null": true,
+    "sources_match_executed_paired_run": true
+  },
+  "tool_hashes": {
+    "equivalence/generate_results.py": "0aa6aaf2404be656e98b3f5aad382848d594a1f59e648e37e7fe5429757b75cd",
+    "equivalence/verify_revision.py": "b5a1dcc2ea3b91ac216f3f659fd4f265a762050680f90f27e1d0a243c5a1cba7",
+    "build_pdf.py": "cb35afe8b01bccc52cd2934cbe587a5b39751c3ce00b7bac55add52701cee2de",
+    "check_document.py": "a58e9e7eae0a032dffda603acb02b26f96f150d072c32b16153c0c95308cae06",
+    "verify_tools.py": "61759bec8142d6f2295061aeab7aba443ddb5df5573229927cae357046ec4b94"
+  }
+}

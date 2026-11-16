@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "book/manuscript.md": "633bf3c7998efe72f5163cf69fcb14775088d25f01f7d120dacdcf1bcc3b33b1",
+    "scripts/build_pdf.py": "665026907eaaa23809f005fab401b57379289b0889747d28f15fe6e9b66c6373",
+    "VERSION": "1072073718c7c58b3b742f37f7d6d85bed5a7235b71e92ceb6572623fbd80e3d",
+    "assets/fonts/DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
+    "assets/fonts/DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
+    "assets/fonts/DejaVuSansMono.ttf": "b4a6c3e4faab8773f4ff761d56451646409f29abedd68f05d38c2df667d3c582"
+  },
+  "pdf_sha256": "536f1082f565f783d87997b81e0e616044bc9885a3139852de8dfa0be2b9df6b",
+  "page_map_sha256": "87b9e789ea01ceaae74c44327109cecd8c3168d55a546605634ce006e4438e9b"
+}
