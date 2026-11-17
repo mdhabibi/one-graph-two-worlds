@@ -51,6 +51,14 @@
   "document_defect_controls": 23,
   "rebuild_controls": 5,
   "independent_paired_reproduction": "open; not run in this release preparation",
-  "remote_ci": "not observed for this candidate",
+  "remote_ci": {
+    "status": "success",
+    "commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee",
+    "url": "https://github.com/mdhabibi/one-graph-two-worlds/actions/runs/44120988200",
+    "jobs": {
+      "book-and-rdf": "success",
+      "cypher": "success"
+    }
+  },
   "scope": "Local automated release checks; fresh engine runs are not independent reproduction or general scientific/production validation."
 }

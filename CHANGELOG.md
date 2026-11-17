@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 — public review edition, prepared for publication
+## 0.2.0 — public review edition, published 2026-11-17
 
 - Expanded Chapter 10 with a conditional recommendation-query equivalence
   argument, explicit alignment/intake boundaries and a reproducible experiment.
@@ -15,8 +15,11 @@
 - Promoted the reviewed draft into the main book/repository layout; baseline lab
   and retained research bytes are unchanged. Historical research documents retain
   their original working-module status and dates; see publication/VALIDATION.md.
-- Edition DOI: 10.5281/zenodo.24316420 (reserved). Publication and this candidate's
-  remote CI remain unverified. Independent paired reproduction remains open.
+- Published on Zenodo at https://doi.org/10.5281/zenodo.24316420; both downloaded
+  file hashes match the approved artifacts. GitHub Actions passed on archived
+  source commit 9d3e9e2. Independent paired reproduction remains open.
+- Tag v0.2.0 identifies the archived source; the main branch adds publication
+  status and citation metadata afterward without changing the archived files.
 - Prior archived editions and release tags are unchanged.
 
 ## 0.1.1 — public review draft, published 2026-11-14

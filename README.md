@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zenodo.org/records/24316420"><strong>Edition DOI</strong></a> ·
+  <a href="https://zenodo.org/records/24316420"><strong>Published book and DOI</strong></a> ·
   <a href="dist/knowledge-graphs-tutorial.pdf">Read the PDF</a> ·
   <a href="book/index.md">Browse the chapters</a> ·
   <a href="lab/README.md">Explore the lab</a> ·
@@ -43,10 +43,10 @@ and a short self-check.
 
 ## Edition status
 
-Version **0.2.0** is an expanded public review edition. Its edition DOI is
-[10.5281/zenodo.24316420](https://doi.org/10.5281/zenodo.24316420).
-The DOI identifies this book and companion snapshot; consult the linked record
-for archival availability. The PDF and chapters are also readable directly here.
+Version **0.2.0**, an expanded public review edition, was published on
+**17 November 2026**. [Download the archived book and companion package](https://zenodo.org/records/24316420)
+or see [the matching GitHub release](https://github.com/mdhabibi/one-graph-two-worlds/releases/tag/v0.2.0).
+Edition DOI: [10.5281/zenodo.24316420](https://doi.org/10.5281/zenodo.24316420).
 
 This edition adds a scoped recommendation-query equivalence study, semantic
 versioning and policy replay, eligibility versus suitability, reasoning-cost

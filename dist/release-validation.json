@@ -3,7 +3,7 @@
     "status": "pass",
     "version": "0.2.0",
     "edition_doi": "10.5281/zenodo.24316420",
-    "doi_status": "reserved",
+    "doi_status": "published",
     "scope": "Local identity consistency; does not verify DOI registration or publication."
   },
   "version": "0.2.0",
@@ -74,7 +74,7 @@
     "json": 1,
     "sparql": 14
   },
-  "local_links_checked": 163,
+  "local_links_checked": 164,
   "retained_research_hashes": "pass",
   "scope": "Document margins, status, author, covers, contents, task separation, citation targets, RDF/SPARQL syntax, local links, semantic-evolution exercise and retained hashes. No new graph-engine run, remote-link or accessibility certification."
 }

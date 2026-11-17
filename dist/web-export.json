@@ -4,7 +4,7 @@
     "scripts/build_pdf.py": "371eb9cbfc551d52afdd224c1ee1191a02c9f2cce1159b12ef8010ea32d50e4b",
     "scripts/export_web.py": "eadce283a0ae7e81a50b91eb2ee48e31f6d2051ea60adfad063be3e5d0224a09",
     "dist/knowledge-graphs-tutorial.pdf": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-    "publication/zenodo-record-draft.json": "0f09c6b7718db6dd913ff53dffc6a70dc78609b64d9224dee5583843b3fa3ffe"
+    "publication/zenodo-record-draft.json": "88733caa940d3345abfcbb8bf8969c927f692313982d17251ae866b555a398c6"
   },
   "outputs": {
     "book/chapters/i-foundations.md": "dc70e6e01cc41f03b040683450b0389aa29ed252a4a22f5ea8fa81bb17b39299",

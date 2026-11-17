@@ -1,5 +1,5 @@
 {
-  "status": "release-candidate",
+  "status": "published",
   "source_edition": "0.1.1",
   "source_commit": "4225d294c3bc7aa2633e16bd2e42e65a2d2f24d9",
   "new_sections": [
@@ -69,6 +69,8 @@
   ],
   "version": "0.2.0",
   "edition_doi": "10.5281/zenodo.24316420",
-  "doi_status": "reserved",
-  "reviewed_source_commit": "de0c0e52ae969ab367c5531efa9cece1e511ea84"
+  "doi_status": "published",
+  "reviewed_source_commit": "de0c0e52ae969ab367c5531efa9cece1e511ea84",
+  "publication_date": "2026-11-17",
+  "archived_source_commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee"
 }

@@ -8,6 +8,7 @@ authors:
     given-names: "Mahdi"
     orcid: "https://orcid.org/0000-0001-8530-7746"
 version: "0.2.0"
+date-released: 2026-11-17
 license: MIT
 preferred-citation:
   type: book
@@ -21,6 +22,7 @@ preferred-citation:
   year: 2026
   version: "0.2.0"
   doi: "10.5281/zenodo.24316420"
-  notes: "Public review draft."
+  notes: "Public review draft. Archived on Zenodo."
+  date-published: 2026-11-17
   license: CC-BY-4.0
   url: "https://zenodo.org/records/24316420"
