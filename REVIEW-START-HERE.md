@@ -17,6 +17,10 @@ are retained for traceability; do not mistake that root PDF for the current draf
 The new workflow .github/workflows/next-edition.yml checks the draft separately.
 The existing published-edition workflow is preserved.
 
+Before running draft build or validation commands from the repository root, run
+`cd next-edition`. Use [the full validation sequence](next-edition/VALIDATION.md).
+The root scripts belong to the published edition.
+
 No public push, release or Zenodo publication is part of preparing this local
 review branch. Complete technical review before deciding final edition metadata
 and publication. Existing tags and archived releases are unchanged.

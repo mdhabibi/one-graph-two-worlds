@@ -75,9 +75,11 @@ or accessibility equivalence. Changed/reflowed PDF pages were also inspected.
 
 ## Reproduce the current document checks
 
-From this package root:
+From the repository root (the folder containing `REVIEW-START-HERE.md`),
+enter `next-edition/` first. If already there, omit the first line:
 
 ```sh
+cd next-edition
 python -m pip install -r requirements-build.txt
 python scripts/validate_draft.py
 python scripts/check_rebuild.py capture --out /tmp/kg-draft-snapshot.json

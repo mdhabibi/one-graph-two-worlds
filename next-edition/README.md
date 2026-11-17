@@ -18,9 +18,11 @@ cases agree; the two boundary counterexamples intentionally differ. No independe
 paired reproduction, human peer review, benchmark or production certification
 is claimed.
 
-To rebuild the full draft from this root:
+From the repository root (the folder containing `REVIEW-START-HERE.md`),
+enter `next-edition/` before rebuilding. If already there, omit the first line:
 
 ```sh
+cd next-edition
 python -m pip install -r requirements-build.txt
 python scripts/build_pdf.py
 python scripts/export_web.py
@@ -59,7 +61,7 @@ All extensions are separate from the original lab and retained research evidence
 Editorial checks now enforce glossary ordering, core-question references,
 consecutive Review headings, numbered Q&A placement, exported code-fence identity,
 chapter draft labels and section bookmarks. These checks do not judge whether
-an answer or citation is semantically correct. See VALIDATION.md for scope and
-fresh-path rebuild-comparison commands. No cross-environment PDF byte identity
+an answer or citation is semantically correct. See [the full validation sequence](VALIDATION.md) for scope, fresh-path
+rebuild comparisons and negative controls. No cross-environment PDF byte identity
 is promised; CI validates delivered artifacts before rebuilding and compares
 normalized page text/navigation afterward.
