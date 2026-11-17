@@ -1,0 +1,20 @@
+{
+  "inputs": {
+    "book/manuscript.md": "eb45493a6cdf0bd6ea0f34943f6ec3f350cf6900b0350228fe2111daa36b8e71",
+    "scripts/build_pdf.py": "371eb9cbfc551d52afdd224c1ee1191a02c9f2cce1159b12ef8010ea32d50e4b",
+    "VERSION": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
+    "assets/fonts/DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
+    "assets/fonts/DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
+    "assets/fonts/DejaVuSansMono.ttf": "b4a6c3e4faab8773f4ff761d56451646409f29abedd68f05d38c2df667d3c582"
+  },
+  "pdf_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "page_map_sha256": "87b9e789ea01ceaae74c44327109cecd8c3168d55a546605634ce006e4438e9b",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-15.0.1-arm64-arm-64bit",
+    "zlib_compile": "1.2.12",
+    "zlib_runtime": "1.2.12",
+    "reportlab": "4.4.9",
+    "source_date_epoch": "1794873600"
+  }
+}

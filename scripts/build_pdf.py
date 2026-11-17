@@ -1,8 +1,9 @@
 from pathlib import Path
-import re, math, json, html, os
+import re, math, json, html, os, hashlib, platform, zlib
+from importlib.metadata import version as package_version
 from functools import partial
 from datetime import datetime, timezone
-os.environ.setdefault("SOURCE_DATE_EPOCH",str(int(datetime(2026,11,13,tzinfo=timezone.utc).timestamp())))
+os.environ.setdefault("SOURCE_DATE_EPOCH",str(int(datetime(2026,11,17,tzinfo=timezone.utc).timestamp())))
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Flowable, KeepTogether, Preformatted, CondPageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -13,7 +14,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parent.parent
 VERSION=(ROOT/'VERSION').read_text().strip()
-EDITION_DATE='14 November 2026'
+EDITION_DATE='17 November 2026'
 OUT=ROOT/'dist'
 OUT.mkdir(parents=True,exist_ok=True)
 FONT_DIR=ROOT/'assets'/'fonts'
@@ -43,7 +44,12 @@ def rich(s):
     s=re.sub(r'\*\*(.*?)\*\*',r'<b>\1</b>',s)
     s=re.sub(r'`([^`]+)`',r'<font name="Mono" size="9">\1</font>',s)
     s=re.sub(r'\[(\d+(?:, \d+)*)\]',lambda m: '['+', '.join(f'<link href="#ref{n}" color="#365CC6">{n}</link>' for n in m[1].split(', '))+']',s)
-    s=re.sub(r'(https://[^\s<]+)',lambda m: '<link href="'+m[0]+'" color="#365CC6">'+('neo4j.com — Operations Manual: Database transactions' if m[0]=='https://neo4j.com/docs/operations-manual/current/database-internals/transaction-management/' else m[0])+'</link>',s)
+    def url_link(match):
+        raw=match[0];url=raw.rstrip('.,;:')
+        while url.endswith(')') and url.count(')')>url.count('('):url=url[:-1]
+        label='neo4j.com — Operations Manual: Database transactions' if url=='https://neo4j.com/docs/operations-manual/current/database-internals/transaction-management/' else url
+        return '<link href="'+url+'" color="#365CC6">'+label+'</link>'+raw[len(url):]
+    s=re.sub(r'(https://[^\s<]+)',url_link,s)
     return s
 
 def P(s,sty='p'): return Paragraph(rich(s),styles[sty])
@@ -135,7 +141,7 @@ CHAPTER_INTROS={
 'VII': ('Test the system beyond the small example.', 'Examine realistic performance, recovery, governance, and security. Turn operational expectations into measurable checks and ownership.', 'Performance / Recovery / Governance'),
 'VIII': ('Retrieve evidence before generating answers.', 'Combine structured policy with source passages, evaluate graph RAG failures, and keep predictions separate from reviewed eligibility facts.', 'Retrieval / Grounding / Analytics'),
 'IX': ('Put the ideas to work.', 'Diagnose common mistakes, solve controlled exercises, and compare architecture cases using the models and policies developed throughout the book.', 'Practice / Diagnosis / Architecture'),
-'X': ('Make the examples reproducible.', 'Locate the companion files, understand their execution scope, and use the lab instructions and expected outputs to check your understanding.', 'Files / Execution / Verification'),
+'X': ('Make the examples reproducible.', 'Locate the companion files, understand their execution scope, use the lab instructions and expected outputs to check your understanding, and test when two query implementations must agree.', 'Files / Execution / Verification'),
 'XI': ('Keep the vocabulary close at hand.', 'Return to concise definitions of the graph, semantic, query, and engineering terms used throughout the tutorial.', 'Terms / Definitions / Connections'),
 'XII': ('Follow the ideas back to their sources.', 'Consult the specifications, research, and implementation documentation supporting the tutorial. Match implementation guidance to the release you use.', 'Standards / Research / Documentation'),
 }
@@ -167,12 +173,17 @@ class ChapterCover(Flowable):
             c.circle(x,y,14 if i==self.number%8 else 7,fill=1,stroke=0)
         c.setFont('Bold',9);c.setFillColor(accent);c.drawString(56,78,topics)
         c.setStrokeColor(colors.HexColor('#CDDCE5'));c.line(56,54,539,54)
-        c.setFillColor(MUTED);c.setFont('Body',9);c.drawString(56,34,'Dr. Mahdi Habibi');c.drawRightString(539,34,str(c.getPageNumber()))
+        c.setFillColor(MUTED);c.setFont('Body',9);c.drawString(56,34,'Dr. Mahdi Habibi');c.setFont('Body',8);c.drawCentredString(300,34,'Public review draft');c.drawRightString(539,34,str(c.getPageNumber()))
         c.restoreState()
 
 class Doc(SimpleDocTemplate):
+    def afterPage(self):
+        if self.page not in getattr(self,"chapter_pages",set()):frame(self.canv,self)
+
     def afterFlowable(self,f):
         if isinstance(f,ChapterCover):
+            if not hasattr(self,"chapter_pages"):self.chapter_pages=set()
+            self.chapter_pages.add(self.page)
             key='chapter-'+str(f.number);self.canv.bookmarkPage(key)
             self.canv.addOutlineEntry(f.part,key,0,True)
             self.last_part=f.part;self.current_section=None
@@ -196,7 +207,7 @@ class Doc(SimpleDocTemplate):
 
 def frame(c,d):
     if d.page==1:return
-    c.saveState();c.setStrokeColor(colors.HexColor('#D9E3EA'));c.line(56,791,539,791);c.setFillColor(MUTED);c.setFont('Body',8);c.drawString(56,802,'KNOWLEDGE GRAPHS  /  FROM FIRST PRINCIPLES TO ARCHITECTURE');c.line(56,48,539,48);c.drawString(56,33,'RDF • OWL • SPARQL • SHACL  |  Neo4j • Cypher');c.drawRightString(504,33,'Dr. Mahdi Habibi');c.drawRightString(539,33,str(d.page));c.restoreState()
+    c.saveState();c.setStrokeColor(colors.HexColor('#D9E3EA'));c.line(56,791,539,791);c.setFillColor(MUTED);c.setFont('Body',8);c.drawString(56,802,'KNOWLEDGE GRAPHS  /  FROM FIRST PRINCIPLES TO ARCHITECTURE');c.line(56,48,539,48);c.drawString(56,33,'Public review draft');c.drawRightString(504,33,'Dr. Mahdi Habibi');c.drawRightString(539,33,str(d.page));c.restoreState()
 
 class Cover(Flowable):
     def __init__(self):
@@ -211,7 +222,7 @@ class Cover(Flowable):
         for a,b in [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(7,0),(0,6),(2,6),(2,5),(1,3)]:
             c.setStrokeColor(colors.HexColor('#395974'));c.setLineWidth(1.5);c.line(*pts[a],*pts[b])
         for i,(x,y) in enumerate(pts):c.setFillColor([TEAL,colors.HexColor('#EBA05D'),colors.HexColor('#8EA7F0'),colors.HexColor('#AA91D2')][i%4]);c.circle(x,y,11 if i%3 else 17,fill=1,stroke=0)
-        c.setFillColor(colors.white);c.setFont('Body',11);c.drawString(0,67,'BEGINNER → PRACTITIONER → ARCHITECT');c.setFont('Body',9);c.drawString(0,42,'Running examples • Original diagrams • Worked queries • Decision frameworks');c.setFillColor(colors.HexColor('#B9CBD9'));c.drawString(0,15,f'Version {VERSION}  |  Public review draft  |  {EDITION_DATE}')
+        c.setFillColor(colors.white);c.setFont('Body',11);c.drawString(0,67,'BEGINNER → PRACTITIONER → ARCHITECT');c.setFont('Body',9);c.drawString(0,42,'Running examples • Original diagrams • Worked queries • Decision frameworks');c.setFillColor(colors.HexColor('#B9CBD9'));c.drawString(0,15,f'Version {VERSION}  |  Public review draft')
 
 def parse(body):
     lines=body.strip().splitlines();result=[];i=0
@@ -300,10 +311,14 @@ def build():
                 else:story.extend([Spacer(1,18),CondPageBreak(180)])
             part_label=P(part.upper(),'small');part_label.keepWithNext=True
             story.extend([part_label,Title(title,f's{j}',part)]);story.extend(parse(body))
-        doc=Doc(str(OUT/'knowledge-graphs-tutorial.pdf'),pagesize=(W,H),rightMargin=56,leftMargin=56,topMargin=68,bottomMargin=66,title='Knowledge Graphs: Semantic Graphs and Property Graphs',author='Dr. Mahdi Habibi',subject='RDF, OWL, SPARQL, SHACL and Neo4j/Cypher tutorial',pageCompression=1)
-        doc.record=[];doc.build(story,onFirstPage=frame,onLaterPages=frame,canvasmaker=partial(canvas.Canvas,invariant=1))
+        doc=Doc(str(OUT/'knowledge-graphs-tutorial.pdf'),pagesize=(W,H),rightMargin=56,leftMargin=56,topMargin=68,bottomMargin=66,title=f'Knowledge Graphs: Semantic Graphs and Property Graphs (Version {VERSION}, public review draft)',author='Dr. Mahdi Habibi',subject='RDF, OWL, SPARQL, SHACL and Neo4j/Cypher tutorial',pageCompression=1)
+        doc.record=[];doc.build(story,canvasmaker=partial(canvas.Canvas,invariant=1))
         records=doc.section_record
     (OUT/'page-map.json').write_text(json.dumps(records,indent=2))
+    inputs=['book/manuscript.md','scripts/build_pdf.py','VERSION',*['assets/fonts/'+p.name for p in sorted(FONT_DIR.glob('*.ttf'))]]
+    metadata={'inputs':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},'pdf_sha256':hashlib.sha256((OUT/'knowledge-graphs-tutorial.pdf').read_bytes()).hexdigest(),'page_map_sha256':hashlib.sha256((OUT/'page-map.json').read_bytes()).hexdigest()}
+    metadata['environment']={'python':platform.python_version(),'platform':platform.platform(),'zlib_compile':zlib.ZLIB_VERSION,'zlib_runtime':zlib.ZLIB_RUNTIME_VERSION,'reportlab':package_version('reportlab'),'source_date_epoch':os.environ['SOURCE_DATE_EPOCH']}
+    (OUT/'build-inputs.json').write_text(json.dumps(metadata,indent=2)+'\n')
     reader=PdfReader(OUT/'knowledge-graphs-tutorial.pdf')
     print(json.dumps({'pages':len(reader.pages),'sections':len(sections),'bytes':(OUT/'knowledge-graphs-tutorial.pdf').stat().st_size,'section_pages':[(r[0],r[1]) for r in records]},indent=2))
 if __name__=='__main__':build()

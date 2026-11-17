@@ -1,5 +1,0 @@
-PREFIX ex: <https://example.org/>
-SELECT ?id WHERE {
-  ?c a ex:Course ; ex:id ?id ; ex:durationMinutes ?minutes .
-  FILTER(?minutes <= 75)
-} ORDER BY ?id

@@ -11,10 +11,20 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -r requirements-build.txt -r lab/requirements.txt
-      - run: python lab/check_rdf.py
+      - name: Validate committed release artifacts
+        run: python scripts/check_package.py
+      - name: Capture committed text and navigation
+        run: python scripts/check_rebuild.py capture --out "$RUNNER_TEMP/kg-committed-document.json"
       - run: python scripts/build_pdf.py
       - run: python scripts/export_web.py
+      - name: Compare rebuilt text and navigation
+        run: python scripts/check_rebuild.py compare --baseline "$RUNNER_TEMP/kg-committed-document.json" --out "$RUNNER_TEMP/kg-rebuild-comparison.json"
       - run: python scripts/check_package.py
+      - run: python lab/check_rdf.py
+      - name: Check deliberate document, extension and metadata defects
+        run: python scripts/verify_release_validation.py --out "$RUNNER_TEMP/kg-release-probes"
+      - name: Check rebuild comparison controls
+        run: python scripts/verify_rebuild.py --out "$RUNNER_TEMP/kg-rebuild-probes"
   cypher:
     runs-on: ubuntu-latest
     steps:

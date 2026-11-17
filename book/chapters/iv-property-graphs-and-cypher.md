@@ -1,5 +1,7 @@
 # IV · Property graphs and Cypher
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 4.1 Labeled property graphs from first principles
 
 > **Learning goals for this part:** Represent the same catalog as labeled nodes and relationships; read Cypher patterns; reproduce equivalent policy results; identify what constraints do not enforce.
@@ -204,12 +206,12 @@ Choose starting nodes through selective keys. Bound depth, result size, and exec
 
 ## 4.6 The equivalent recommendation in Cypher
 
-We have the property-graph facts and the Cypher building blocks needed to answer Maya's question. The following query implements the same policy as the earlier SPARQL query on catalogs satisfying the stated cross-model data contract. Its expected answer is still c2, allowing us to compare meaning rather than syntax alone.
+We have the property-graph facts and the Cypher building blocks needed to answer Maya's question. The following query implements the same policy as the earlier SPARQL query on catalogs that satisfy the alignment contract stated in Section 10.3. Its expected answer is still c2, allowing us to compare meaning rather than syntax alone.
 
-### Apply the policy under an explicit data contract
+### Apply the policy under explicit data rules
 The baseline uses LIKES_TOPIC, ABOUT, COMPLETED, and REQUIRES relationships. The query first anchors on Maya as a Person and finds a shared topic. It requires a course id and title for display, then applies the three eligibility conditions: topic fit, no recorded completion, and no unmet recorded prerequisite. The learner and display checks are data-contract checks, not new ranking rules.
 
-**Baseline query — the same eligibility policy, expressed in Cypher.** The outer pattern finds Maya through her Person label and id, then courses sharing a liked topic. The first WHERE line requires non-null course id and title. The two absence conditions remove completed courses and candidates with an unmet recorded prerequisite. Read those checks in code order before comparing the contract below.
+**Baseline query — the same eligibility policy, expressed in Cypher.** The outer pattern finds Maya through her Person label and id, then courses sharing a liked topic. The first WHERE line requires non-null course id and title. The two absence conditions remove completed courses and candidates with an unmet recorded prerequisite. Read those checks in code order before comparing the data rules below.
 
 ```cypher
 MATCH (m:Person {id: 'maya'})-[:LIKES_TOPIC]->(t)
@@ -231,16 +233,20 @@ ORDER BY id;
 Expected result: c2 / Graph Search. `EXISTS` subqueries ask whether a matching pattern exists, using variables from the surrounding query. Negating the outer prerequisite existence test excludes courses for which at least one unsatisfied requirement can be found.
 
 ### Compare meaning before comparing syntax
-**When are the two queries equivalent?** Both return c2 on the baseline. Other catalogs must follow the same **data contract**, a stated set of identity, category, and field rules:
-- Each Course has exactly one id and title, both plain strings, and matching course identity across representations.
-- Every prerequisite target is a Course.
-- The learner is explicitly recorded as Person in RDF and labeled Person in the LPG, with a defined mapping between the learner IRI and the label-scoped Person.id key.
+**When are the two queries equivalent?** Both return c2 on the baseline. Distinguish **single-representation intake rules** from **paired correspondence checks**:
+- The RDF shapes require exactly one plain-string id and title for each targeted Course, Course membership for prerequisite targets, and Person membership for targeted learners.
+- The baseline LPG loader creates the intended labels and scalar fields. Community uniqueness constraints enforce the declared label-scoped id uniqueness; the remaining intake conditions need separate pipeline checks.
+- A paired comparison additionally needs matching course identities and a defined correspondence between the learner IRI and the label-scoped Person.id key. Neither a single-side loader nor SHACL alone checks that cross-model correspondence; Section 10.3's alignment contract and Section 10.4's broader fixture comparison make it explicit.
 
-The lab's SHACL shapes check field counts, datatypes, prerequisite classes, and learner membership. Cross-record uniqueness and cycles need separate checks. Neo4j Community enforces the declared label-scoped id uniqueness constraints; the intake pipeline must check the other contract rules. Person.id also permits an indexed learner lookup; ids do not have to be globally unique across unrelated labels.
+These baseline rules alone are not a sufficient equivalence contract. Section 10.3 states the scoped alignment condition: identities, memberships and relationships correspond in both directions, with a consistent learner anchor, snapshot, inference and output mapping. It also explains why matching missing fields or missing learner membership can still produce equal answers even when intake rules fail.
+
+The lab's SHACL shapes check field counts, datatypes, prerequisite classes, and learner membership. Cross-record uniqueness and cycles need separate checks. Neo4j Community enforces the declared label-scoped id uniqueness constraints; the intake pipeline must check the other data rules. Person.id also permits an indexed learner lookup; ids do not have to be globally unique across unrelated labels.
 
 Two details align malformed-record behavior. Mandatory SPARQL id/title patterns omit a course missing either value; Cypher's IS NOT NULL guards do the same. Both queries inspect every prerequisite target, including a malformed untyped target, rather than silently ignoring a requirement with the wrong category.
 
-The topic match deliberately has no Topic type/label condition in either query. LearnerShape accepts subclass membership when the required subclass triples are present, but the raw queries require explicit Person membership. If inferred memberships are intended, make them available consistently before querying. One distinction remains outside the contract: two RDF titles produce two projected rows, whereas one LPG title property is a single value, possibly a list. Equivalent baseline results are not a guarantee of equivalence for arbitrary malformed data.
+As in Section 3.5, c2 is eligible under the recorded catalog policy; personal suitability has not been assessed. The Cypher result supplies no additional evidence about Maya's current circumstances.
+
+The topic match deliberately has no Topic type/label condition in either query. LearnerShape accepts subclass membership when the required subclass triples are present, but a positive recommendation from the raw queries requires Person membership in their query-visible data. If inferred memberships are intended, make them available consistently before querying. One distinction remains outside the Section 10.3 contract: two RDF titles produce two projected rows, whereas one LPG title property is a single value, possibly a list. Equivalent baseline results are not a guarantee of equivalence for arbitrary malformed data.
 
 Both versions depend on completion-data completeness and a reviewed prerequisite snapshot. Neither proves a person lacks an unrecorded real-world qualification. Both can return duplicate candidate rows before DISTINCT if multiple liked topics match one course. Both need additional policy for retired courses, course editions, evidence freshness, and access restrictions.
 
@@ -316,7 +322,7 @@ ORDER BY courses DESC, topic;
 ```
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 4, 6, 10, 13, 15, 18, 20, 23. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 4, 6, 10, 13, 15, 18, 20, 23, 25. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This review follows the chapter from the property-graph model through Cypher queries to safe updates. Use the unchanged catalog unless a question explicitly introduces a variation. First predict the result or explain the rule in your own words, then compare your reasoning with the answer. Where the question revisits SPARQL, compare the intended meaning before comparing syntax.
 
@@ -422,5 +428,8 @@ This review follows the chapter from the property-graph model through Cypher que
 
 **Answer:** Preserve the intended learner–course facts, stable event identities, and any supported evidence and timestamps. Backfill only what the historical records justify; keep unknown dates unknown. Verify the conversion, update readers and writers, and retire obsolete write paths deliberately. If direct edges remain as a derived projection, document how they are rebuilt, their update lag, and which event records are authoritative. The next chapter develops that event model in detail.
 
-**Ready to continue:** You should be able to read and load the baseline property graph, predict the main Cypher results, explain null and row multiplicity, and separate uniqueness, domain validity, and transaction guarantees. We now extend the domain model itself rather than merely translating the same facts between query languages.
+**Question 25: Does translating the eligibility query into Cypher establish more about Maya's suitability?**
 
+**Answer:** No. With aligned inputs, the query expresses the same recorded catalog policy. A different representation does not create missing contextual evidence. Keep the distinction between an eligible candidate, its ranking and any broader suitability assessment explicit in the interface and explanation.
+
+**Ready to continue:** You should be able to read and load the baseline property graph, predict the main Cypher results, explain null and row multiplicity, and separate uniqueness, domain validity, and transaction guarantees. We now extend the domain model itself rather than merely translating the same facts between query languages.

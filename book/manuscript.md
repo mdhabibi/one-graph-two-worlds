@@ -1,15 +1,17 @@
 # Knowledge Graphs: Semantic Graphs and Property Graphs
-Dr. Mahdi Habibi · Independent educational edition · 14 November 2026
+Dr. Mahdi Habibi · Version 0.2.0 · Public review draft
 
 === Reader guide | Edition, authorship, and review status
-### Version 0.1.1 — public review draft
-**Author: Dr. Mahdi Habibi. Prepared: 14 November 2026.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
+### Version 0.2.0 — public review draft
+**Author: Dr. Mahdi Habibi. Version 0.2.0 — public review draft.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
 
 ### Audience and promise
 The book is for a reader beginning with graph concepts who wants to understand RDF-based semantic systems and labeled property graphs, then reason about a practical architecture. It introduces concepts before syntax and uses one learning catalog throughout. Advanced chapters explain design issues and selected techniques; they are not a complete language specification or deployment manual.
 
 ### Version and citation status
-Version 0.1.1 is a corrected public review edition. It aligns the book's publication labels and companion metadata; the technical examples are unchanged from version 0.1.0. Cite the exact edition you use. Author: Mahdi Habibi. Title: Knowledge Graphs: Semantic Graphs and Property Graphs. Version: 0.1.1. Year: 2026. Edition DOI: **10.5281/zenodo.24228810** (https://doi.org/10.5281/zenodo.24228810). The companion repository is https://github.com/mdhabibi/one-graph-two-worlds.
+Version 0.2.0 extends the public review edition 0.1.1. Edition DOI: 10.5281/zenodo.24316420. Cite this version using https://doi.org/10.5281/zenodo.24316420. The new Chapter 10 material develops a conditional argument for the published recommendation queries and reports a bounded experiment. It does not change the baseline query pair or fixtures.
+
+The preceding edition is version 0.1.1, DOI 10.5281/zenodo.24228810. Its archived files remain unchanged. The repository is https://github.com/mdhabibi/one-graph-two-worlds. Independent paired reproduction of the new experiment remains open; the retained paired results were obtained in one project environment.
 
 ### Reuse and feedback
 Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.
@@ -65,7 +67,7 @@ When an exercise changes a fact, start from a fresh baseline copy unless it expl
 
 === Reader guide | Running the examples
 ### Locate the companion files
-This PDF is distributed with a companion ZIP package. Extract that ZIP and open its top-level folder. The lab is the folder named lab, beside book, scripts, publication, and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. No public download address has been assigned to this draft. If you received only the PDF, request the companion package from the author. You can still read every explanation and predict the printed results without installing software.
+The book and companion package share edition DOI https://doi.org/10.5281/zenodo.24316420. The source repository is https://github.com/mdhabibi/one-graph-two-worlds. Extract the companion ZIP and open its top-level folder, or open the repository root. The lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. You can still read every explanation and predict the printed results without installing software.
 
 The commands below go into a terminal, not into a graph query editor. Open a terminal in the extracted lab folder. On macOS, use your terminal's New Terminal at Folder action if available, or type cd followed by a space and drag the lab folder into the terminal, then press Enter. Use a fresh copy of the lab for experiments. Python 3.10 or newer is needed for the RDF route; the Neo4j route additionally needs a working Docker installation. Installation of those tools is outside this tutorial.
 
@@ -665,9 +667,11 @@ The OWL definition raises a practical question: what can we conclude when a comp
 ### Missing is not false
 The **open-world assumption** permits facts that are not recorded to be true. If no completion for Maya and c2 is recorded, OWL does not conclude that Maya did not complete c2. A **closed-world policy** treats a defined dataset as complete for a defined decision. Applications often need that policy for recommendation filtering, while retaining open-world semantics for integration. [15]
 
-The figure follows one missing completion record through two interpretations. OWL leaves the real-world completion unknown. An application policy may treat the missing record as insufficient evidence for eligibility, provided it declares that decision rule.
+The figure follows one missing completion record through two interpretations. In this example, assume a consistent ontology entails neither that completion nor its negation; its real-world status remains unresolved. An application policy may treat the missing record as insufficient evidence for eligibility, provided it declares that decision rule.
 
 @diagram world
+
+An unstated triple can nevertheless be entailed: the subclass example derives LearningResource membership without an explicit instance triple for it. “Not written” and “not entailed” are different tests. Under a consistent ontology, a proposition is unresolved when neither it nor its negation follows. Inconsistency is a separate issue, not another kind of missing field. [15]
 
 ### Different names need not mean different things
 OWL does not generally assume that different IRIs identify different individuals. This is the absence of a universal **unique-name assumption**. Explicit inequality can distinguish individuals. Conversely, `owl:sameAs` asserts identity: it is much stronger than “similar,” “same title,” or “probably a duplicate.” [15]
@@ -717,6 +721,18 @@ A **description logic** is a family of formal languages for describing classes a
 
 ### Select reasoning by a measurable need
 For the catalog, simple subclass inference may be enough. Use an explicit eligibility query for a policy that depends on a complete prerequisite snapshot. Choose richer reasoning only if a required question depends on those semantics. Record the reasoner version, supported profile, ontology version, and whether results include asserted facts, inferred facts, or both.
+
+### When does reasoning earn its cost?
+Start with an observable competency question. “Which courses are LearningResources?” can follow from the RDFS subclass statement already shown; it does not by itself require OWL. The Graduate example instead uses an equivalent class, intersection and existential restriction. If those formal consequences are required across varying inputs, select an implementation supporting the needed constructs and reasoning tasks. A query can reproduce selected examples without implementing the ontology's semantics for every possible input. [11, 14]
+
+Use this checklist before adding a reasoner:
+1. Specify the required answers, negative controls and consistency assumptions.
+2. Ask whether RDFS, explicit queries or application rules suffice for the stated requirement.
+3. Check the actual ontology constructs against a supported profile and engine; do not assume full OWL 2 DL is always necessary. [17]
+4. Compare candidates with the same required answers and representative query/update workload. Measure query latency, update and retraction/rebuild cost, memory or storage, and maintenance effort.
+5. Record mandatory requirements, observed costs, reuse value, uncertainty and conditions for revisiting the decision. Section 6.3 separates hard gates from preferences.
+
+No universal break-even threshold or reasoning benchmark is established here. The existing lab's RDFS case and separate Graduate DL checks illustrate different semantic needs; their correctness results are not a performance comparison. Use extensions/reasoning-decision/README.md as a worksheet for a real workload before claiming that OWL's benefits justify its overhead.
 
 === II · RDF and semantic graphs | SHACL validates a chosen data graph
 Reasoning tells us what follows from our definitions. The catalog has another need: reject or report a course record that lacks a usable title or duration. We now introduce SHACL for that acceptance check, using the baseline Course records as the data to inspect.
@@ -779,6 +795,19 @@ Imagine c2 has a title but no duration. An ontology can still consistently descr
 | Database constraint | Is this write allowed by enforced storage rules? | Duplicate unique key rejects a transaction |
 | Application policy | Is this action allowed in this context? | Recommend only courses with satisfied prerequisites |
 
+### Missing does not automatically mean invalid
+Hold c2 fixed as a Course with no recorded duration. The shape and target determine the check:
+
+| Selected check | Result in this isolated case |
+|---|---|
+| c2 targeted; duration has minCount 1 | Missing-value violation |
+| c2 targeted; duration has only datatype integer | No value node violates that component |
+| Only Person instances targeted; c2 has only Course type | c2 is not a focus node |
+
+Passing the datatype-only case does not establish conformance to other shapes or factual accuracy. Inspect targets as well as constraints. Inference may be materialized before validation; record preprocessing and the graph actually checked rather than assuming inference and validation always see identical facts. [5]
+
+Run python extensions/missing-data/check_missing_data.py from the package root after installing its requirements. The isolated exercise executes these SHACL variations, checks a wrong-datatype control, and demonstrates an RDFS-entailed type absent from the original graph. It does not execute full OWL DL reasoning. Inference and validation are complementary responsibilities, not logical opposites.
+
 ### Cardinality can mean different things
 An OWL minimum-cardinality restriction expresses that sufficiently many values exist in the interpretation; it is not a requirement that all those values appear as explicit submitted fields. A SHACL minimum count inspects values in the selected data graph under the validation configuration. A database property existence constraint acts on writes to the database. Similar words do not imply interchangeable behavior. [5, 14, 15]
 
@@ -793,7 +822,7 @@ A **closed shape**, using `sh:closed`, can restrict which properties are permitt
 We have separated facts, logical meaning, and data acceptance. Next we query the baseline facts with SPARQL; the queries will state when they rely on recorded data rather than inferred or globally complete knowledge.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 3, 7, 8, 10, 12, 16, 17, 20. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 3, 7, 8, 10, 12, 16, 17, 20, 21, 22. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This review follows the chapter's sequence: first read RDF statements, then distinguish definitions and their consequences from checks on submitted data. Use the unchanged catalog unless a question explicitly introduces a variation. Try explaining each answer before reading the explanation; you do not need SPARQL syntax yet.
 
@@ -882,7 +911,16 @@ This review follows the chapter's sequence: first read RDF statements, then dist
 
 **Answer:** Logical consistency alone is insufficient for acceptance. Parse the submitted RDF, validate the candidate graph with the declared shape version, and record the missing-duration violation. Under a policy that requires a conforming record before publication, hold the record for correction and rerun the checks after repair. A later passing shape establishes conformance to those rules, not that the duration is factually accurate. Preserve the data snapshot, validation configuration, and reports, and run the relevant consistency and competency checks before publication.
 
-**Ready to continue:** You should be able to read a small RDF fragment, predict a simple RDFS consequence, explain why missing facts remain unknown in OWL, and choose a shape for a required submitted field. The next part introduces SPARQL to ask precise questions about the catalog; it will distinguish explicit data from any configured inferences.
+### Review 5 · Choose the right test
+**Question 21: Is a missing duration always a SHACL violation, and is every unstated triple unresolved under OWL?**
+
+**Answer:** No. A targeted minimum count can require duration; datatype alone does not require a value, and targeting must include the node. An unstated triple may be entailed. In a consistent ontology, unresolved means neither the proposition nor its negation follows. Inspect the selected graph, constraints and reasoning configuration.
+
+**Question 22: Does the Course-to-LearningResource hierarchy alone justify adopting an OWL DL reasoner?**
+
+**Answer:** No. RDFS already supports the shown subclass entailment. Name a required competency question and identify the constructs and tasks needed. Then compare semantically adequate candidates against representative query and update costs, including maintenance. The Graduate definition motivates a richer semantic requirement, but these teaching fixtures supply no universal performance threshold.
+
+**Ready to continue:** You should be able to read a small RDF fragment, predict a simple RDFS consequence, distinguish unstated, entailed and unresolved facts, and choose a shape for a required submitted field. The next part introduces SPARQL to ask precise questions about the catalog; it will distinguish explicit data from any configured inferences.
 
 === III · Querying RDF | SPARQL patterns and variable bindings
 > **Learning goals for this part:** Trace variable bindings, optional matches, paths, and duplicate rows; reproduce the baseline outputs; explain the completeness assumptions behind eligibility.
@@ -1086,8 +1124,17 @@ Expected result: `c2 / Graph Search`. The first NOT EXISTS excludes c1. The nest
 
 A course with no recorded prerequisites passes the final test. This is **vacuous truth**: there is no prerequisite counterexample. If “unknown prerequisites” must be treated differently from “none required,” add an explicit review or completeness field and filter on it.
 
+### Eligibility is not personal suitability
+Returning c2 means it satisfies the example's recorded topic, completion and prerequisite rules. It does not establish that Graph Search fits Maya's current goals, available time or circumstances. Two learners with identical query-visible records can differ in relevant conditions the graph does not contain. A relevance score or a valid path does not fill that evidence gap.
+
+An application making a suitability claim must define the additional criteria with the relevant domain owners and learners, collect appropriate evidence, and evaluate the assessment beyond reproducing its own rules. Evidence can be stored in either graph model; its credibility and independence concern how it was obtained and assessed. Self-reported availability can be useful context without being an independently validated assessment. This tutorial establishes no universal suitability test.
+
+When required evidence is absent, report “eligible under the recorded catalog policy; suitability not assessed.” Withhold the unsupported claim, not necessarily every helpful candidate suggestion. Ask for the missing context when appropriate. Missing evidence is not a finding that the course is unsuitable. Chapter 8 carries this boundary into generated explanations.
+
 ### Beyond a binary decision
 A **ranking function** assigns scores to candidates. Keep eligibility separate from ranking. The example uses eligibility rules only; it does not learn user preference or optimize a statistical model. A production recommender might rank eligible courses by topic fit, recency, course quality, and diversity, then log the reason and evidence used for each recommendation.
+
+The precise cross-representation alignment contract is developed in Section 10.3; baseline agreement alone is not a general equivalence guarantee.
 
 === III · Querying RDF | Named graphs, updates, and federation
 So far, each query read one local baseline graph. We now step outside that exercise to show how a larger RDF service can separate source contexts, publish changes, and consult another endpoint. The following named-graph examples need additional dataset setup and are not baseline queries.
@@ -1176,7 +1223,7 @@ ORDER BY DESC(?courses) ?topic
 ```
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 6, 8, 10, 15–17, 23. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 6, 8, 10, 15–17, 23, 24. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This review follows the query chapter from matching facts to making a policy decision. Unless a question explicitly introduces a variation, use the unchanged baseline: c1 and c2 are about Graphs, c3 is about Data, c4 is about Ethics, and Maya likes Graphs and has completed c1. c2 and c3 each require c1. Predict the result before reading the explanation. The questions use patterns already introduced; they do not require a new dataset or service.
 
@@ -1277,6 +1324,11 @@ This review follows the query chapter from matching facts to making a policy dec
 **Question 23: In an isolated variation, c2 also gains the Data topic and a new unmet prerequisite c3. Maya's interests and completions stay unchanged. What should the two relevant queries return?**
 
 **Answer:** The Graphs-or-Data query without DISTINCT produces c1 once, c2 twice, and c3 once; selecting DISTINCT ids reduces that to c1, c2, and c3. The full recommendation query returns no eligible course for Maya: c2 is still a topic match but now has the unmet prerequisite c3, c1 is already completed, and c3 and c4 still do not match her interest. One variation affects row multiplicity and another affects eligibility. Restore the baseline after the exercise so later examples keep their stated expected answers.
+
+### Review 6 · Limit the claim to the evidence
+**Question 24: Can two learners receive the same policy result while differing in personal suitability?**
+
+**Answer:** Yes. The query can see identical relevant records while goals, available time or circumstances differ. Its answer establishes only satisfaction of the stated policy under its data assumptions. Define and evaluate the additional criteria before claiming suitability. If the required evidence is absent, label suitability as not assessed; that does not imply either suitability or unsuitability.
 
 **Ready to continue:** You should be able to trace shared variables, predict optional and duplicate results, distinguish a returned graph from an update, and explain a recommendation through its recorded evidence and policy assumptions. The next part rebuilds the same baseline in Neo4j and Cypher; a change of representation does not change Maya's starting facts.
 
@@ -1478,12 +1530,12 @@ A **cycle** returns to an earlier node. A **self-loop** connects a node to itsel
 Choose starting nodes through selective keys. Bound depth, result size, and execution time. Test high-degree nodes, not just the tiny catalog. An unbounded traversal can expand rapidly even when the final result is small. Prefer current release documentation when adopting newer path syntax or match modes.
 
 === IV · Property graphs and Cypher | The equivalent recommendation in Cypher
-We have the property-graph facts and the Cypher building blocks needed to answer Maya's question. The following query implements the same policy as the earlier SPARQL query on catalogs satisfying the stated cross-model data contract. Its expected answer is still c2, allowing us to compare meaning rather than syntax alone.
+We have the property-graph facts and the Cypher building blocks needed to answer Maya's question. The following query implements the same policy as the earlier SPARQL query on catalogs that satisfy the alignment contract stated in Section 10.3. Its expected answer is still c2, allowing us to compare meaning rather than syntax alone.
 
-### Apply the policy under an explicit data contract
+### Apply the policy under explicit data rules
 The baseline uses LIKES_TOPIC, ABOUT, COMPLETED, and REQUIRES relationships. The query first anchors on Maya as a Person and finds a shared topic. It requires a course id and title for display, then applies the three eligibility conditions: topic fit, no recorded completion, and no unmet recorded prerequisite. The learner and display checks are data-contract checks, not new ranking rules.
 
-**Baseline query — the same eligibility policy, expressed in Cypher.** The outer pattern finds Maya through her Person label and id, then courses sharing a liked topic. The first WHERE line requires non-null course id and title. The two absence conditions remove completed courses and candidates with an unmet recorded prerequisite. Read those checks in code order before comparing the contract below.
+**Baseline query — the same eligibility policy, expressed in Cypher.** The outer pattern finds Maya through her Person label and id, then courses sharing a liked topic. The first WHERE line requires non-null course id and title. The two absence conditions remove completed courses and candidates with an unmet recorded prerequisite. Read those checks in code order before comparing the data rules below.
 
 ```cypher
 MATCH (m:Person {id: 'maya'})-[:LIKES_TOPIC]->(t)
@@ -1505,16 +1557,20 @@ ORDER BY id;
 Expected result: c2 / Graph Search. `EXISTS` subqueries ask whether a matching pattern exists, using variables from the surrounding query. Negating the outer prerequisite existence test excludes courses for which at least one unsatisfied requirement can be found.
 
 ### Compare meaning before comparing syntax
-**When are the two queries equivalent?** Both return c2 on the baseline. Other catalogs must follow the same **data contract**, a stated set of identity, category, and field rules:
-- Each Course has exactly one id and title, both plain strings, and matching course identity across representations.
-- Every prerequisite target is a Course.
-- The learner is explicitly recorded as Person in RDF and labeled Person in the LPG, with a defined mapping between the learner IRI and the label-scoped Person.id key.
+**When are the two queries equivalent?** Both return c2 on the baseline. Distinguish **single-representation intake rules** from **paired correspondence checks**:
+- The RDF shapes require exactly one plain-string id and title for each targeted Course, Course membership for prerequisite targets, and Person membership for targeted learners.
+- The baseline LPG loader creates the intended labels and scalar fields. Community uniqueness constraints enforce the declared label-scoped id uniqueness; the remaining intake conditions need separate pipeline checks.
+- A paired comparison additionally needs matching course identities and a defined correspondence between the learner IRI and the label-scoped Person.id key. Neither a single-side loader nor SHACL alone checks that cross-model correspondence; Section 10.3's alignment contract and Section 10.4's broader fixture comparison make it explicit.
 
-The lab's SHACL shapes check field counts, datatypes, prerequisite classes, and learner membership. Cross-record uniqueness and cycles need separate checks. Neo4j Community enforces the declared label-scoped id uniqueness constraints; the intake pipeline must check the other contract rules. Person.id also permits an indexed learner lookup; ids do not have to be globally unique across unrelated labels.
+These baseline rules alone are not a sufficient equivalence contract. Section 10.3 states the scoped alignment condition: identities, memberships and relationships correspond in both directions, with a consistent learner anchor, snapshot, inference and output mapping. It also explains why matching missing fields or missing learner membership can still produce equal answers even when intake rules fail.
+
+The lab's SHACL shapes check field counts, datatypes, prerequisite classes, and learner membership. Cross-record uniqueness and cycles need separate checks. Neo4j Community enforces the declared label-scoped id uniqueness constraints; the intake pipeline must check the other data rules. Person.id also permits an indexed learner lookup; ids do not have to be globally unique across unrelated labels.
 
 Two details align malformed-record behavior. Mandatory SPARQL id/title patterns omit a course missing either value; Cypher's IS NOT NULL guards do the same. Both queries inspect every prerequisite target, including a malformed untyped target, rather than silently ignoring a requirement with the wrong category.
 
-The topic match deliberately has no Topic type/label condition in either query. LearnerShape accepts subclass membership when the required subclass triples are present, but the raw queries require explicit Person membership. If inferred memberships are intended, make them available consistently before querying. One distinction remains outside the contract: two RDF titles produce two projected rows, whereas one LPG title property is a single value, possibly a list. Equivalent baseline results are not a guarantee of equivalence for arbitrary malformed data.
+As in Section 3.5, c2 is eligible under the recorded catalog policy; personal suitability has not been assessed. The Cypher result supplies no additional evidence about Maya's current circumstances.
+
+The topic match deliberately has no Topic type/label condition in either query. LearnerShape accepts subclass membership when the required subclass triples are present, but a positive recommendation from the raw queries requires Person membership in their query-visible data. If inferred memberships are intended, make them available consistently before querying. One distinction remains outside the Section 10.3 contract: two RDF titles produce two projected rows, whereas one LPG title property is a single value, possibly a list. Equivalent baseline results are not a guarantee of equivalence for arbitrary malformed data.
 
 Both versions depend on completion-data completeness and a reviewed prerequisite snapshot. Neither proves a person lacks an unrecorded real-world qualification. Both can return duplicate candidate rows before DISTINCT if multiple liked topics match one course. Both need additional policy for retired courses, course editions, evidence freshness, and access restrictions.
 
@@ -1589,7 +1645,7 @@ ORDER BY courses DESC, topic;
 ```
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 4, 6, 10, 13, 15, 18, 20, 23. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 4, 6, 10, 13, 15, 18, 20, 23, 25. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This review follows the chapter from the property-graph model through Cypher queries to safe updates. Use the unchanged catalog unless a question explicitly introduces a variation. First predict the result or explain the rule in your own words, then compare your reasoning with the answer. Where the question revisits SPARQL, compare the intended meaning before comparing syntax.
 
@@ -1695,10 +1751,14 @@ This review follows the chapter from the property-graph model through Cypher que
 
 **Answer:** Preserve the intended learner–course facts, stable event identities, and any supported evidence and timestamps. Backfill only what the historical records justify; keep unknown dates unknown. Verify the conversion, update readers and writers, and retire obsolete write paths deliberately. If direct edges remain as a derived projection, document how they are rebuilt, their update lag, and which event records are authoritative. The next chapter develops that event model in detail.
 
+**Question 25: Does translating the eligibility query into Cypher establish more about Maya's suitability?**
+
+**Answer:** No. With aligned inputs, the query expresses the same recorded catalog policy. A different representation does not create missing contextual evidence. Keep the distinction between an eligible candidate, its ranking and any broader suitability assessment explicit in the interface and explanation.
+
 **Ready to continue:** You should be able to read and load the baseline property graph, predict the main Cypher results, explain null and row multiplicity, and separate uniqueness, domain validity, and transaction guarantees. We now extend the domain model itself rather than merely translating the same facts between query languages.
 
 === V · Modeling and interoperability | Model events when relationships have a lifecycle
-> **Learning goals for this part:** Choose direct relationships versus identified events; retain evidence and context; describe what a mapping must preserve and who owns each authoritative fact.
+> **Learning goals for this part:** Choose direct relationships versus identified events; retain evidence and context; describe what a mapping must preserve, decide where a meaning change belongs, and identify who owns each authoritative fact.
 
 Until now, “Maya completed c1” was a single direct link. We now deliberately extend the model because we want a score, a time, and evidence for that particular occurrence. The new event e1 and document d1 are additional records; they were not hidden in the baseline.
 
@@ -1777,7 +1837,26 @@ Returning to the new e1 record, consider the claim “Maya completed c1.” To m
 
 An LPG relationship can carry a source ID and timestamp directly. If several sources support the same relationship, represent support separately instead of overwriting one source property with the latest observation.
 
-=== V · Modeling and interoperability | Ontology design as an iterative discipline
+### From extracted mentions to stable identities
+Now imagine two provider PDFs mention Graph Basics. In document doc-a version 1, the text explicitly defines “GB” as Graph Basics and identifies provider A's 2026 edition. Document doc-b version 1 uses the same title for provider B's 2027 edition. These are invented source records for an isolated identity exercise, not extra baseline courses.
+
+| Artifact | Example | What it establishes |
+|---|---|---|
+| Mention | ma1, doc-a v1, page and text span | Where a name occurred |
+| Contextual alias | GB defined in doc-a | A local name-resolution hypothesis |
+| Canonical entity | Provider A / Graph Basics / edition 2026 | The reviewed identity boundary |
+| Extracted relation | A candidate requires edge with its sentence | A claim needing mapping and review |
+| Evidence record | Original document version and locator | Traceability after linking |
+
+Within one document, duplicate extraction spans can be deduplicated, and an explicitly defined alias can help resolve a mention. **Coreference** asks whether expressions refer to the same thing in context. A short name alone is insufficient: “Jackson” need not identify the same individual everywhere. Across documents, link to canonical individual identifiers using reviewed identity rules; a vocabulary of classes and predicates is not necessarily a registry of individuals.
+
+In this example, GB and Graph Basics may link to provider A's same edition when the document's identity evidence supports it. The title match in doc-b must not merge provider B's different edition. If the provider or edition cannot be established, retain the local mention ID and an unresolved status. An unsupported merge is not repaired by assigning a high extraction score. The companion exercise in extensions/identity-evidence retains the two source/version locators while checking these contrasting cases.
+
+Asking an extractor for the label `requires` can guide candidate outputs, but does not establish the correct predicate IRI, direction, course identity, units, datatype or shape conformance. Review those mappings separately. Keep extraction confidence, identity-resolution status, mapping status and claim review status distinct. A successfully mapped IRI can still express a false claim.
+
+After linking, retain each original claim and its evidence rather than overwriting the source with the canonical ID. Repeated sentences, duplicated PDFs and several extraction runs are not automatically independent corroboration. A support count describes recorded support events under a deduplication policy; it is not a truth probability. Chapter 8 uses these distinctions in the construction pipeline.
+
+=== V · Modeling and interoperability | Ontology design and semantic evolution
 Earlier sections introduced ontology constructs one at a time. We now put them into a design workflow: start with the catalog's questions, settle the meaning of Course and Completion, and choose only the rules that serve those questions. This section describes a process rather than new baseline data.
 
 ### A minimal engineering cycle
@@ -1789,6 +1868,33 @@ Choose whether “Course” means an abstract subject, a published edition, or a
 Write natural-language definitions first. Then decide which belong in an ontology, which in SHACL, and which in application policy. “Every completion has one recorded learner” is a useful input constraint. “A completion is an educational event” is a classification commitment. “A learner can access the next course only after a passing score” is an operational policy requiring context.
 
 Use a **namespace**, a controlled identifier space, to publish terms. Write human-readable labels and comments. A **deprecation** marks a term as discouraged without deleting its historical meaning. A **version IRI** can identify a specific ontology release. An **import** brings another ontology into scope; review imported commitments because they can change entailments. [14]
+
+### Decide which artifact changed
+A warehouse schema can describe types, relationships and constraints, not just column names. An ontology makes domain concepts and relations explicit and, in OWL, states formal axioms. Neither makes an agent understand the business automatically. When definitions change, first ask whether the change concerns representation, domain meaning, acceptance or a decision rule.
+
+| Change | Primary artifact to review | Check before adopting it |
+|---|---|---|
+| learner_id becomes student_key, with the same identity domain | Source mapping | Preserve identities, joins and expected answers |
+| Completed changes from attended to passed assessment | Vocabulary/model and dependent mappings | Separate meanings; preserve the interpretation of old records |
+| A recorded score becomes mandatory | Validation contract or shapes | Test missing values and decide when enforcement runs |
+| Passing threshold rises from 60 to 70 percent | Application policy | Record effective dates and replay boundary cases |
+| Regional definitions are both legitimate | Contextual model and policies | Preserve region and policy context rather than overwrite a universal label |
+
+This is an engineering decision guide, not a versioning policy mandated by OWL. One change can affect several rows: a new completion definition can require a new mapping, validation rules, queries and explanatory text as well as model changes.
+
+### Work through three catalog changes
+**First, rename a source field.** A provider replaces learner_id with student_key. Domain owners confirm both identify the same learner in the same identifier scope. Publish a new mapping version while retaining the old mapping for the old source snapshot. Compare stable learner and course identities and the resulting facts. A rename alone does not require a new ontology release. If the new key identifies an enrollment rather than a person, this is no longer a meaning-preserving rename.
+
+**Next, change what completed means.** The old provider used a Boolean for attendance; the new provider uses it for passing an assessment. Both values may be true, but they assert different things. Preserve the source definition and version. Model attendance and assessment outcomes separately, or record an explicitly qualified event interpretation, after domain review. Do not retroactively relabel historical attendance as passing. New terms and deprecation may be appropriate for incompatible meanings; not every compatible ontology edit requires new term IRIs.
+
+**Finally, change the passing rule.** In an isolated extension, Maya has a recorded assessment score of 65 percent. Policy p60 accepts scores of at least 60; policy p70 accepts scores of at least 70. If p70 takes effect on 1 November 2026 and the chosen rule uses decision time, a decision on 31 October passes and one on 1 November does not. The score fact stays 65. Preserve which policy was selected and which time basis selected it. A different organization may use assessment time or grandfather earlier attempts; that is a policy decision to state explicitly. These invented assessment facts do not alter the baseline completion of c1.
+
+### Preserve a reproducible release combination
+An ontology IRI can identify an ontology series, while a version IRI identifies a particular version. Pin dependencies to specific versions when reproducibility requires them, and retain retrievable historical documents. Changing the document available at a stable ontology IRI does not rewrite every term IRI, and a compatibility annotation is not a proof that all dependent queries remain correct. OWL defines identification and versioning mechanisms; teams must still establish their compatibility checks. [14]
+
+For each published dataset or decision, retain a compatible combination of source snapshot, mapping version, ontology version, validation version and policy version, plus the selected inference configuration. A **migration** is the controlled transition between representations or versions. Its acceptance checks should cover affected identities, classifications, shape results, query answers and historical replay. Rebuild projections and refresh retrieval indexes where their inputs or meanings changed. Section 5.5 explains projection ownership; Section 7.4 connects these versions to decision records.
+
+**Try the isolated extension.** From the package root, run python extensions/semantic-evolution/check_evolution.py. Read its README first. It compares two meaning-preserving source mappings, rejects an attendance-to-passing substitution, and replays a threshold change with explicit decision dates. It also exercises the threshold and effective-date boundaries and an unrecorded score. This is a small application-policy exercise, not an OWL reasoner, SHACL implementation or database migration test. The existing RDF/LPG baseline and query-equivalence evidence are unchanged.
 
 ### Review and regression
 Maintain a small set of positive examples, negative input cases, and expected query results. A **regression check** catches behavior that changed after a modification. If a subclass relationship changes, rerun classifications, shapes, and application queries that depend on it. Do not review ontology changes only as text diffs.
@@ -1840,6 +1946,8 @@ If both stores independently edit the same fact, conflict resolution becomes par
 
 A **change data capture** pipeline transfers changes from a source. **Eventual consistency** permits temporary differences while updates propagate. The application must know whether a stale completion could lead to an incorrect recommendation. Use a freshness bound or a direct authoritative check for sensitive decisions.
 
+Section 5.3 explains how to version mappings independently from ontology, validation and policy changes. Record the compatible combination used to build each projection.
+
 ### Reconcile more than counts
 Compare stable IDs, key relationship sets, deleted records, mapping versions, and expected query answers. Make projections rebuildable. Keep a last-successful watermark and a recovery procedure. Price the second store's operation, on-call responsibility, data transfer, and migration burden before selecting a hybrid design.
 
@@ -1849,7 +1957,7 @@ R2RML standardizes mappings from relational data to RDF and can support material
 The modeling options are now explicit. The next part uses those options to compare strengths and make a requirements-based choice, instead of judging either technology by its terminology alone.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 2, 6, 8, 11, 15, 19, 20, 22. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 2, 6, 8, 11, 15, 19, 20, 22, 25, 28, 29. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This chapter extended the baseline: e1 is an identified completion event and d1 is its supporting document. They are not hidden records in the original lab. The questions below move from identifying an occurrence to preserving its evidence, mapping its representation, and deciding which system owns it. Explain what must survive each change before choosing a storage pattern.
 
@@ -1955,7 +2063,29 @@ This chapter extended the baseline: e1 is an identified completion event and d1 
 
 **Answer:** No. It has collapsed occurrences, discarded independent source history, and invented event times. Matching counts cannot repair those losses. Preserve separate event identities and support records, represent unknown dates honestly, and state which current-completion links are derived under the policy. Test the reconstructed attempt history, evidence references, and relevant query answers before accepting the mapping. A summary view can intentionally omit detail only when its limited purpose is explicit and the authoritative detail remains available where required.
 
-**Ready to continue:** You should be able to distinguish an event from a claim about it, choose where evidence belongs, define a mapping's preservation contract, and assign authority and freshness responsibilities. The next part uses these modeling choices to compare complete architectures against actual requirements.
+### Review 6 · Change definitions without erasing history
+**Question 25: A learner column is renamed, a passing threshold rises, and completed changes from attended to passed. Must all three changes create a new ontology version?**
+
+**Answer:** No. A rename can be a mapping-only change if identity and meaning really remain the same. A threshold can be a versioned application policy. A changed completion meaning requires review of the vocabulary/model and its dependent mappings, validation and queries; separate terms or explicit context may be needed. Version the artifacts actually changed and record compatible combinations. A Boolean datatype or unchanged field name cannot establish semantic compatibility.
+
+**Question 26: Maya's score is 65 percent. Policy p60 applies before 1 November 2026 and p70 from that date, selected by decision time. What must historical replay return?**
+
+**Answer:** With the same recorded score, the 31 October decision passes p60 and the 1 November decision fails p70. Retain the input snapshot, evidence, policy versions, effective boundary and time-selection rule. Replaying the old decision with today's policy is a different question. If the score was never recorded, the exercise reports insufficient evidence rather than silently inventing a zero or a passing value.
+
+**Question 27: Do stable term IRIs and an ontology version annotation establish that a new release is backward compatible?**
+
+**Answer:** No. Stable identifiers and version metadata identify intended continuity and the artifacts used. They do not test whether a changed axiom alters classifications, whether a mapping merges identities, or whether a policy changes answers. Test the consequences relevant to consumers and retain old versions for historical interpretation. Freeze a compatible artifact combination for reproduction rather than treating every newest version as interchangeable.
+
+### Review 7 · Keep identity and evidence separate
+**Question 28: Two PDFs use Graph Basics, and one defines GB as its abbreviation. Which mentions can safely share an identity?**
+
+**Answer:** The explicit alias can support linking within its documented context, with evidence that both mentions identify the same provider and edition. The same title in another PDF does not establish that identity. Keep different providers or editions distinct; retain a local unresolved mention when identifying evidence is absent. Preserve document versions and locators after linking.
+
+**Question 29: Does extracting a target ontology's relation label and finding five supporting sentences establish a correct graph fact?**
+
+**Answer:** No. Confirm predicate identity and direction, argument identities and meaning, datatypes, units and applicable constraints. The sentences may repeat one source rather than provide independent support. Retain extraction, mapping, identity and review statuses separately, and evaluate the evidence rather than treating label agreement or a count as proof.
+
+**Ready to continue:** You should be able to distinguish an event from a claim about it, choose where evidence belongs, define a mapping's preservation contract, assign authority and freshness responsibilities, and distinguish mapping, ontology, validation and policy changes. The next part uses these modeling choices to compare complete architectures against actual requirements.
 
 === VI · Strengths, tradeoffs, and decisions | Comparison: model and semantics
 > **Learning goals for this part:** Compare complete candidate systems by requirement; distinguish hard requirements from weighted preferences; record an evidence-based architecture decision.
@@ -2025,6 +2155,8 @@ A **proof of concept** is a bounded experiment, not a scaled-down product launch
 
 An **architecture decision record**, or ADR, preserves context, candidates, evidence, decision, consequences, and revisit triggers. A good revisit trigger is observable: “External consumers require published SHACL shapes and stable IRIs,” or “Prerequisite query response time exceeds the service target at twice current load.” “The technology is popular” is not a sufficient decision criterion.
 
+Section 2.8 provides the reasoning-cost checklist and contrasts an RDFS hierarchy with the richer Graduate definition. Use the worksheet in extensions/reasoning-decision to record workload evidence. A required semantics capability is a hard gate; a successful small fixture is not a measured cost justification.
+
 === VI · Strengths, tradeoffs, and decisions | A worked scoring matrix and ADR
 The decision framework becomes clearer with a worked scenario. Assume one team owns the catalog and prioritizes an interactive recommendation service. We will score two hypothetical candidates, then write an architecture decision record that makes the assumptions and remaining tests visible.
 
@@ -2076,7 +2208,7 @@ Avoid claims such as “RDF cannot do recommendations,” “Neo4j has no schema
 A clear explanation is only as strong as its evidence. The next part supplies the performance, recovery, governance, and security questions needed to test the proposed architecture.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 6, 7, 10, 12, 14, 16, 17, 20. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 6, 7, 10, 12, 14, 16, 17, 20, 21. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This chapter moved from understanding the models to choosing a complete architecture. The questions below follow that decision process: identify the relevant capabilities, separate binding requirements from preferences, test candidates, and explain the result. The scoring values are teaching assumptions, not measured product ratings. Use the stated scenario rather than treating either technology as the default winner.
 
@@ -2165,6 +2297,10 @@ This chapter moved from understanding the models to choosing a complete architec
 **Question 20: The LPG candidate leads the weighted table, but a new binding requirement demands a service with specified formal ontology reasoning. What should happen next?**
 
 **Answer:** Reopen the hard-requirement assessment for complete candidate architectures. Determine exactly which semantics, interfaces, and correctness guarantees are required, then verify whether each stack, including any additional reasoning component, can provide them. Exclude candidates that cannot qualify; do not preserve the old winner merely because its total was higher. If a hybrid design is proposed, include mapping fidelity, synchronization, freshness, and operating cost in its assessment. Update the ADR with the changed requirement, evidence, and remaining tests.
+
+**Question 21: One candidate answers a small hierarchy query faster but omits a required ontology consequence. May it win the weighted score?**
+
+**Answer:** Not while that consequence is a mandatory requirement. First reject or repair candidates that fail the required answers; then compare the costs of adequate designs. Record query and update behavior, inference maintenance and operational effort. Revisit the requirement if the business accepts a different scope, rather than silently scoring an incorrect answer as a speed advantage.
 
 **Ready to continue:** You should be able to distinguish a model capability from an implemented guarantee, apply hard gates before preference scoring, explain the limits of the worked matrix, and propose evidence that could change a decision. The next part turns the operational requirements into concrete performance, recovery, governance, and security questions.
 
@@ -2259,6 +2395,8 @@ A recommendation record should identify the learner and course, input snapshot o
 **Data quality dimensions** include accuracy, completeness, consistency, timeliness, and uniqueness. They are distinct: a complete file can contain false information, and a unique record can refer to the wrong real-world course. Define metrics that reflect the decision risk rather than reporting only ingestion success.
 
 DCAT, the Data Catalog Vocabulary, can describe datasets and their distributions. A **distribution** is an accessible representation of a dataset, such as a downloadable RDF file or a response supplied through an **application programming interface (API)**, a defined way for software to request and exchange data. Catalog metadata helps discovery and governance but does not certify the truth of every statement. [29]
+
+Section 5.3 works through a source rename, a changed completion definition and a dated passing policy. Retain mapping versions as well as ontology and shape versions when reconstructing an earlier decision; a stable ontology alone does not keep the output stable.
 
 ### Deprecate with a migration path
 When replacing a term or changing prerequisite semantics, publish a replacement, explain changed meaning, set a transition window, and identify dependent queries. Keep historical versions available when needed to reproduce prior outcomes.
@@ -2383,7 +2521,7 @@ This chapter tested what a graph system needs beyond a correct small example: re
 We now add a new user interface to the catalog: a person asks a question in ordinary language and expects an evidence-backed answer. This section introduces retrieval-augmented generation, then explains where the graph can contribute to answering “What can Maya study next, and why?”
 
 ### Start with the new user need
-Until now, a fixed query has returned course records. Imagine instead that a user asks in everyday language, “Why is Graph Search a suitable next course for Maya?” The system must find both the structured eligibility facts and readable source passages, then compose an explanation supported by that evidence. This motivates the retrieval-and-generation approach introduced below.
+Until now, a fixed query has returned course records. Imagine instead that a user asks in everyday language, “Why is Graph Search an eligible next course for Maya under the catalog policy?” The system must find both the structured eligibility facts and readable source passages, then compose an explanation supported by that evidence. If the user instead asks whether it is personally suitable, the answer must identify the additional assessment evidence required rather than silently broaden the policy result. This motivates the retrieval-and-generation approach introduced below.
 
 ### Start with ordinary RAG
 **Retrieval-augmented generation**, or RAG, supplies retrieved evidence to a language model before it generates an answer. A **large language model**, LLM, predicts and generates text; it is not an authoritative database. A **chunk** is a selected span of source content. An **embedding** represents content as a numeric vector so that a similarity function can compare representations.
@@ -2409,7 +2547,7 @@ The previous section described the answering flow. Before that flow can work, so
 1. Register each source document with a stable ID, version, access policy, and publication time.
 2. Split content into chunks while preserving document IDs and span locators.
 3. Extract candidate entities and claims with evidence spans; mark extracted content as unreviewed when appropriate.
-4. Resolve entities against canonical IDs and validate claims against the domain contract.
+4. Resolve entities against canonical IDs and validate claims against the domain contract. Keep unresolved mentions local; do not force a title match into an identity merge.
 5. Store structured relationships, evidence links, and searchable text or embeddings.
 6. Publish a versioned retrieval view after quality and access checks.
 
@@ -2417,6 +2555,8 @@ The previous section described the answering flow. Before that flow can work, so
 **Information extraction** converts text into structured candidates. **Entity linking** connects a mention in text to a known entity. **Relation extraction** proposes relationships between entities. A model might confuse a course that discusses prerequisites with a course that requires another course. Retain the source sentence and allow review rather than silently treating every extracted edge as authoritative.
 
 Use a **claim node** when a statement can be disputed, time-bound, or supported by multiple documents. A claim can have a status such as candidate, reviewed, rejected, or superseded. Keep conflicting claims if provenance is important, while defining which statuses the decision engine is allowed to use.
+
+Section 5.2 distinguishes mention spans, within-document aliases, cross-document identity, predicate mapping and evidence retention. Its same-title/different-edition counterexample applies before graph expansion: an incorrect merge can retrieve a perfectly cited passage about the wrong course. Count repeated support separately from independently assessed corroboration.
 
 ### Choose a source of truth for eligibility
 The catalog's reviewed prerequisite field should control eligibility, not whichever wording ranks highest in vector search. Retrieval can help find explanations and discover candidate facts, but it must not bypass the policy. In RDF, use explicit graph scopes for reviewed assertions. In an LPG, use governed relationship sets or claim-status filters. In either case, graph access must respect the user's permissions.
@@ -2450,6 +2590,9 @@ answer(question, user_context):
 ```
 
 A **token budget** limits the amount of model input or output. A **seed entity** is a starting point for graph expansion. An **allowlist** names permitted relation types or tools. A **freshness policy** defines which versions or timestamps are acceptable. **Abstention** is an explicit choice not to answer when required evidence is missing.
+
+### Abstain from an unsupported claim
+Claim scope matters. The catalog evidence can support “c2 meets the recorded prerequisite policy” while leaving “c2 fits Maya's current demands” unassessed. Separate missing assessment evidence from evidence of a negative outcome. Define the evidence requirement and how it is evaluated before enabling the broader claim; provenance, inference and validation cannot recover a relevant observation never collected. An answer may offer the limited candidate and ask for context while declining to assert suitability.
 
 ### Trace one answer
 For this walk-through, assume that evidence document d2 has now been registered and contains a reviewed description of c2, while d1 supports completion event e1. These document records belong to the evidence extension, not the original baseline. The eligibility query returns c2. Expansion gathers its Graphs topic, its c1 prerequisite, Maya's qualifying completion event, and d2's course description. The generator receives only authorized evidence. It explains the recommendation and cites the passage supporting the course description and the record supporting completion, with appropriate user-facing locators.
@@ -2514,7 +2657,7 @@ A recommender can predict interest in c3 and still exclude it if prerequisites a
 These techniques broaden what the graph can do, but their outputs still depend on the definitions and evidence introduced earlier. The next part revisits the ideas through mistakes, controlled exercises, and contrasting project scenarios.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 2, 6, 8, 10, 11, 13, 16, 22, 23. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 2, 6, 8, 10, 11, 13, 16, 22, 23, 24, 25. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This chapter added retrieval, generation, and analytics to the catalog; it did not replace the reviewed eligibility policy. The questions follow an answer from source indexing through retrieval and verification, then distinguish learned recommendations from verified facts. Document records such as d1 and d2 belong to the evidence extension, not the original baseline. Predict what the system should do before reading each answer.
 
@@ -2616,6 +2759,15 @@ This chapter added retrieval, generation, and analytics to the catalog; it did n
 
 **Answer:** Not on that basis. The description supports course content, not prerequisite completion; the predicted edge is not a verified completion; and restricted evidence cannot be used outside its authorized scope. Evaluate the policy against the permitted reviewed data. If required evidence is insufficient, return the appropriate limited or abstaining result without revealing the restricted record. If authorized policy inputs establish an unmet prerequisite, report that outcome accurately. Fluency and high relevance scores cannot compensate for missing authority or evidence.
 
+### Review 6 · Preserve the limits of the answer
+**Question 24: May a generated explanation call c2 personally suitable merely because the catalog query returns it?**
+
+**Answer:** No. Explain the recorded eligibility result and disclose that suitability is not assessed unless the additional criteria and evidence have been defined and evaluated. Withhold the unsupported suitability claim while offering the limited candidate or requesting context. Missing evidence is not a negative suitability finding.
+
+**Question 25: Five passages have the same title and support a requires edge. What must be checked before using them?**
+
+**Answer:** Check which provider and edition each passage concerns, whether the edge direction and meaning match the intended predicate, and whether the passages share an underlying source. Preserve source versions and locators. A count does not establish independent corroboration, and a citation to a different course does not support the requested claim.
+
 **Ready to continue:** You should be able to trace a supported answer, identify where extraction and prediction remain uncertain, explain permission and freshness boundaries, and design checks for the pipeline's actual failure modes. Chapter 9 now applies these distinctions through mistakes, guided exercises, and architecture cases.
 
 === IX · Applied mastery | Common mistakes and how to repair them
@@ -2695,7 +2847,12 @@ The team wants answers from a large collection of course documents, but extracti
 We now move from reading examples to reproducing them. This section identifies the complete lab files and separates checks you can run locally from behaviors that require a configured database or reasoning engine. Begin with a clean baseline before trying any model extension.
 
 ### The companion lab
+The separate research experiment in research/ tests the query-alignment contract; Sections 10.3–10.5 explain its argument, evidence and reproduction boundaries.
+
 The downloadable lab contains the baseline RDF catalog, SHACL shapes, an OWL example, SPARQL queries, a full Cypher loader and query set, and a small RDF checker. A README lists commands and expected answers. The examples are synthetic and intended for a dedicated exercise environment.
+
+### Isolated editorial extensions
+The extensions directory contains separate exercises for semantic evolution, identity/evidence handling and missing-data validation. Their READMEs identify inputs, dependencies, expected results and limits. The reasoning-decision worksheet reuses the existing RDFS and optional DL examples without claiming a new benchmark. Run extensions separately: none modifies the baseline catalog, existing queries or retained equivalence experiment.
 
 ### RDF route
 Create a local Python environment and install the pinned dependencies listed in the lab. Run the checker to parse the graphs, execute the baseline queries, and evaluate the shapes. The checker also injects a missing-duration defect to verify that validation reports it. The basic RDF checker parses the OWL example but does not execute a DL reasoner. A separate optional checker in lab/owl_dl uses HermiT, a complete OWL 2 DL reasoner, for the Graduate definition and the contradictory-classification exercise. In the recorded run, all four input fixtures passed the OWL 2 DL profile check; Maya and Leo were classified as Graduate, the disjointness example was inconsistent, and the two counterfactual controls behaved as expected. The companion report records versions, input hashes, and limits. This is targeted verification of those examples, not a claim that every OWL example or production deployment has been tested.
@@ -2749,6 +2906,113 @@ After loading the baseline, compare your results with the table below. These val
 
 > When a requirement changes, revisit the conceptual model, acceptance rules, query semantics, and expected outputs together. A field added to storage is only one part of the change.
 
+=== X · Reproducible lab | When do the two recommendation queries mean the same thing?
+Section 4.6 introduced the baseline intake rules. This section gives a precise sufficient alignment contract and distinguishes it from those stronger intake requirements. The earlier chapters expressed one catalog policy in SPARQL and Cypher. Maya likes Graphs, has completed Graph Basics (c1), and has not completed Graph Search (c2). Course c2 concerns Graphs and requires c1. Both baseline queries return c2 / Graph Search. A matching answer is a useful starting observation, but it does not establish that two representations always mean the same thing.
+
+Suppose a loader silently omits a prerequisite, stores two titles as one list, or materializes Course membership on only one side. Both queries may still run successfully. To explain when their answers must agree, we need a representation contract and a precise policy, not just two successful executions.
+
+### State the policy before comparing syntax
+Let Liked(m) be the topics linked from learner m, About(c) a course's topics, Done(m) the completed courses and Required(c) the direct prerequisites. For a Person learner and a Course with both output fields present, the policy is:
+
+```
+Eligible(m,c) =
+    Liked(m) intersects About(c) is nonempty
+    AND c is not in Done(m)
+    AND Required(c) is a subset of Done(m)
+```
+
+The last line means every recorded direct prerequisite is completed. An empty prerequisite set satisfies this condition. A prerequisite of a prerequisite is not automatically added to Required(c). These are choices in the catalog policy, not conclusions about prerequisite completeness, personal suitability or educational outcomes.
+
+### A: align the query-relevant facts
+Call the identity correspondence phi. It must be a bijection between the selected RDF resources and their corresponding LPG nodes: distinct identities stay distinct, and no extra query-relevant LPG node is left unmatched. The selected fragment contains Maya's identity, all Person and Course instances, and the endpoints of likesTopic, about, completed and requires. The mapping in this experiment uses IRIs for those RDF identities; blank-node or literal-node encodings need a separately specified mapping.
+
+For each selected identity, Person and Course membership must match their LPG labels in both directions. For each pair of identities, each of the four mapped relationships must exist in RDF if and only if its correctly directed LPG relationship exists. Preserving existing source facts is insufficient if the destination also introduces extra candidates or edges. Parallel LPG edges reduce to one endpoint pair for this existence-based query.
+
+The LPG Person nodes with id maya must correspond exactly to Maya when RDF gives her Person membership. If that membership is absent on both sides, neither query can bind its learner and both return empty. The contract therefore does not require a valid learner record in order to explain equal exclusion.
+
+Each Course may have zero or one id and zero or one title. Any present value must be an untagged xsd:string, preserved as a scalar LPG string. Missing fields must remain missing: the RDF mandatory pattern cannot bind them, and the Cypher IS NOT NULL filters reject the candidate. Multiple titles stored as a list violate this particular projection contract. Language-tagged terms retain their language and rdf:langString datatype in evidence, but are outside this simple string mapping [1, 4, 6].
+
+Neither query requires a Topic label, Course membership on a prerequisite endpoint, or globally unique output IDs once identities and projected values are preserved. The supplied loader can still impose stronger requirements. The two systems must expose the same selected snapshot and query-visible inference. An inferred Course on one side without corresponding membership on the other breaks alignment.
+
+### Why the argument works
+A shared-topic witness exists in RDF exactly when the corresponding LPG path exists. A completed-course exclusion has the same witnesses on both sides. The nested NOT EXISTS pattern rejects a course when a direct prerequisite exists without a matching completion. Because both relationships and identities are preserved and reflected, an unmet witness exists on either side exactly when it exists on the other.
+
+A missing output field excludes the candidate on both sides. Otherwise, scalar string preservation gives the same id/title pair. DISTINCT removes repeated witnesses, yielding equal sets of output pairs. If the Person anchor is absent on both sides, both result sets are empty before these tests apply.
+
+This is a conditional argument for the exact published query pair. It is not machine-checked verification, equivalence of arbitrary SPARQL and Cypher, or a claim about every RDF/LPG encoding. Named graphs, other datatypes, aggregation, update semantics and different inference regimes need their own contracts. The complete protocol is retained in research/equivalence/PROTOCOL.md.
+
+=== X · Reproducible lab | Separate query alignment, fixture integrity and intake validation
+A query can return the same answer in two systems while both contain a record that should be rejected at intake. To avoid mixing those conclusions, the experiment records three judgments.
+
+| Judgment | What it asks | What a pass does not establish |
+|---|---|---|
+| A: query alignment | Are the query-relevant identities, memberships, edges, anchor and output fields aligned? | Complete business evidence or acceptable intake data |
+| B: fixture integrity | Do stronger fixture rules and the broader projected state agree? | General round-trip preservation of every property |
+| C: SHACL intake | Does the RDF graph satisfy the supplied shapes? | Cross-system identity reconciliation or factual truth |
+
+B includes a Person learner, exactly one string id/title per Course, unique Course IDs and Course prerequisite targets. Its state component also compares Topic, OnlineCourse and Completion membership, event edges, node presence and selected fields outside A's minimal query fragment. It is deliberately stricter than A. C separately checks the unchanged CourseShape and LearnerShape, including positive duration [5].
+
+Removing c2's title makes both recommendation queries omit it, but the record fails B and C. Removing Maya's Person membership also produces equal empty answers while failing intake. An untyped prerequisite endpoint and a missing course ID give the same distinction. Agreement is not a substitute for validation.
+
+### Retained observations
+The controlled suite uses 145 datasets: 17 curated cases and a complete 128-case bounded grid. The grid varies c2's prerequisites over subsets of {c1,c3}, Maya's completions over subsets of {c1,c2,c3}, and her interests over subsets of {graphs,data}. That is 4 x 8 x 4 combinations, with all other baseline facts fixed. A separately expressed set predicate supplies expected answers; it was developed within this same project, not by an independent team.
+
+| Observation | Retained result |
+|---|---|
+| Datasets executed by both engines | 145 |
+| Query-aligned cases, A | 143; all return equal pairs |
+| Stronger fixture integrity passes, B | 139 |
+| SHACL intake passes, C | 140 |
+| Deliberate unequal recommendation results | 2: B01 and B03 |
+| Parallel completion observations | RDF count 1; LPG count 2 |
+| Explicitly identified completion events | RDF count 2; LPG count 2 |
+
+These are counts within a constructed suite, not a statistical accuracy score. A named positive control gives c2 two prerequisites and completes both; c2 must remain eligible. This catches a faulty implementation that accepts at most one prerequisite. A grid that never includes completion of c3 would miss this positive combination.
+
+### Learn from the two disagreements
+In B01, RDF has two scalar titles for c2, while the selected LPG representation stores a list-valued title. SPARQL returns two scalar rows and Cypher returns one row containing a list. A fails because the output mapping is different. This does not mean either model cannot represent repeated or multilingual values.
+
+In B03, RDFS materialization makes c2 a Course from OnlineCourse membership on the RDF side. The LPG carries OnlineCourse but lacks Course, so Cypher excludes it. This is an inference-alignment failure, not evidence that one model is generally superior. C13 is a separate control with aligned explicit memberships; it does not test aligned inferred membership.
+
+The parallel-completion case demonstrates another boundary: the DISTINCT recommendation agrees while occurrence counts differ. Reasserting an identical RDF triple does not add a second triple; creating a parallel LPG relationship does add another relationship. Explicit Completion identities preserve the two occurrences in the isolated event repair. Query-specific equivalence does not imply equivalent event histories.
+
+### State the evidence limit accurately
+The retained run records Python 3.12.14, RDFLib 7.1.4, pySHACL 0.30.1, owlrl 7.1.4 and Neo4j Community 5.26.30, with input hashes, raw output, image identity and per-case state projections. Its paired results were obtained in one project environment. Independent paired reproduction remains open. Multiple local reruns do not constitute a second environment or human peer review.
+
+The claim is that all 145 cases matched their expected observations, including two disagreements; it is not that the queries returned equal answers on all 145. No timings, maintenance-cost measurements, GraphRAG answer-quality results or personal-fit validation are established by this experiment.
+
+=== X · Reproducible lab | Reproduce and challenge the equivalence experiment
+The research directory contains a separate, inspectable experiment. Its six baseline source files are unchanged copies of the published 0.1.1 lab. Read research/equivalence/README.md for installation and exact fresh-output commands. Read the protocol before interpreting a passing run.
+
+### Reproduce without replacing evidence
+The default runner checks RDF and SHACL only. Its report explicitly says Cypher was not run; paired-verification fields remain null. Paired mode creates its own disposable Neo4j 5.26.x instance, with no host ports and no existing database. It retains the exact Cypher script, raw output, runtime identity and source hashes. Use a fresh report path for each run.
+
+In paired mode the runner checks both answers and exported state. An undeclared full-fixture mismatch stops the run, even if the answer is unchanged. If a mutation meant to remove a Topic label silently matches no node, the recommendation can stay unchanged. The state comparison exposes that failed mutation. Function-level controls also show that an irrelevant isolated node can preserve A while failing B's broader state check; that is not currently a declared paired-suite case.
+
+The summary generator checks that the only unequal cases are B01 and B03 and that the four malformed cases have their declared A/B/C outcomes before writing prose. Its evidence inventory identifies inputs, raw outputs, classifications, control reports and document checks using package-root-relative paths. Auxiliary tools accept fresh output destinations and refuse existing targets. Synthetic metadata probes and simulated engine-output corruption are labeled separately from actual engine execution.
+
+### Try these before reading the solutions
+These questions ask you to reason about the contract and evidence rather than write a new query.
+
+1. Both representations omit c2's title. Must A fail because C fails?
+2. An extra prerequisite edge is added in RDF but not in the LPG. Can a matching answer establish alignment?
+3. Two direct prerequisites are recorded and both are completed. What result would expose an incorrect at-most-one-prerequisite rule?
+4. A simulated output-corruption test passes. Has another Neo4j execution occurred?
+5. An extra isolated Topic node leaves A unchanged but makes the fixture check fail. Is that a contradiction?
+
+### Practice solutions — compare after trying
+**Solution 1.** No. Matching absence is allowed by A's zero-or-one output-field contract, so both queries exclude the candidate. The supplied intake rules still require its title, so B and C fail. Equal exclusion is not an acceptable catalog record.
+
+**Solution 2.** No. Edge preservation and reflection already fail, whether or not another filter happens to hide the answer difference. Check state and source completeness separately from answer equality.
+
+**Solution 3.** An otherwise eligible c2 must still be returned. If it disappears merely because two prerequisites exist, the implementation has replaced the intended subset condition with an extra restriction. The named all-prerequisites-completed control exercises this positive case.
+
+**Solution 4.** No. Replaying recorded output with a deliberately changed record checks the harness's rejection logic. It is useful evidence about the checker, but not a new database-engine execution or an independent environment.
+
+**Solution 5.** No. A deliberately ignores that node; B checks a broader fixture. The strict runner stops on undeclared fixture differences. A future study could declare an A-only paired case, but this suite currently demonstrates the distinction through function-level controls.
+
+> Start with the decision policy, specify the mapping, compare actual state as well as answers, and state precisely which conclusions the evidence supports.
+
 === XI · Glossary | Glossary A–D
 **ACID:** atomicity, consistency, isolation, and durability; a family of transaction properties. Consistency concerns enforced invariants, not factual truth.
 
@@ -2757,6 +3021,8 @@ After loading the baseline, compare your results with the table below. These val
 **Architecture decision record (ADR):** a record of a design's context, alternatives, evidence, decision, consequences, and revisit conditions.
 
 **Assertion / axiom:** an assertion states a fact; an axiom states a formal commitment. Usage can overlap in ontology languages.
+
+**Bijection:** a one-to-one correspondence that covers both selected sets. In the query contract, each selected RDF identity has exactly one corresponding LPG node, with no unmatched query-relevant node.
 
 **Blank node:** an RDF resource term without a global IRI. A serialized blank-node label is not a durable cross-file business identifier.
 
@@ -2772,6 +3038,8 @@ After loading the baseline, compare your results with the table below. These val
 
 **Constraint:** a rule checked by a validation or storage mechanism. Name the enforcement point and failure behavior.
 
+**Coreference:** whether expressions refer to the same entity within a context; name similarity alone does not establish it.
+
 **Cypher:** the declarative graph query language used for Neo4j examples. Patterns bind nodes, relationships, paths, and values.
 
 **Data contract:** an agreement covering structure, meaning, units, identity, quality, and ownership. It is broader than a list of fields.
@@ -2783,6 +3051,10 @@ After loading the baseline, compare your results with the table below. These val
 **Description logic:** a formal framework for representing and reasoning about classes, relations, and individuals; foundational to OWL DL.
 
 === XI · Glossary | Glossary E–L
+**Effective time:** when a definition or policy applies under its stated time-selection rule; it is distinct from when the change was recorded.
+
+**Eligibility / suitability:** eligibility satisfies a stated policy under its data assumptions; personal suitability is a broader, context-dependent claim requiring separately defined and evaluated criteria.
+
 **Embedding:** a numeric vector representing content or an entity for computation such as similarity search. Similarity is not proof of truth.
 
 **Entailment / inference:** entailment is a logical consequence relation; inference is the process of deriving consequences under a chosen regime.
@@ -2795,17 +3067,21 @@ After loading the baseline, compare your results with the table below. These val
 
 **Federation:** querying or coordinating multiple sources. It requires policies for permissions, failures, and inconsistent snapshot times.
 
+**Fixture integrity:** stronger rules and state comparisons for an experimental dataset. It can reject a difference that the query-alignment contract deliberately ignores.
+
 **Focus node:** the node being evaluated by a SHACL shape. Targets determine which nodes become focus nodes.
 
 **Formal semantics:** a precise account of what statements mean and which interpretations or consequences they permit.
 
-**Graph RAG:** a family of retrieval-augmented generation designs using graph structure for organizing or retrieving evidence or summaries.
-
 **Graph projection:** a selected or transformed graph view for analytics or application use. Define source authority and rebuild rules.
+
+**Graph RAG:** a family of retrieval-augmented generation designs using graph structure for organizing or retrieving evidence or summaries.
 
 **Grounding:** connecting generated claims to supplied evidence. It requires checking support, not merely attaching a link.
 
 **Identity / equality:** the claim that references denote the same entity. In OWL, sameAs has stronger consequences than approximate similarity.
+
+**Identity registry:** governed identifiers and distinguishing information for entities; a class/property vocabulary need not supply those individual identities.
 
 **Index:** a lookup structure that can accelerate selected access patterns, with storage and update costs.
 
@@ -2824,6 +3100,10 @@ After loading the baseline, compare your results with the table below. These val
 
 **Materialization:** precomputing and storing inferred facts or derived views. Faster reads may incur extra maintenance and storage.
 
+**Mention:** an occurrence of an expression in a particular source version, identified with its context and locator; it is distinct from the entity it may denote.
+
+**Migration:** a controlled transition between representations or versions, with defined preservation, acceptance and recovery conditions.
+
 **Monotonicity:** the property that adding premises preserves previous logical consequences. Absence-based application policies need not be monotonic.
 
 **Multiset:** a collection allowing repeated values or solution rows. RDF graphs are sets of triples, while SPARQL results can have duplicates.
@@ -2832,15 +3112,23 @@ After loading the baseline, compare your results with the table below. These val
 
 **Ontology:** an explicit model of concepts, relations, and commitments about meaning. Ontology engineering is the design process; a reasoner executes formal reasoning tasks.
 
+**Ontology version:** an identified release of an ontology; a version IRI can distinguish it within an ontology series. Version labels alone do not prove compatibility.
+
 **Open-world assumption:** the absence of a fact does not imply its negation. A query over a selected dataset can still test whether a pattern is absent.
 
 **OWL:** Web Ontology Language, used to express formal ontology axioms. OWL 2 EL, QL, and RL are restricted profiles with different computational aims.
 
 **Path / hop:** a path connects graph elements through steps; a hop is one relationship step. Endpoints, routes, and walks are different query outputs.
 
+**Policy version:** an identified decision-rule release, retained with its effective interval and the context used to select it.
+
 **Predicate / property:** in RDF, a predicate IRI names a relation or attribute. In LPG usage, a property is usually a stored key–value attribute.
 
+**Preservation and reflection:** a mapped fact exists in the source if and only if the corresponding fact exists in the destination. Preservation avoids losing source facts; reflection rules out unmatched destination facts.
+
 **Provenance / lineage:** provenance records origin and responsibility; lineage traces transformations from inputs to outputs.
+
+**Query alignment:** correspondence of the identities, memberships, relationships, anchor and projected values needed by a specified query pair. It is distinct from intake validation and stronger fixture integrity.
 
 **Query rewriting:** transforming a query using schema or ontology knowledge so additional implied answers can be computed without fully materializing closure.
 
@@ -2897,7 +3185,7 @@ https://www.w3.org/TR/owl2-primer/
 [4] **SPARQL 1.1 Query Language.** W3C Recommendation, 2013. Pattern matching, query forms, expressions, paths, and aggregates.
 https://www.w3.org/TR/sparql11-query/
 
-[5] **Shapes Constraint Language (SHACL).** W3C Recommendation, 2017. Shapes, targets, constraints, and validation reports.
+[5] **Shapes Constraint Language (SHACL).** W3C Recommendation, 2017. Shapes, targets, constraints, and validation reports; minimum count, datatype and targeting rechecked 16 November 2026.
 https://www.w3.org/TR/shacl/
 
 [6] **Cypher Manual: Overview, version 5.** Neo4j documentation. Entry point for the versioned query-language baseline.
@@ -2925,7 +3213,7 @@ https://www.w3.org/TR/sparql11-entailment/
 [13] **SKOS Simple Knowledge Organization System Primer.** W3C Working Group Note, 2009. Concepts, labels, and semantic relations.
 https://www.w3.org/TR/skos-primer/
 
-[14] **OWL 2 Structural Specification and Functional-Style Syntax, Second Edition.** W3C Recommendation, 2012. Axioms, class expressions, and ontology structure.
+[14] **OWL 2 Structural Specification and Functional-Style Syntax, Second Edition.** W3C Recommendation, 2012. Axioms, class expressions, ontology structure, and ontology/version IRIs (Sections 3.1–3.4; versioning provisions rechecked 16 November 2026).
 https://www.w3.org/TR/owl2-syntax/
 
 [15] **OWL 2 Direct Semantics, Second Edition.** W3C Recommendation, 2012. Formal interpretation and model-theoretic meaning.

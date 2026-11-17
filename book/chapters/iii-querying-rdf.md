@@ -1,5 +1,7 @@
 # III · Querying RDF
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 3.1 SPARQL patterns and variable bindings
 
 > **Learning goals for this part:** Trace variable bindings, optional matches, paths, and duplicate rows; reproduce the baseline outputs; explain the completeness assumptions behind eligibility.
@@ -207,8 +209,17 @@ Expected result: `c2 / Graph Search`. The first NOT EXISTS excludes c1. The nest
 
 A course with no recorded prerequisites passes the final test. This is **vacuous truth**: there is no prerequisite counterexample. If “unknown prerequisites” must be treated differently from “none required,” add an explicit review or completeness field and filter on it.
 
+### Eligibility is not personal suitability
+Returning c2 means it satisfies the example's recorded topic, completion and prerequisite rules. It does not establish that Graph Search fits Maya's current goals, available time or circumstances. Two learners with identical query-visible records can differ in relevant conditions the graph does not contain. A relevance score or a valid path does not fill that evidence gap.
+
+An application making a suitability claim must define the additional criteria with the relevant domain owners and learners, collect appropriate evidence, and evaluate the assessment beyond reproducing its own rules. Evidence can be stored in either graph model; its credibility and independence concern how it was obtained and assessed. Self-reported availability can be useful context without being an independently validated assessment. This tutorial establishes no universal suitability test.
+
+When required evidence is absent, report “eligible under the recorded catalog policy; suitability not assessed.” Withhold the unsupported claim, not necessarily every helpful candidate suggestion. Ask for the missing context when appropriate. Missing evidence is not a finding that the course is unsuitable. Chapter 8 carries this boundary into generated explanations.
+
 ### Beyond a binary decision
 A **ranking function** assigns scores to candidates. Keep eligibility separate from ranking. The example uses eligibility rules only; it does not learn user preference or optimize a statistical model. A production recommender might rank eligible courses by topic fit, recency, course quality, and diversity, then log the reason and evidence used for each recommendation.
+
+The precise cross-representation alignment contract is developed in Section 10.3; baseline agreement alone is not a general equivalence guarantee.
 
 ## 3.6 Named graphs, updates, and federation
 
@@ -298,7 +309,7 @@ ORDER BY DESC(?courses) ?topic
 ```
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 6, 8, 10, 15–17, 23. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 6, 8, 10, 15–17, 23, 24. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This review follows the query chapter from matching facts to making a policy decision. Unless a question explicitly introduces a variation, use the unchanged baseline: c1 and c2 are about Graphs, c3 is about Data, c4 is about Ethics, and Maya likes Graphs and has completed c1. c2 and c3 each require c1. Predict the result before reading the explanation. The questions use patterns already introduced; they do not require a new dataset or service.
 
@@ -400,5 +411,9 @@ This review follows the query chapter from matching facts to making a policy dec
 
 **Answer:** The Graphs-or-Data query without DISTINCT produces c1 once, c2 twice, and c3 once; selecting DISTINCT ids reduces that to c1, c2, and c3. The full recommendation query returns no eligible course for Maya: c2 is still a topic match but now has the unmet prerequisite c3, c1 is already completed, and c3 and c4 still do not match her interest. One variation affects row multiplicity and another affects eligibility. Restore the baseline after the exercise so later examples keep their stated expected answers.
 
-**Ready to continue:** You should be able to trace shared variables, predict optional and duplicate results, distinguish a returned graph from an update, and explain a recommendation through its recorded evidence and policy assumptions. The next part rebuilds the same baseline in Neo4j and Cypher; a change of representation does not change Maya's starting facts.
+### Review 6 · Limit the claim to the evidence
+**Question 24: Can two learners receive the same policy result while differing in personal suitability?**
 
+**Answer:** Yes. The query can see identical relevant records while goals, available time or circumstances differ. Its answer establishes only satisfaction of the stated policy under its data assumptions. Define and evaluate the additional criteria before claiming suitability. If the required evidence is absent, label suitability as not assessed; that does not imply either suitability or unsuitability.
+
+**Ready to continue:** You should be able to trace shared variables, predict optional and duplicate results, distinguish a returned graph from an update, and explain a recommendation through its recorded evidence and policy assumptions. The next part rebuilds the same baseline in Neo4j and Cypher; a change of representation does not change Maya's starting facts.

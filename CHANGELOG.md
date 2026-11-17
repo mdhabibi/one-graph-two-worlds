@@ -1,18 +1,23 @@
 # Changelog
 
-## Unreleased — next edition under release evaluation
+## 0.2.0 — public review edition, prepared for publication
 
-- Added the unpublished integrated draft in next-edition/, including the
-  query-equivalence material and five reader-feedback additions.
-- Synchronized contents, browser chapters, Q&A, glossary, cross-references and
-  isolated semantic-evolution, identity/evidence and missing-data exercises.
-- Added reasoning-cost and suitability-scope worksheets and a separate draft
-  validation workflow. No new edition number or DOI is assigned.
-- Addressed consolidated review corrections: accurate intake attribution, draft
-  labels/layout guidance, structural editorial checks and committed-first CI
-  validation with content/navigation rebuild comparison.
-- Published 0.1.1 source, baseline labs, citation files and archived artifacts
-  remain unchanged; author release evaluation and final release preparation remain pending.
+- Expanded Chapter 10 with a conditional recommendation-query equivalence
+  argument, explicit alignment/intake boundaries and a reproducible experiment.
+- Added semantic evolution and dated policy replay, eligibility versus personal
+  suitability, reasoning-cost decisions, identity/evidence handling and precise
+  missing-data validation examples, with three executable isolated extensions
+  and two discussion worksheets.
+- Synchronized 183 explained review questions, 75 glossary entries, contents,
+  cross-references, browser chapters, practice blocks and original diagrams.
+- Added structural editorial checks, committed-artifact validation, normalized
+  rebuild comparisons, document/extension defect probes and rebuild controls.
+- Promoted the reviewed draft into the main book/repository layout; baseline lab
+  and retained research bytes are unchanged. Historical research documents retain
+  their original working-module status and dates; see publication/VALIDATION.md.
+- Edition DOI: 10.5281/zenodo.24316420 (reserved). Publication and this candidate's
+  remote CI remain unverified. Independent paired reproduction remains open.
+- Prior archived editions and release tags are unchanged.
 
 ## 0.1.1 — public review draft, published 2026-11-14
 

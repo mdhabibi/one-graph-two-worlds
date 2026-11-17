@@ -1,19 +1,27 @@
 {
-  "edition": "0.1.1",
+  "edition": "0.2.0",
   "same_environment_rebuild": "pass",
-  "sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
-  "first_rebuild_sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
-  "second_rebuild_sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
+  "sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "first_rebuild_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "second_rebuild_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "byte_equal": true,
   "matches_tracked_pdf": true,
-  "python": "3.12.14",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-15.0.1-arm64-arm-64bit",
+    "zlib_compile": "1.2.12",
+    "zlib_runtime": "1.2.12",
+    "reportlab": "4.4.9",
+    "source_date_epoch": "1794873600"
+  },
   "input_sha256": {
-    "VERSION": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c",
-    "book/manuscript.md": "d8cb99c8eb544eb37dd9ccaa5b1e66200d320fbf64bee7d37b318dbc35884156",
-    "scripts/build_pdf.py": "692bbd0df8936d9332797b859f4725e582bb887967bcd2c894ac19951e65a801",
-    "requirements-build.txt": "4dfcc95e21dade1b5aed0057a2081b4c460d189640a4aff6916bb71fae036694",
+    "book/manuscript.md": "eb45493a6cdf0bd6ea0f34943f6ec3f350cf6900b0350228fe2111daa36b8e71",
+    "scripts/build_pdf.py": "371eb9cbfc551d52afdd224c1ee1191a02c9f2cce1159b12ef8010ea32d50e4b",
+    "VERSION": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
     "assets/fonts/DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
     "assets/fonts/DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
-    "assets/fonts/DejaVuSansMono.ttf": "b4a6c3e4faab8773f4ff761d56451646409f29abedd68f05d38c2df667d3c582"
+    "assets/fonts/DejaVuSansMono.ttf": "b4a6c3e4faab8773f4ff761d56451646409f29abedd68f05d38c2df667d3c582",
+    "requirements-build.txt": "9e4f38737dbb10ea55353019a2c7fd199687ae202cfe3ab9fae76dc5ce14cd9c"
   },
-  "scope": "Two renderer processes using the same sources, fonts, installed dependencies, and fixed timestamp. Cross-platform equality not asserted."
+  "scope": "Two local renderer processes with the same sources, fonts, installed dependencies and fixed timestamp. Normalized page text/map/outline/selected metadata also match. Cross-platform byte equality and visual/accessibility equivalence are not asserted."
 }

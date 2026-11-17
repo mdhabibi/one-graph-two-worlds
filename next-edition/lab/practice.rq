@@ -1,9 +1,0 @@
-PREFIX ex: <https://example.org/>
-SELECT ?id ?title
-WHERE {
-  ?course a ex:Course ;
-          ex:id ?id ;
-          ex:title ?title ;
-          ex:about ex:graphs .
-}
-ORDER BY ?id

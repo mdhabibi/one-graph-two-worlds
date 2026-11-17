@@ -1,15 +1,19 @@
 # Reader guide
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## Edition, authorship, and review status
 
-### Version 0.1.1 — public review draft
-**Author: Dr. Mahdi Habibi. Prepared: 14 November 2026.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
+### Version 0.2.0 — public review draft
+**Author: Dr. Mahdi Habibi. Version 0.2.0 — public review draft.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
 
 ### Audience and promise
 The book is for a reader beginning with graph concepts who wants to understand RDF-based semantic systems and labeled property graphs, then reason about a practical architecture. It introduces concepts before syntax and uses one learning catalog throughout. Advanced chapters explain design issues and selected techniques; they are not a complete language specification or deployment manual.
 
 ### Version and citation status
-Version 0.1.1 is a corrected public review edition. It aligns the book's publication labels and companion metadata; the technical examples are unchanged from version 0.1.0. Cite the exact edition you use. Author: Mahdi Habibi. Title: Knowledge Graphs: Semantic Graphs and Property Graphs. Version: 0.1.1. Year: 2026. Edition DOI: **10.5281/zenodo.24228810** (https://doi.org/10.5281/zenodo.24228810). The companion repository is https://github.com/mdhabibi/one-graph-two-worlds.
+Version 0.2.0 extends the public review edition 0.1.1. Edition DOI: 10.5281/zenodo.24316420. Cite this version using https://doi.org/10.5281/zenodo.24316420. The new Chapter 10 material develops a conditional argument for the published recommendation queries and reports a bounded experiment. It does not change the baseline query pair or fixtures.
+
+The preceding edition is version 0.1.1, DOI 10.5281/zenodo.24228810. Its archived files remain unchanged. The repository is https://github.com/mdhabibi/one-graph-two-worlds. Independent paired reproduction of the new experiment remains open; the retained paired results were obtained in one project environment.
 
 ### Reuse and feedback
 Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.
@@ -68,7 +72,7 @@ When an exercise changes a fact, start from a fresh baseline copy unless it expl
 ## Running the examples
 
 ### Locate the companion files
-This PDF is distributed with a companion ZIP package. Extract that ZIP and open its top-level folder. The lab is the folder named lab, beside book, scripts, publication, and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. No public download address has been assigned to this draft. If you received only the PDF, request the companion package from the author. You can still read every explanation and predict the printed results without installing software.
+The book and companion package share edition DOI https://doi.org/10.5281/zenodo.24316420. The source repository is https://github.com/mdhabibi/one-graph-two-worlds. Extract the companion ZIP and open its top-level folder, or open the repository root. The lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. You can still read every explanation and predict the printed results without installing software.
 
 The commands below go into a terminal, not into a graph query editor. Open a terminal in the extracted lab folder. On macOS, use your terminal's New Terminal at Folder action if available, or type cd followed by a space and drag the lab folder into the terminal, then press Enter. Use a fresh copy of the lab for experiments. Python 3.10 or newer is needed for the RDF route; the Neo4j route additionally needs a working Docker installation. Installation of those tools is outside this tutorial.
 
@@ -88,8 +92,8 @@ from pathlib import Path
 import sys
 from rdflib import Graph
 root = Path(__file__).resolve().parent
-data_file = sys.argv[[1](xii-references.md#ref1)] if len(sys.argv) > 1 else "catalog.ttl"
-query_file = sys.argv[[2](xii-references.md#ref2)] if len(sys.argv) > 2 else "practice.rq"
+data_file = sys.argv[1] if len(sys.argv) > 1 else "catalog.ttl"
+query_file = sys.argv[2] if len(sys.argv) > 2 else "practice.rq"
 graph = Graph().parse(root / data_file, format="turtle")
 query = (root / query_file).read_text()
 for row in graph.query(query):
@@ -129,4 +133,3 @@ These symbols will be explained again immediately before their first use. The sa
 | Cypher | (c:Course) | A node, query variable c, label Course |
 | Cypher | -[:REQUIRES]-> | A directed relationship of type REQUIRES |
 | Cypher | {id: 'c1'} / $maxMinutes | Property map / separately supplied parameter |
-

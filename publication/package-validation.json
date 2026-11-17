@@ -1,20 +1,80 @@
 {
-  "pages": 156,
+  "metadata_checks": {
+    "status": "pass",
+    "version": "0.2.0",
+    "edition_doi": "10.5281/zenodo.24316420",
+    "doi_status": "reserved",
+    "scope": "Local identity consistency; does not verify DOI registration or publication."
+  },
+  "version": "0.2.0",
+  "editorial_checks": {
+    "qa_pairs": {
+      "I \u00b7 Foundations": 17,
+      "II \u00b7 RDF and semantic graphs": 22,
+      "III \u00b7 Querying RDF": 24,
+      "IV \u00b7 Property graphs and Cypher": 25,
+      "V \u00b7 Modeling and interoperability": 29,
+      "VI \u00b7 Strengths, tradeoffs, and decisions": 21,
+      "VII \u00b7 Performance and operations": 20,
+      "VIII \u00b7 Graph RAG and analytics": 25
+    },
+    "review_headings": {
+      "I \u00b7 Foundations": 3,
+      "II \u00b7 RDF and semantic graphs": 5,
+      "III \u00b7 Querying RDF": 6,
+      "IV \u00b7 Property graphs and Cypher": 5,
+      "V \u00b7 Modeling and interoperability": 7,
+      "VI \u00b7 Strengths, tradeoffs, and decisions": 5,
+      "VII \u00b7 Performance and operations": 5,
+      "VIII \u00b7 Graph RAG and analytics": 6
+    },
+    "core_question_references": 82,
+    "glossary_entries": 75
+  },
+  "exported_code_fences_checked": 45,
+  "pdf_section_bookmarks_checked": 72,
+  "web_chapter_edition_labels_checked": 13,
+  "web_chapters_checked": 13,
+  "qa_pairs_checked": {
+    "I \u00b7 Foundations": 17,
+    "II \u00b7 RDF and semantic graphs": 22,
+    "III \u00b7 Querying RDF": 24,
+    "IV \u00b7 Property graphs and Cypher": 25,
+    "V \u00b7 Modeling and interoperability": 29,
+    "VI \u00b7 Strengths, tradeoffs, and decisions": 21,
+    "VII \u00b7 Performance and operations": 20,
+    "VIII \u00b7 Graph RAG and analytics": 25
+  },
+  "new_exercise_reports_checked": 3,
+  "semantic_evolution_checks": 10,
+  "status": "pass",
+  "pdf_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "pages": 173,
+  "margin_violations": [],
+  "contents_links": 72,
+  "section_headings_checked": 72,
   "chapter_covers": 12,
-  "sections": 69,
-  "diagrams": 13,
-  "targeted_owl_dl_evidence": "pass",
+  "author_and_edition_status_on_every_page": true,
+  "task_pages": [
+    63,
+    82,
+    161
+  ],
+  "solution_pages": [
+    64,
+    83,
+    162
+  ],
+  "rendered_citation_numbers_checked": 95,
+  "build_inputs_checked": 6,
+  "citation_links_checked": 133,
   "references": 35,
-  "bookmarks": 353,
-  "internal_links": 192,
   "syntax_checked": {
     "turtle": 9,
     "json": 1,
     "sparql": 14
   },
-  "page_margin_bounds": "pass",
-  "local_links": "pass",
-  "author_on_every_page": true,
-  "pdf_sha256": "7a931a64a806bb554e86cab0f3c1150a668857eaaa642eff91ec8978e5166a77",
-  "scope": "Automated document and fixture checks; not independent peer review or PDF/UA certification."
+  "local_links_checked": 163,
+  "retained_research_hashes": "pass",
+  "scope": "Document margins, status, author, covers, contents, task separation, citation targets, RDF/SPARQL syntax, local links, semantic-evolution exercise and retained hashes. No new graph-engine run, remote-link or accessibility certification."
 }

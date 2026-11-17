@@ -1,12 +1,8 @@
-> **Unpublished next edition — local review branch.** Read the
-> [review entry point](REVIEW-START-HERE.md) for the updated book and companion
-> exercises. The published 0.1.1 materials below remain available unchanged.
-
 <h1 align="center">Knowledge Graphs:<br>Semantic Graphs and Property Graphs</h1>
 
 <p align="center">
   <strong>Dr. Mahdi Habibi</strong><br>
-  Version 0.1.1 · Public review draft
+  Version 0.2.0 · Public review draft
 </p>
 
 <p align="center">
@@ -21,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zenodo.org/records/24228810"><strong>Published book and DOI</strong></a> ·
+  <a href="https://zenodo.org/records/24316420"><strong>Edition DOI</strong></a> ·
   <a href="dist/knowledge-graphs-tutorial.pdf">Read the PDF</a> ·
   <a href="book/index.md">Browse the chapters</a> ·
   <a href="lab/README.md">Explore the lab</a> ·
@@ -47,32 +43,55 @@ and a short self-check.
 
 ## Edition status
 
-Version **0.1.1** is the corrected public review edition, published on
-[Zenodo](https://zenodo.org/records/24228810). It fixes publication-status wording, cover/browser
-labels, citation details, and packaging. The technical examples are unchanged.
+Version **0.2.0** is an expanded public review edition. Its edition DOI is
+[10.5281/zenodo.24316420](https://doi.org/10.5281/zenodo.24316420).
+The DOI identifies this book and companion snapshot; consult the linked record
+for archival availability. The PDF and chapters are also readable directly here.
 
-The [published 0.1.0 archive](https://zenodo.org/records/24209668) and its release
-tag remain available. Cite the exact edition you use.
+This edition adds a scoped recommendation-query equivalence study, semantic
+versioning and policy replay, eligibility versus suitability, reasoning-cost
+choices, extraction-to-identity handling and missing-data validation. Contents,
+questions, answers, glossary entries and companion exercises are integrated.
+
+The published [0.1.1 archive](https://zenodo.org/records/24228810) and
+[0.1.0 archive](https://zenodo.org/records/24209668) remain unchanged under their
+own DOIs. Cite the exact edition you use.
+
+## Explore the additions
+
+- [Recommendation equivalence: protocol and retained results](research/equivalence/README.md)
+- [Semantic evolution and dated policy replay](extensions/semantic-evolution/README.md)
+- [Entity identity and source evidence](extensions/identity-evidence/README.md)
+- [SHACL missing-data cases and an RDFS consequence](extensions/missing-data/README.md)
+- [Reasoning-cost decision worksheet](extensions/reasoning-decision/README.md)
+- [Eligibility, suitability and abstention worksheet](extensions/suitability-scope/README.md)
 
 ## What has been checked
 
-The RDF fixture runs six SPARQL queries, positive and negative SHACL cases,
+The baseline RDF fixture covers six SPARQL queries, positive and negative SHACL cases,
 controlled policy changes, and a small RDFS inference. The Neo4j fixture was
 executed against Community 5.26.30: baseline queries, repeatable loading,
 unmet-prerequisite exclusion, and multi-topic deduplication pass.
 The separate [OWL 2 DL checker](lab/owl_dl/README.md) passed the Graduate and
 Exercise 5 cases with HermiT, including profile checks and counterfactual controls.
-See the validation report for precise scope and versions. These targeted results
+Historical lab results are retained against unchanged inputs. The 0.2.0 release
+checks also reran the baseline RDF/Neo4j and targeted HermiT cases locally; see
+[the release validation summary](publication/release-validation.json). The new
+isolated extensions add dated policy, identity/evidence and SHACL/RDFS checks.
+The equivalence module retains 145 paired cases: 143 aligned cases agree; two
+boundary counterexamples intentionally differ. Independent paired reproduction
+remains open. See the validation report for precise scope and versions. These targeted results
 do not verify every OWL example, production performance, concurrency, recovery,
 or independently reproduce the Neo4j execution.
 
 ## Build the book
 
-Requires Python 3.10+:
+From the repository root (the folder containing `VERSION`), using Python 3.10+:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-build.txt -r lab/requirements.txt
+.venv/bin/python scripts/validate_release.py
 .venv/bin/python scripts/build_pdf.py
 .venv/bin/python scripts/export_web.py
 .venv/bin/python lab/check_rdf.py
@@ -83,6 +102,9 @@ On Windows use `.venv\Scripts\python`. Included, separately licensed DejaVu font
 make the PDF build independent of private system-font paths. The build uses a
 fixed source timestamp; the same sources, fonts, and pinned libraries are intended
 to give reproducible output. Cross-platform byte equality is not asserted.
+
+See [the full validation sequence](publication/VALIDATION.md) for committed-artifact
+checks, fresh-path rebuild comparison and negative controls.
 
 `book/manuscript.md` is the editable source. `=== Part | Title` marks sections;
 `@diagram name` selects a vector illustration implemented in the renderer.
@@ -102,11 +124,11 @@ for the checks performed and their scope.
 [LICENSE-CODE.txt](LICENSE-CODE.txt) for the MIT grant. Bundled fonts retain
 their included notices.
 
-Version 0.1.1 edition DOI: [**10.5281/zenodo.24228810**](https://doi.org/10.5281/zenodo.24228810).
+Version 0.2.0 edition DOI: [**10.5281/zenodo.24316420**](https://doi.org/10.5281/zenodo.24316420).
 [CITATION.cff](CITATION.cff) provides this edition's structured citation metadata.
 
 Habibi, M. (2026). *Knowledge Graphs: Semantic Graphs and Property Graphs*
-(Version 0.1.1, public review draft). Zenodo. https://doi.org/10.5281/zenodo.24228810
+(Version 0.2.0, public review draft). Zenodo. https://doi.org/10.5281/zenodo.24316420
 
 The [published 0.1.0 archive](https://zenodo.org/records/24209668) remains available
 under its own DOI. Cite the exact edition you use.

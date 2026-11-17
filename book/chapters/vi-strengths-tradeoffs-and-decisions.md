@@ -1,5 +1,7 @@
 # VI · Strengths, tradeoffs, and decisions
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 6.1 Comparison: model and semantics
 
 > **Learning goals for this part:** Compare complete candidate systems by requirement; distinguish hard requirements from weighted preferences; record an evidence-based architecture decision.
@@ -71,6 +73,8 @@ A **proof of concept** is a bounded experiment, not a scaled-down product launch
 
 An **architecture decision record**, or ADR, preserves context, candidates, evidence, decision, consequences, and revisit triggers. A good revisit trigger is observable: “External consumers require published SHACL shapes and stable IRIs,” or “Prerequisite query response time exceeds the service target at twice current load.” “The technology is popular” is not a sufficient decision criterion.
 
+Section 2.8 provides the reasoning-cost checklist and contrasts an RDFS hierarchy with the richer Graduate definition. Use the worksheet in extensions/reasoning-decision to record workload evidence. A required semantics capability is a hard gate; a successful small fixture is not a measured cost justification.
+
 ## 6.4 A worked scoring matrix and ADR
 
 The decision framework becomes clearer with a worked scenario. Assume one team owns the catalog and prioritizes an interactive recommendation service. We will score two hypothetical candidates, then write an architecture decision record that makes the assumptions and remaining tests visible.
@@ -124,7 +128,7 @@ Avoid claims such as “RDF cannot do recommendations,” “Neo4j has no schema
 A clear explanation is only as strong as its evidence. The next part supplies the performance, recovery, governance, and security questions needed to test the proposed architecture.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 6, 7, 10, 12, 14, 16, 17, 20. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 6, 7, 10, 12, 14, 16, 17, 20, 21. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This chapter moved from understanding the models to choosing a complete architecture. The questions below follow that decision process: identify the relevant capabilities, separate binding requirements from preferences, test candidates, and explain the result. The scoring values are teaching assumptions, not measured product ratings. Use the stated scenario rather than treating either technology as the default winner.
 
@@ -214,5 +218,8 @@ This chapter moved from understanding the models to choosing a complete architec
 
 **Answer:** Reopen the hard-requirement assessment for complete candidate architectures. Determine exactly which semantics, interfaces, and correctness guarantees are required, then verify whether each stack, including any additional reasoning component, can provide them. Exclude candidates that cannot qualify; do not preserve the old winner merely because its total was higher. If a hybrid design is proposed, include mapping fidelity, synchronization, freshness, and operating cost in its assessment. Update the ADR with the changed requirement, evidence, and remaining tests.
 
-**Ready to continue:** You should be able to distinguish a model capability from an implemented guarantee, apply hard gates before preference scoring, explain the limits of the worked matrix, and propose evidence that could change a decision. The next part turns the operational requirements into concrete performance, recovery, governance, and security questions.
+**Question 21: One candidate answers a small hierarchy query faster but omits a required ontology consequence. May it win the weighted score?**
 
+**Answer:** Not while that consequence is a mandatory requirement. First reject or repair candidates that fail the required answers; then compare the costs of adequate designs. Record query and update behavior, inference maintenance and operational effort. Revisit the requirement if the business accepts a different scope, rather than silently scoring an incorrect answer as a speed advantage.
+
+**Ready to continue:** You should be able to distinguish a model capability from an implemented guarantee, apply hard gates before preference scoring, explain the limits of the worked matrix, and propose evidence that could change a decision. The next part turns the operational requirements into concrete performance, recovery, governance, and security questions.

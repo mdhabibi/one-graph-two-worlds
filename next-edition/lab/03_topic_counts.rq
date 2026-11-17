@@ -1,5 +1,0 @@
-PREFIX ex: <https://example.org/>
-SELECT ?topic (COUNT(DISTINCT ?c) AS ?courses)
-WHERE { ?c a ex:Course ; ex:about ?topic }
-GROUP BY ?topic
-ORDER BY DESC(?courses) ?topic

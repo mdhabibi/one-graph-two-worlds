@@ -1,5 +1,7 @@
 # VII · Performance and operations
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 7.1 Performance: measure the workload, not the slogan
 
 > **Learning goals for this part:** Design a fair workload experiment; separate replication, recovery, and scale; preserve meaning, lineage, and permissions through updates and derived views.
@@ -95,6 +97,8 @@ A recommendation record should identify the learner and course, input snapshot o
 **Data quality dimensions** include accuracy, completeness, consistency, timeliness, and uniqueness. They are distinct: a complete file can contain false information, and a unique record can refer to the wrong real-world course. Define metrics that reflect the decision risk rather than reporting only ingestion success.
 
 DCAT, the Data Catalog Vocabulary, can describe datasets and their distributions. A **distribution** is an accessible representation of a dataset, such as a downloadable RDF file or a response supplied through an **application programming interface (API)**, a defined way for software to request and exchange data. Catalog metadata helps discovery and governance but does not certify the truth of every statement. [[29](xii-references.md#ref29)]
+
+Section 5.3 works through a source rename, a changed completion definition and a dated passing policy. Retain mapping versions as well as ontology and shape versions when reconstructing an earlier decision; a stable ontology alone does not keep the output stable.
 
 ### Deprecate with a migration path
 When replacing a term or changing prerequisite semantics, publish a replacement, explain changed meaning, set a transition window, and identify dependent queries. Keep historical versions available when needed to reproduce prior outcomes.
@@ -213,4 +217,3 @@ This chapter tested what a graph system needs beyond a correct small example: re
 **Answer:** Identify the affected versions and decisions, stop or contain further faulty publication, and recover a valid authoritative state using the appropriate procedure. Restore or roll back compatible mappings and related rules, then rebuild or invalidate affected projections and caches. Reconcile the recovered relationships and run expected eligibility queries before treating the service as repaired. Measure data loss and restoration time against the RPO and RTO. The replica count and presence of a backup do not, by themselves, establish a correct recovery.
 
 **Ready to continue:** You should be able to design a meaningful performance comparison, distinguish replication from recovery, identify the dependencies needed to reproduce decisions, and follow permission and deletion requirements into derived views. The graph RAG chapter applies those same boundaries to retrieval, generation, and learned signals.
-

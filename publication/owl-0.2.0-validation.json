@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "reasoner": "HermiT",
+  "reasoner_version": "1.3.8.1099",
+  "java_version": "21.0.12",
+  "hermit_jar_sha256": "97e53f519720a0a2e328556e03b806aa239347c85e57637a935e6433ed2ad3a8",
+  "sources": {
+    "ontology.ttl": "8c0d3d4c460c611276468e15fac3df49050e047c839454d6212584379cdfdf8c",
+    "catalog.ttl": "662a1ab6d6629394ca3bb3b6f08041fb6d9a7dd52a036182ccf617a57e3832dd",
+    "CheckOwlDl.java": "454702aa91c86459f13e905dc38c56b51643dacdfeaf515a8764b308df34d35f",
+    "check_owl_dl.py": "2e2c9458dbc8768da335e80faacf950b12f3cef64ee38d77c2a24e9d2830986e",
+    "fetch_hermit.py": "2d8d36e664a5fc998c81bf3feafe53798ffef9c1519baf14722b2d6aa153d11a"
+  },
+  "generated_input_sha256": {
+    "contradiction.rdf": "fd7aedb1190cbb6499ca7dbc33e1ebe243da95fc3d6bdc5a760530cc795f08f1",
+    "graduate.rdf": "2c59f1eeadf24153fdee8fe39a9e6f3fca87ed406049c50769171f5b49bd1d16",
+    "without-about.rdf": "a2cdcb2635a6739981fccc9bfebce20fec48425ce2c2d1874f50b69af5bb290c",
+    "without-disjointness.rdf": "4aed48a5b2f3bda31ccf24bceadd3f66fe48024b53a7358651041d063e66db17"
+  },
+  "docker_image": "neo4j:5.26.30",
+  "stdout": "JAVA=21.0.12\nHERMIT=1.3.8.1099\ngraduate: OWL2DL=true; consistent=true\ngraduate: Maya=true; Leo=true; noCompletion=not-entailed; Graduate-satisfiable=true; Graduate-subclass-Person=true\ncontradiction: OWL2DL=true; consistent=false\nwithout-disjointness: OWL2DL=true; consistent=true\nwithout-disjointness: Maya-LearningResource=true\nwithout-about: OWL2DL=true; consistent=true\nwithout-about: Maya-LearningResource=not-entailed\nPASS: OWL 2 DL profiles, Graduate entailments, disjointness contradiction, and controls.\n",
+  "stderr": "",
+  "scope": "Targeted OWL 2 DL profile, consistency and entailment checks for the Graduate example and Exercise 5, with counterfactual controls; not a verification of every OWL example, production system, or independent execution."
+}

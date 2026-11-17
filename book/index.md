@@ -1,6 +1,6 @@
 # Read the book
 
-**Dr. Mahdi Habibi · Version 0.1.1 · Public review draft**
+**Dr. Mahdi Habibi · Version 0.2.0 · Public review draft**
 
 Use the chapters in sequence for a first reading. The PDF has matching part and section labels.
 

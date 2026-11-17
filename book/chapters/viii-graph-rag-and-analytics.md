@@ -1,5 +1,7 @@
 # VIII · Graph RAG and analytics
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 8.1 What graph RAG adds to retrieval
 
 > **Learning goals for this part:** Explain where a graph helps retrieval; separate reviewed facts from extracted claims; evaluate evidence and permission failures; distinguish prediction from eligibility.
@@ -7,7 +9,7 @@
 We now add a new user interface to the catalog: a person asks a question in ordinary language and expects an evidence-backed answer. This section introduces retrieval-augmented generation, then explains where the graph can contribute to answering “What can Maya study next, and why?”
 
 ### Start with the new user need
-Until now, a fixed query has returned course records. Imagine instead that a user asks in everyday language, “Why is Graph Search a suitable next course for Maya?” The system must find both the structured eligibility facts and readable source passages, then compose an explanation supported by that evidence. This motivates the retrieval-and-generation approach introduced below.
+Until now, a fixed query has returned course records. Imagine instead that a user asks in everyday language, “Why is Graph Search an eligible next course for Maya under the catalog policy?” The system must find both the structured eligibility facts and readable source passages, then compose an explanation supported by that evidence. If the user instead asks whether it is personally suitable, the answer must identify the additional assessment evidence required rather than silently broaden the policy result. This motivates the retrieval-and-generation approach introduced below.
 
 ### Start with ordinary RAG
 **Retrieval-augmented generation**, or RAG, supplies retrieved evidence to a language model before it generates an answer. A **large language model**, LLM, predicts and generates text; it is not an authoritative database. A **chunk** is a selected span of source content. An **embedding** represents content as a numeric vector so that a similarity function can compare representations.
@@ -34,7 +36,7 @@ The previous section described the answering flow. Before that flow can work, so
 1. Register each source document with a stable ID, version, access policy, and publication time.
 2. Split content into chunks while preserving document IDs and span locators.
 3. Extract candidate entities and claims with evidence spans; mark extracted content as unreviewed when appropriate.
-4. Resolve entities against canonical IDs and validate claims against the domain contract.
+4. Resolve entities against canonical IDs and validate claims against the domain contract. Keep unresolved mentions local; do not force a title match into an identity merge.
 5. Store structured relationships, evidence links, and searchable text or embeddings.
 6. Publish a versioned retrieval view after quality and access checks.
 
@@ -42,6 +44,8 @@ The previous section described the answering flow. Before that flow can work, so
 **Information extraction** converts text into structured candidates. **Entity linking** connects a mention in text to a known entity. **Relation extraction** proposes relationships between entities. A model might confuse a course that discusses prerequisites with a course that requires another course. Retain the source sentence and allow review rather than silently treating every extracted edge as authoritative.
 
 Use a **claim node** when a statement can be disputed, time-bound, or supported by multiple documents. A claim can have a status such as candidate, reviewed, rejected, or superseded. Keep conflicting claims if provenance is important, while defining which statuses the decision engine is allowed to use.
+
+Section 5.2 distinguishes mention spans, within-document aliases, cross-document identity, predicate mapping and evidence retention. Its same-title/different-edition counterexample applies before graph expansion: an incorrect merge can retrieve a perfectly cited passage about the wrong course. Count repeated support separately from independently assessed corroboration.
 
 ### Choose a source of truth for eligibility
 The catalog's reviewed prerequisite field should control eligibility, not whichever wording ranks highest in vector search. Retrieval can help find explanations and discover candidate facts, but it must not bypass the policy. In RDF, use explicit graph scopes for reviewed assertions. In an LPG, use governed relationship sets or claim-status filters. In either case, graph access must respect the user's permissions.
@@ -76,6 +80,9 @@ answer(question, user_context):
 ```
 
 A **token budget** limits the amount of model input or output. A **seed entity** is a starting point for graph expansion. An **allowlist** names permitted relation types or tools. A **freshness policy** defines which versions or timestamps are acceptable. **Abstention** is an explicit choice not to answer when required evidence is missing.
+
+### Abstain from an unsupported claim
+Claim scope matters. The catalog evidence can support “c2 meets the recorded prerequisite policy” while leaving “c2 fits Maya's current demands” unassessed. Separate missing assessment evidence from evidence of a negative outcome. Define the evidence requirement and how it is evaluated before enabling the broader claim; provenance, inference and validation cannot recover a relevant observation never collected. An answer may offer the limited candidate and ask for context while declining to assert suitability.
 
 ### Trace one answer
 For this walk-through, assume that evidence document d2 has now been registered and contains a reviewed description of c2, while d1 supports completion event e1. These document records belong to the evidence extension, not the original baseline. The eligibility query returns c2. Expansion gathers its Graphs topic, its c1 prerequisite, Maya's qualifying completion event, and d2's course description. The generator receives only authorized evidence. It explains the recommendation and cites the passage supporting the course description and the record supporting completion, with appropriate user-facing locators.
@@ -142,7 +149,7 @@ A recommender can predict interest in c3 and still exclude it if prerequisites a
 These techniques broaden what the graph can do, but their outputs still depend on the definitions and evidence introduced earlier. The next part revisits the ideas through mistakes, controlled exercises, and contrasting project scenarios.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 2, 6, 8, 10, 11, 13, 16, 22, 23. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 2, 6, 8, 10, 11, 13, 16, 22, 23, 24, 25. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This chapter added retrieval, generation, and analytics to the catalog; it did not replace the reviewed eligibility policy. The questions follow an answer from source indexing through retrieval and verification, then distinguish learned recommendations from verified facts. Document records such as d1 and d2 belong to the evidence extension, not the original baseline. Predict what the system should do before reading each answer.
 
@@ -244,5 +251,13 @@ This chapter added retrieval, generation, and analytics to the catalog; it did n
 
 **Answer:** Not on that basis. The description supports course content, not prerequisite completion; the predicted edge is not a verified completion; and restricted evidence cannot be used outside its authorized scope. Evaluate the policy against the permitted reviewed data. If required evidence is insufficient, return the appropriate limited or abstaining result without revealing the restricted record. If authorized policy inputs establish an unmet prerequisite, report that outcome accurately. Fluency and high relevance scores cannot compensate for missing authority or evidence.
 
-**Ready to continue:** You should be able to trace a supported answer, identify where extraction and prediction remain uncertain, explain permission and freshness boundaries, and design checks for the pipeline's actual failure modes. Chapter 9 now applies these distinctions through mistakes, guided exercises, and architecture cases.
+### Review 6 · Preserve the limits of the answer
+**Question 24: May a generated explanation call c2 personally suitable merely because the catalog query returns it?**
 
+**Answer:** No. Explain the recorded eligibility result and disclose that suitability is not assessed unless the additional criteria and evidence have been defined and evaluated. Withhold the unsupported suitability claim while offering the limited candidate or requesting context. Missing evidence is not a negative suitability finding.
+
+**Question 25: Five passages have the same title and support a requires edge. What must be checked before using them?**
+
+**Answer:** Check which provider and edition each passage concerns, whether the edge direction and meaning match the intended predicate, and whether the passages share an underlying source. Preserve source versions and locators. A count does not establish independent corroboration, and a citation to a different course does not support the requested claim.
+
+**Ready to continue:** You should be able to trace a supported answer, identify where extraction and prediction remain uncertain, explain permission and freshness boundaries, and design checks for the pipeline's actual failure modes. Chapter 9 now applies these distinctions through mistakes, guided exercises, and architecture cases.

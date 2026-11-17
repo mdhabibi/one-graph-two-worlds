@@ -1,5 +1,7 @@
 # IX · Applied mastery
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 9.1 Common mistakes and how to repair them
 
 We have covered representation, meaning, queries, and operation. This section collects mistakes that cross those boundaries. Use the repair column to decide which layer to inspect when the catalog produces an incorrect or unexplained recommendation.
@@ -75,4 +77,3 @@ A governed semantic catalog must feed an interactive application that needs a di
 The team wants answers from a large collection of course documents, but extraction quality and access controls are not yet established.
 
 **Reasoned proposal:** begin with source registration, evidence retrieval, permissions, and a reviewed evaluation set. Introduce claim extraction and graph expansion for question classes that need relationships. Separate unreviewed extracted claims from eligibility facts. RDF versus LPG is secondary until identity, provenance, and evidence quality are reliable.
-

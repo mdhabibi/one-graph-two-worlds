@@ -1,3 +1,0 @@
-PREFIX ex: <https://example.org/>
-SELECT ?required
-WHERE { ex:c2 ex:requires+ ?required }

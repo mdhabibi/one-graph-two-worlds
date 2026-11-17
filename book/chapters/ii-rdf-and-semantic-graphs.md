@@ -1,5 +1,7 @@
 # II · RDF and semantic graphs
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 2.1 RDF statements, terms, and datasets
 
 > **Learning goals for this part:** Read a triple and a Turtle fragment; separate RDFS/OWL consequences from SHACL acceptance checks; explain what a missing fact does and does not imply.
@@ -225,9 +227,11 @@ The OWL definition raises a practical question: what can we conclude when a comp
 ### Missing is not false
 The **open-world assumption** permits facts that are not recorded to be true. If no completion for Maya and c2 is recorded, OWL does not conclude that Maya did not complete c2. A **closed-world policy** treats a defined dataset as complete for a defined decision. Applications often need that policy for recommendation filtering, while retaining open-world semantics for integration. [[15](xii-references.md#ref15)]
 
-The figure follows one missing completion record through two interpretations. OWL leaves the real-world completion unknown. An application policy may treat the missing record as insufficient evidence for eligibility, provided it declares that decision rule.
+The figure follows one missing completion record through two interpretations. In this example, assume a consistent ontology entails neither that completion nor its negation; its real-world status remains unresolved. An application policy may treat the missing record as insufficient evidence for eligibility, provided it declares that decision rule.
 
 ![Figure 6. A missing fact and an explicit decision policy](../../assets/figures/world.svg)
+
+An unstated triple can nevertheless be entailed: the subclass example derives LearningResource membership without an explicit instance triple for it. “Not written” and “not entailed” are different tests. Under a consistent ontology, a proposition is unresolved when neither it nor its negation follows. Inconsistency is a separate issue, not another kind of missing field. [[15](xii-references.md#ref15)]
 
 ### Different names need not mean different things
 OWL does not generally assume that different IRIs identify different individuals. This is the absence of a universal **unique-name assumption**. Explicit inequality can distinguish individuals. Conversely, `owl:sameAs` asserts identity: it is much stronger than “similar,” “same title,” or “probably a duplicate.” [[15](xii-references.md#ref15)]
@@ -278,6 +282,18 @@ A **description logic** is a family of formal languages for describing classes a
 
 ### Select reasoning by a measurable need
 For the catalog, simple subclass inference may be enough. Use an explicit eligibility query for a policy that depends on a complete prerequisite snapshot. Choose richer reasoning only if a required question depends on those semantics. Record the reasoner version, supported profile, ontology version, and whether results include asserted facts, inferred facts, or both.
+
+### When does reasoning earn its cost?
+Start with an observable competency question. “Which courses are LearningResources?” can follow from the RDFS subclass statement already shown; it does not by itself require OWL. The Graduate example instead uses an equivalent class, intersection and existential restriction. If those formal consequences are required across varying inputs, select an implementation supporting the needed constructs and reasoning tasks. A query can reproduce selected examples without implementing the ontology's semantics for every possible input. [[11](xii-references.md#ref11), [14](xii-references.md#ref14)]
+
+Use this checklist before adding a reasoner:
+1. Specify the required answers, negative controls and consistency assumptions.
+2. Ask whether RDFS, explicit queries or application rules suffice for the stated requirement.
+3. Check the actual ontology constructs against a supported profile and engine; do not assume full OWL 2 DL is always necessary. [[17](xii-references.md#ref17)]
+4. Compare candidates with the same required answers and representative query/update workload. Measure query latency, update and retraction/rebuild cost, memory or storage, and maintenance effort.
+5. Record mandatory requirements, observed costs, reuse value, uncertainty and conditions for revisiting the decision. Section 6.3 separates hard gates from preferences.
+
+No universal break-even threshold or reasoning benchmark is established here. The existing lab's RDFS case and separate Graduate DL checks illustrate different semantic needs; their correctness results are not a performance comparison. Use extensions/reasoning-decision/README.md as a worksheet for a real workload before claiming that OWL's benefits justify its overhead.
 
 ## 2.9 SHACL validates a chosen data graph
 
@@ -342,6 +358,19 @@ Imagine c2 has a title but no duration. An ontology can still consistently descr
 | Database constraint | Is this write allowed by enforced storage rules? | Duplicate unique key rejects a transaction |
 | Application policy | Is this action allowed in this context? | Recommend only courses with satisfied prerequisites |
 
+### Missing does not automatically mean invalid
+Hold c2 fixed as a Course with no recorded duration. The shape and target determine the check:
+
+| Selected check | Result in this isolated case |
+|---|---|
+| c2 targeted; duration has minCount 1 | Missing-value violation |
+| c2 targeted; duration has only datatype integer | No value node violates that component |
+| Only Person instances targeted; c2 has only Course type | c2 is not a focus node |
+
+Passing the datatype-only case does not establish conformance to other shapes or factual accuracy. Inspect targets as well as constraints. Inference may be materialized before validation; record preprocessing and the graph actually checked rather than assuming inference and validation always see identical facts. [[5](xii-references.md#ref5)]
+
+Run python extensions/missing-data/check_missing_data.py from the package root after installing its requirements. The isolated exercise executes these SHACL variations, checks a wrong-datatype control, and demonstrates an RDFS-entailed type absent from the original graph. It does not execute full OWL DL reasoning. Inference and validation are complementary responsibilities, not logical opposites.
+
 ### Cardinality can mean different things
 An OWL minimum-cardinality restriction expresses that sufficiently many values exist in the interpretation; it is not a requirement that all those values appear as explicit submitted fields. A SHACL minimum count inspects values in the selected data graph under the validation configuration. A database property existence constraint acts on writes to the database. Similar words do not imply interchangeable behavior. [[5](xii-references.md#ref5), [14](xii-references.md#ref14), [15](xii-references.md#ref15)]
 
@@ -356,7 +385,7 @@ A **closed shape**, using `sh:closed`, can restrict which properties are permitt
 We have separated facts, logical meaning, and data acceptance. Next we query the baseline facts with SPARQL; the queries will state when they rely on recorded data rather than inferred or globally complete knowledge.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 3, 7, 8, 10, 12, 16, 17, 20. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 3, 7, 8, 10, 12, 16, 17, 20, 21, 22. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This review follows the chapter's sequence: first read RDF statements, then distinguish definitions and their consequences from checks on submitted data. Use the unchanged catalog unless a question explicitly introduces a variation. Try explaining each answer before reading the explanation; you do not need SPARQL syntax yet.
 
@@ -445,5 +474,13 @@ This review follows the chapter's sequence: first read RDF statements, then dist
 
 **Answer:** Logical consistency alone is insufficient for acceptance. Parse the submitted RDF, validate the candidate graph with the declared shape version, and record the missing-duration violation. Under a policy that requires a conforming record before publication, hold the record for correction and rerun the checks after repair. A later passing shape establishes conformance to those rules, not that the duration is factually accurate. Preserve the data snapshot, validation configuration, and reports, and run the relevant consistency and competency checks before publication.
 
-**Ready to continue:** You should be able to read a small RDF fragment, predict a simple RDFS consequence, explain why missing facts remain unknown in OWL, and choose a shape for a required submitted field. The next part introduces SPARQL to ask precise questions about the catalog; it will distinguish explicit data from any configured inferences.
+### Review 5 · Choose the right test
+**Question 21: Is a missing duration always a SHACL violation, and is every unstated triple unresolved under OWL?**
 
+**Answer:** No. A targeted minimum count can require duration; datatype alone does not require a value, and targeting must include the node. An unstated triple may be entailed. In a consistent ontology, unresolved means neither the proposition nor its negation follows. Inspect the selected graph, constraints and reasoning configuration.
+
+**Question 22: Does the Course-to-LearningResource hierarchy alone justify adopting an OWL DL reasoner?**
+
+**Answer:** No. RDFS already supports the shown subclass entailment. Name a required competency question and identify the constructs and tasks needed. Then compare semantically adequate candidates against representative query and update costs, including maintenance. The Graduate definition motivates a richer semantic requirement, but these teaching fixtures supply no universal performance threshold.
+
+**Ready to continue:** You should be able to read a small RDF fragment, predict a simple RDFS consequence, distinguish unstated, entailed and unresolved facts, and choose a shape for a required submitted field. The next part introduces SPARQL to ask precise questions about the catalog; it will distinguish explicit data from any configured inferences.

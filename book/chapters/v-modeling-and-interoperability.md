@@ -1,8 +1,10 @@
 # V · Modeling and interoperability
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 5.1 Model events when relationships have a lifecycle
 
-> **Learning goals for this part:** Choose direct relationships versus identified events; retain evidence and context; describe what a mapping must preserve and who owns each authoritative fact.
+> **Learning goals for this part:** Choose direct relationships versus identified events; retain evidence and context; describe what a mapping must preserve, decide where a meaning change belongs, and identify who owns each authoritative fact.
 
 Until now, “Maya completed c1” was a single direct link. We now deliberately extend the model because we want a score, a time, and evidence for that particular occurrence. The new event e1 and document d1 are additional records; they were not hidden in the baseline.
 
@@ -82,7 +84,26 @@ Returning to the new e1 record, consider the claim “Maya completed c1.” To m
 
 An LPG relationship can carry a source ID and timestamp directly. If several sources support the same relationship, represent support separately instead of overwriting one source property with the latest observation.
 
-## 5.3 Ontology design as an iterative discipline
+### From extracted mentions to stable identities
+Now imagine two provider PDFs mention Graph Basics. In document doc-a version 1, the text explicitly defines “GB” as Graph Basics and identifies provider A's 2026 edition. Document doc-b version 1 uses the same title for provider B's 2027 edition. These are invented source records for an isolated identity exercise, not extra baseline courses.
+
+| Artifact | Example | What it establishes |
+|---|---|---|
+| Mention | ma1, doc-a v1, page and text span | Where a name occurred |
+| Contextual alias | GB defined in doc-a | A local name-resolution hypothesis |
+| Canonical entity | Provider A / Graph Basics / edition 2026 | The reviewed identity boundary |
+| Extracted relation | A candidate requires edge with its sentence | A claim needing mapping and review |
+| Evidence record | Original document version and locator | Traceability after linking |
+
+Within one document, duplicate extraction spans can be deduplicated, and an explicitly defined alias can help resolve a mention. **Coreference** asks whether expressions refer to the same thing in context. A short name alone is insufficient: “Jackson” need not identify the same individual everywhere. Across documents, link to canonical individual identifiers using reviewed identity rules; a vocabulary of classes and predicates is not necessarily a registry of individuals.
+
+In this example, GB and Graph Basics may link to provider A's same edition when the document's identity evidence supports it. The title match in doc-b must not merge provider B's different edition. If the provider or edition cannot be established, retain the local mention ID and an unresolved status. An unsupported merge is not repaired by assigning a high extraction score. The companion exercise in extensions/identity-evidence retains the two source/version locators while checking these contrasting cases.
+
+Asking an extractor for the label `requires` can guide candidate outputs, but does not establish the correct predicate IRI, direction, course identity, units, datatype or shape conformance. Review those mappings separately. Keep extraction confidence, identity-resolution status, mapping status and claim review status distinct. A successfully mapped IRI can still express a false claim.
+
+After linking, retain each original claim and its evidence rather than overwriting the source with the canonical ID. Repeated sentences, duplicated PDFs and several extraction runs are not automatically independent corroboration. A support count describes recorded support events under a deduplication policy; it is not a truth probability. Chapter 8 uses these distinctions in the construction pipeline.
+
+## 5.3 Ontology design and semantic evolution
 
 Earlier sections introduced ontology constructs one at a time. We now put them into a design workflow: start with the catalog's questions, settle the meaning of Course and Completion, and choose only the rules that serve those questions. This section describes a process rather than new baseline data.
 
@@ -95,6 +116,33 @@ Choose whether “Course” means an abstract subject, a published edition, or a
 Write natural-language definitions first. Then decide which belong in an ontology, which in SHACL, and which in application policy. “Every completion has one recorded learner” is a useful input constraint. “A completion is an educational event” is a classification commitment. “A learner can access the next course only after a passing score” is an operational policy requiring context.
 
 Use a **namespace**, a controlled identifier space, to publish terms. Write human-readable labels and comments. A **deprecation** marks a term as discouraged without deleting its historical meaning. A **version IRI** can identify a specific ontology release. An **import** brings another ontology into scope; review imported commitments because they can change entailments. [[14](xii-references.md#ref14)]
+
+### Decide which artifact changed
+A warehouse schema can describe types, relationships and constraints, not just column names. An ontology makes domain concepts and relations explicit and, in OWL, states formal axioms. Neither makes an agent understand the business automatically. When definitions change, first ask whether the change concerns representation, domain meaning, acceptance or a decision rule.
+
+| Change | Primary artifact to review | Check before adopting it |
+|---|---|---|
+| learner_id becomes student_key, with the same identity domain | Source mapping | Preserve identities, joins and expected answers |
+| Completed changes from attended to passed assessment | Vocabulary/model and dependent mappings | Separate meanings; preserve the interpretation of old records |
+| A recorded score becomes mandatory | Validation contract or shapes | Test missing values and decide when enforcement runs |
+| Passing threshold rises from 60 to 70 percent | Application policy | Record effective dates and replay boundary cases |
+| Regional definitions are both legitimate | Contextual model and policies | Preserve region and policy context rather than overwrite a universal label |
+
+This is an engineering decision guide, not a versioning policy mandated by OWL. One change can affect several rows: a new completion definition can require a new mapping, validation rules, queries and explanatory text as well as model changes.
+
+### Work through three catalog changes
+**First, rename a source field.** A provider replaces learner_id with student_key. Domain owners confirm both identify the same learner in the same identifier scope. Publish a new mapping version while retaining the old mapping for the old source snapshot. Compare stable learner and course identities and the resulting facts. A rename alone does not require a new ontology release. If the new key identifies an enrollment rather than a person, this is no longer a meaning-preserving rename.
+
+**Next, change what completed means.** The old provider used a Boolean for attendance; the new provider uses it for passing an assessment. Both values may be true, but they assert different things. Preserve the source definition and version. Model attendance and assessment outcomes separately, or record an explicitly qualified event interpretation, after domain review. Do not retroactively relabel historical attendance as passing. New terms and deprecation may be appropriate for incompatible meanings; not every compatible ontology edit requires new term IRIs.
+
+**Finally, change the passing rule.** In an isolated extension, Maya has a recorded assessment score of 65 percent. Policy p60 accepts scores of at least 60; policy p70 accepts scores of at least 70. If p70 takes effect on 1 November 2026 and the chosen rule uses decision time, a decision on 31 October passes and one on 1 November does not. The score fact stays 65. Preserve which policy was selected and which time basis selected it. A different organization may use assessment time or grandfather earlier attempts; that is a policy decision to state explicitly. These invented assessment facts do not alter the baseline completion of c1.
+
+### Preserve a reproducible release combination
+An ontology IRI can identify an ontology series, while a version IRI identifies a particular version. Pin dependencies to specific versions when reproducibility requires them, and retain retrievable historical documents. Changing the document available at a stable ontology IRI does not rewrite every term IRI, and a compatibility annotation is not a proof that all dependent queries remain correct. OWL defines identification and versioning mechanisms; teams must still establish their compatibility checks. [[14](xii-references.md#ref14)]
+
+For each published dataset or decision, retain a compatible combination of source snapshot, mapping version, ontology version, validation version and policy version, plus the selected inference configuration. A **migration** is the controlled transition between representations or versions. Its acceptance checks should cover affected identities, classifications, shape results, query answers and historical replay. Rebuild projections and refresh retrieval indexes where their inputs or meanings changed. Section 5.5 explains projection ownership; Section 7.4 connects these versions to decision records.
+
+**Try the isolated extension.** From the package root, run python extensions/semantic-evolution/check_evolution.py. Read its README first. It compares two meaning-preserving source mappings, rejects an attendance-to-passing substitution, and replays a threshold change with explicit decision dates. It also exercises the threshold and effective-date boundaries and an unrecorded score. This is a small application-policy exercise, not an OWL reasoner, SHACL implementation or database migration test. The existing RDF/LPG baseline and query-equivalence evidence are unchanged.
 
 ### Review and regression
 Maintain a small set of positive examples, negative input cases, and expected query results. A **regression check** catches behavior that changed after a modification. If a subclass relationship changes, rerun classifications, shapes, and application queries that depend on it. Do not review ontology changes only as text diffs.
@@ -148,6 +196,8 @@ If both stores independently edit the same fact, conflict resolution becomes par
 
 A **change data capture** pipeline transfers changes from a source. **Eventual consistency** permits temporary differences while updates propagate. The application must know whether a stale completion could lead to an incorrect recommendation. Use a freshness bound or a direct authoritative check for sensitive decisions.
 
+Section 5.3 explains how to version mappings independently from ontology, validation and policy changes. Record the compatible combination used to build each projection.
+
 ### Reconcile more than counts
 Compare stable IDs, key relationship sets, deleted records, mapping versions, and expected query answers. Make projections rebuildable. Keep a last-successful watermark and a recovery procedure. Price the second store's operation, on-call responsibility, data transfer, and migration burden before selecting a hybrid design.
 
@@ -157,7 +207,7 @@ R2RML standardizes mappings from relational data to RDF and can support material
 The modeling options are now explicit. The next part uses those options to compare strengths and make a requirements-based choice, instead of judging either technology by its terminology alone.
 
 ### Check your understanding
-**Try first:** core questions for this chapter are 1, 2, 6, 8, 11, 15, 19, 20, 22. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
+**Try first:** core questions for this chapter are 1, 2, 6, 8, 11, 15, 19, 20, 22, 25, 28, 29. They cover its main concepts and application decision. Attempt the remaining questions as a second pass. Cover the next answer with a sheet or scroll it out of view while writing your prediction. Compare the explanation only after committing an answer.
 
 This chapter extended the baseline: e1 is an identified completion event and d1 is its supporting document. They are not hidden records in the original lab. The questions below move from identifying an occurrence to preserving its evidence, mapping its representation, and deciding which system owns it. Explain what must survive each change before choosing a storage pattern.
 
@@ -263,5 +313,26 @@ This chapter extended the baseline: e1 is an identified completion event and d1 
 
 **Answer:** No. It has collapsed occurrences, discarded independent source history, and invented event times. Matching counts cannot repair those losses. Preserve separate event identities and support records, represent unknown dates honestly, and state which current-completion links are derived under the policy. Test the reconstructed attempt history, evidence references, and relevant query answers before accepting the mapping. A summary view can intentionally omit detail only when its limited purpose is explicit and the authoritative detail remains available where required.
 
-**Ready to continue:** You should be able to distinguish an event from a claim about it, choose where evidence belongs, define a mapping's preservation contract, and assign authority and freshness responsibilities. The next part uses these modeling choices to compare complete architectures against actual requirements.
+### Review 6 · Change definitions without erasing history
+**Question 25: A learner column is renamed, a passing threshold rises, and completed changes from attended to passed. Must all three changes create a new ontology version?**
 
+**Answer:** No. A rename can be a mapping-only change if identity and meaning really remain the same. A threshold can be a versioned application policy. A changed completion meaning requires review of the vocabulary/model and its dependent mappings, validation and queries; separate terms or explicit context may be needed. Version the artifacts actually changed and record compatible combinations. A Boolean datatype or unchanged field name cannot establish semantic compatibility.
+
+**Question 26: Maya's score is 65 percent. Policy p60 applies before 1 November 2026 and p70 from that date, selected by decision time. What must historical replay return?**
+
+**Answer:** With the same recorded score, the 31 October decision passes p60 and the 1 November decision fails p70. Retain the input snapshot, evidence, policy versions, effective boundary and time-selection rule. Replaying the old decision with today's policy is a different question. If the score was never recorded, the exercise reports insufficient evidence rather than silently inventing a zero or a passing value.
+
+**Question 27: Do stable term IRIs and an ontology version annotation establish that a new release is backward compatible?**
+
+**Answer:** No. Stable identifiers and version metadata identify intended continuity and the artifacts used. They do not test whether a changed axiom alters classifications, whether a mapping merges identities, or whether a policy changes answers. Test the consequences relevant to consumers and retain old versions for historical interpretation. Freeze a compatible artifact combination for reproduction rather than treating every newest version as interchangeable.
+
+### Review 7 · Keep identity and evidence separate
+**Question 28: Two PDFs use Graph Basics, and one defines GB as its abbreviation. Which mentions can safely share an identity?**
+
+**Answer:** The explicit alias can support linking within its documented context, with evidence that both mentions identify the same provider and edition. The same title in another PDF does not establish that identity. Keep different providers or editions distinct; retain a local unresolved mention when identifying evidence is absent. Preserve document versions and locators after linking.
+
+**Question 29: Does extracting a target ontology's relation label and finding five supporting sentences establish a correct graph fact?**
+
+**Answer:** No. Confirm predicate identity and direction, argument identities and meaning, datatypes, units and applicable constraints. The sentences may repeat one source rather than provide independent support. Retain extraction, mapping, identity and review statuses separately, and evaluate the evidence rather than treating label agreement or a count as proof.
+
+**Ready to continue:** You should be able to distinguish an event from a claim about it, choose where evidence belongs, define a mapping's preservation contract, assign authority and freshness responsibilities, and distinguish mapping, ontology, validation and policy changes. The next part uses these modeling choices to compare complete architectures against actual requirements.

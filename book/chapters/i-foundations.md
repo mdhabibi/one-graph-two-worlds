@@ -1,5 +1,7 @@
 # I · Foundations
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 1.1 The running example and its questions
 
 > **Learning goals for this part:** Explain the two graph representations in everyday language; distinguish a model, database, query language, meaning, and validation; trace each term back to the catalog.
@@ -328,4 +330,3 @@ These questions revisit the whole Foundations part, from Maya's catalog to the f
 **Answer:** First clarify what counts as a distinct completion and how its date and identity are recorded. A bare “Maya completed c1” connection does not explain how to distinguish repeated occurrences. An LPG can use separate relationship instances with properties, or an event node when the completion needs its own identity and further connections. An RDF model can introduce an identified completion event with links to the learner, course, and date. These are possible extensions, not facts already present in our baseline. We will develop event modeling later; the lesson here is to settle the meaning and identity of the new information before choosing query syntax.
 
 **Ready to continue:** You should now be able to explain the catalog to another reader, place each technology in the correct role, and distinguish a stored fact from a definition, a policy, and a validation rule. If a question was difficult, revisit the corresponding Foundations section before beginning the RDF syntax chapter.
-

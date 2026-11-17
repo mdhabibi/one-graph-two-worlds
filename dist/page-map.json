@@ -106,242 +106,257 @@
   ],
   [
     "2.9 SHACL validates a chosen data graph",
-    42,
+    43,
     "II \u00b7 RDF and semantic graphs"
   ],
   [
     "2.10 Validation and inference answer different questions",
-    44,
+    45,
     "II \u00b7 RDF and semantic graphs"
   ],
   [
     "3.1 SPARQL patterns and variable bindings",
-    52,
-    "III \u00b7 Querying RDF"
-  ],
-  [
-    "3.2 Walk through one query, row by row",
-    53,
-    "III \u00b7 Querying RDF"
-  ],
-  [
-    "3.3 Optional data, filters, and duplicate results",
     54,
     "III \u00b7 Querying RDF"
   ],
   [
-    "3.4 Paths, aggregation, and graph construction",
+    "3.2 Walk through one query, row by row",
+    55,
+    "III \u00b7 Querying RDF"
+  ],
+  [
+    "3.3 Optional data, filters, and duplicate results",
     56,
     "III \u00b7 Querying RDF"
   ],
   [
-    "3.5 A policy-aware recommendation query",
+    "3.4 Paths, aggregation, and graph construction",
     58,
     "III \u00b7 Querying RDF"
   ],
   [
+    "3.5 A policy-aware recommendation query",
+    60,
+    "III \u00b7 Querying RDF"
+  ],
+  [
     "3.6 Named graphs, updates, and federation",
-    59,
+    61,
     "III \u00b7 Querying RDF"
   ],
   [
     "4.1 Labeled property graphs from first principles",
-    68,
-    "IV \u00b7 Property graphs and Cypher"
-  ],
-  [
-    "4.2 Create the same catalog in Cypher",
-    69,
-    "IV \u00b7 Property graphs and Cypher"
-  ],
-  [
-    "4.3 MATCH, WHERE, RETURN, and parameters",
     71,
     "IV \u00b7 Property graphs and Cypher"
   ],
   [
+    "4.2 Create the same catalog in Cypher",
+    72,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.3 MATCH, WHERE, RETURN, and parameters",
+    74,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
     "4.4 OPTIONAL MATCH, null, and aggregation",
-    73,
-    "IV \u00b7 Property graphs and Cypher"
-  ],
-  [
-    "4.5 Paths, cycles, and bounded expansion",
-    75,
-    "IV \u00b7 Property graphs and Cypher"
-  ],
-  [
-    "4.6 The equivalent recommendation in Cypher",
     76,
     "IV \u00b7 Property graphs and Cypher"
   ],
   [
-    "4.7 Constraints, transactions, and evolution",
+    "4.5 Paths, cycles, and bounded expansion",
     78,
     "IV \u00b7 Property graphs and Cypher"
   ],
   [
+    "4.6 The equivalent recommendation in Cypher",
+    79,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
+    "4.7 Constraints, transactions, and evolution",
+    81,
+    "IV \u00b7 Property graphs and Cypher"
+  ],
+  [
     "5.1 Model events when relationships have a lifecycle",
-    87,
-    "V \u00b7 Modeling and interoperability"
-  ],
-  [
-    "5.2 Statements about statements and provenance",
-    89,
-    "V \u00b7 Modeling and interoperability"
-  ],
-  [
-    "5.3 Ontology design as an iterative discipline",
-    90,
-    "V \u00b7 Modeling and interoperability"
-  ],
-  [
-    "5.4 Map RDF and LPG without losing meaning",
     91,
     "V \u00b7 Modeling and interoperability"
   ],
   [
-    "5.5 Integration architecture: one graph or two?",
+    "5.2 Statements about statements and provenance",
     93,
     "V \u00b7 Modeling and interoperability"
   ],
   [
+    "5.3 Ontology design and semantic evolution",
+    95,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "5.4 Map RDF and LPG without losing meaning",
+    98,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
+    "5.5 Integration architecture: one graph or two?",
+    99,
+    "V \u00b7 Modeling and interoperability"
+  ],
+  [
     "6.1 Comparison: model and semantics",
-    101,
+    109,
     "VI \u00b7 Strengths, tradeoffs, and decisions"
   ],
   [
     "6.2 Strengths and weaknesses in practice",
-    102,
+    110,
     "VI \u00b7 Strengths, tradeoffs, and decisions"
   ],
   [
     "6.3 A requirements-first decision framework",
-    103,
+    111,
     "VI \u00b7 Strengths, tradeoffs, and decisions"
   ],
   [
     "6.4 A worked scoring matrix and ADR",
-    105,
+    113,
     "VI \u00b7 Strengths, tradeoffs, and decisions"
   ],
   [
     "6.5 Explain the decision to stakeholders",
-    106,
+    114,
     "VI \u00b7 Strengths, tradeoffs, and decisions"
   ],
   [
     "7.1 Performance: measure the workload, not the slogan",
-    113,
+    122,
     "VII \u00b7 Performance and operations"
   ],
   [
     "7.2 Design a fair benchmark",
-    114,
+    123,
     "VII \u00b7 Performance and operations"
   ],
   [
     "7.3 Scale, transactions, backup, and recovery",
-    115,
+    124,
     "VII \u00b7 Performance and operations"
   ],
   [
     "7.4 Governance, lineage, and schema ownership",
-    116,
+    125,
     "VII \u00b7 Performance and operations"
   ],
   [
     "7.5 Security and privacy across graph boundaries",
-    118,
+    127,
     "VII \u00b7 Performance and operations"
   ],
   [
     "8.1 What graph RAG adds to retrieval",
-    125,
+    134,
     "VIII \u00b7 Graph RAG and analytics"
   ],
   [
     "8.2 Build evidence before generating answers",
-    127,
+    136,
     "VIII \u00b7 Graph RAG and analytics"
   ],
   [
     "8.3 A retrieval plan for the running example",
-    128,
+    137,
     "VIII \u00b7 Graph RAG and analytics"
   ],
   [
     "8.4 Evaluate graph RAG by failure mode",
-    129,
+    139,
     "VIII \u00b7 Graph RAG and analytics"
   ],
   [
     "8.5 Graph algorithms and learned representations",
-    130,
+    140,
     "VIII \u00b7 Graph RAG and analytics"
   ],
   [
     "9.1 Common mistakes and how to repair them",
-    138,
+    149,
     "IX \u00b7 Applied mastery"
   ],
   [
     "9.2 Guided exercises with answer explanations",
-    139,
+    150,
     "IX \u00b7 Applied mastery"
   ],
   [
     "9.3 Architecture case studies and model answers",
-    140,
+    151,
     "IX \u00b7 Applied mastery"
   ],
   [
     "10.1 Files, versions, and execution boundaries",
-    143,
+    154,
     "X \u00b7 Reproducible lab"
   ],
   [
     "10.2 Expected outputs and extension checklist",
-    144,
+    155,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.3 When do the two recommendation queries mean the same thing?",
+    157,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.4 Separate query alignment, fixture integrity and intake validation",
+    159,
+    "X \u00b7 Reproducible lab"
+  ],
+  [
+    "10.5 Reproduce and challenge the equivalence experiment",
+    161,
     "X \u00b7 Reproducible lab"
   ],
   [
     "11.1 Glossary A\u2013D",
-    147,
+    164,
     "XI \u00b7 Glossary"
   ],
   [
     "11.2 Glossary E\u2013L",
-    148,
+    165,
     "XI \u00b7 Glossary"
   ],
   [
     "11.3 Glossary M\u2013R",
-    149,
+    166,
     "XI \u00b7 Glossary"
   ],
   [
     "11.4 Glossary S\u2013Z and notation",
-    150,
+    168,
     "XI \u00b7 Glossary"
   ],
   [
     "12.1 References: semantic foundations",
-    153,
+    170,
     "XII \u00b7 References"
   ],
   [
     "12.2 References: modeling and queries",
-    154,
+    171,
     "XII \u00b7 References"
   ],
   [
     "12.3 References: implementation and architecture",
-    155,
+    172,
     "XII \u00b7 References"
   ],
   [
     "12.4 References: governance, RAG, and further study",
-    155,
+    172,
     "XII \u00b7 References"
   ]
 ]

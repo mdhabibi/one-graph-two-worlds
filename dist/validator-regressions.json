@@ -1,0 +1,32 @@
+{
+  "scope": "Deliberately modified temporary copies; no graph-engine run.",
+  "checks": {
+    "margin": "rejected; no stale pass report",
+    "draft-label": "rejected; no stale pass report",
+    "citation-target": "rejected; no stale pass report",
+    "syntax": "rejected; no stale pass report",
+    "local-link": "rejected; no stale pass report",
+    "chapter-cover-label": "rejected; no stale pass report",
+    "citation-coverage": "rejected; no stale pass report",
+    "stale-manuscript": "rejected; no stale pass report",
+    "extension-replay": "rejected; no stale pass report",
+    "missing-shape": "rejected; no stale pass report",
+    "identity-locator": "rejected; no stale pass report",
+    "web-drift": "rejected; no stale pass report",
+    "glossary-order": "rejected; no stale pass report",
+    "core-reference": "rejected; no stale pass report",
+    "answer-placement": "rejected; no stale pass report",
+    "review-numbering": "rejected; no stale pass report",
+    "web-label": "rejected; no stale pass report",
+    "web-code": "rejected; no stale pass report",
+    "pdf-outline": "rejected; no stale pass report",
+    "citation-version": "rejected; no stale pass report",
+    "bibtex-doi": "rejected; no stale pass report",
+    "record-version": "rejected; no stale pass report",
+    "doi-hyperlink": "rejected; no stale pass report"
+  },
+  "validator_sha256": "0b6c56e5de18f91082260af4d64bad277eea5ac2f21ef7db03f4ac813020b2bd",
+  "editorial_checker_sha256": "066cb0f0c11a4d62915ba84c0cbc82c55dae4e85b0fee4c250baa94ea04a1740",
+  "metadata_checker_sha256": "c7dbe6eb10a123fd31865ab23b23ce6f02a393f24850575ca621fbca6fddb916",
+  "driver_sha256": "9f182c24d8b1f14a95b0404904ab42fdfed3d582f267b8756c93651e1d3098ed"
+}

@@ -1,5 +1,7 @@
 # XII · References
 
+**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+
 ## 12.1 References: semantic foundations
 
 Core references were checked on 10 November 2026; the RDF implementation references [33, 34, 35] were checked on 13 November 2026. Examples and illustrations are original. Citations identify the relevant specifications; they do not imply that every implementation supports every feature. Versioned baselines are deliberate, rather than a claim that older syntax is the newest available.
@@ -26,7 +28,7 @@ https://www.w3.org/TR/sparql11-query/
 
 <a id="ref5"></a>
 
-[5] **Shapes Constraint Language (SHACL).** W3C Recommendation, 2017. Shapes, targets, constraints, and validation reports.
+[5] **Shapes Constraint Language (SHACL).** W3C Recommendation, 2017. Shapes, targets, constraints, and validation reports; minimum count, datatype and targeting rechecked 16 November 2026.
 https://www.w3.org/TR/shacl/
 
 <a id="ref6"></a>
@@ -73,7 +75,7 @@ https://www.w3.org/TR/skos-primer/
 
 <a id="ref14"></a>
 
-[14] **OWL 2 Structural Specification and Functional-Style Syntax, Second Edition.** W3C Recommendation, 2012. Axioms, class expressions, and ontology structure.
+[14] **OWL 2 Structural Specification and Functional-Style Syntax, Second Edition.** W3C Recommendation, 2012. Axioms, class expressions, ontology structure, and ontology/version IRIs (Sections 3.1–3.4; versioning provisions rechecked 16 November 2026).
 https://www.w3.org/TR/owl2-syntax/
 
 <a id="ref15"></a>
@@ -184,4 +186,3 @@ https://jena.apache.org/documentation/fuseki2/
 
 [35] **RDF4J: The Repository API.** Official documentation, checked 13 November 2026. Repository interfaces, storage choices, and configuration-dependent inference.
 https://rdf4j.org/documentation/programming/repository/
-

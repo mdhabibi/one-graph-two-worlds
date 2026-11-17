@@ -1,5 +1,5 @@
 {
-  "status": "PUBLISHED — local metadata summary, not an API payload",
+  "status": "PREPARED \u2014 local metadata summary, not an API payload",
   "title": "Knowledge Graphs: Semantic Graphs and Property Graphs",
   "creators": [
     {
@@ -8,9 +8,9 @@
       "display_name": "Dr. Mahdi Habibi"
     }
   ],
-  "version": "0.1.1",
+  "version": "0.2.0",
   "language": "English",
-  "description": "A beginner-to-practitioner tutorial comparing RDF-based semantic knowledge graphs and labeled property graphs using a synthetic course catalog. Covers RDF, RDFS, OWL, SPARQL, SHACL, Neo4j, Cypher, ontology and event modeling, interoperability, architecture decisions, governance, performance, and graph RAG. Includes original figures, scoped worked examples, expected query outputs, and executable RDF and Cypher fixture checks. Version 0.1.1 is a public review draft.",
+  "description": "An illustrated, practical guide to semantic knowledge graphs and labeled property graphs, progressing from graph fundamentals to ontology modeling, querying, validation, and architectural decisions.\n\nA running learning-catalog example connects RDF, RDFS, OWL, SPARQL, and SHACL with Neo4j and Cypher. Readers explore identity, relationships, constraints, inference, and events, then apply these ideas to recommendation policies, interoperability, graph RAG, performance, and governance.\n\nThis 173-page edition includes original diagrams, worked examples, 183 explained review questions, exercises and a glossary.\n\nVersion 0.2.0 expands the recommendation-equivalence discussion and adds semantic evolution and dated policy replay, eligibility versus suitability, reasoning-cost decisions, identity and evidence handling, and missing-data validation. The additions are integrated with exercises, explained answers, glossary entries, navigation, and companion materials.\n\nValidation combines document and structural checks with isolated executable exercises. Retained paired query results cover 145 cases: 143 aligned cases agree and two boundary counterexamples intentionally differ. Independent paired reproduction remains open. These results do not establish general equivalence of RDF and property graphs, performance superiority, or personal suitability.\n\nOriginal book text, illustrations, and synthetic example data are licensed under CC BY 4.0. Original companion code is licensed separately under MIT; third-party notices are retained. Technical corrections and feedback on clarity are welcome.",
   "keywords": [
     "knowledge graphs",
     "RDF",
@@ -24,24 +24,26 @@
     "ontology modeling",
     "open educational resources"
   ],
-  "doi": "10.5281/zenodo.24228810",
+  "doi": "10.5281/zenodo.24316420",
   "repository_url": "https://github.com/mdhabibi/one-graph-two-worlds",
   "orcid": "0000-0001-8530-7746",
   "affiliation": null,
-  "publication_date": "2026-11-14",
-  "prepared_on": "2026-11-14",
-  "notes": "Version 0.1.1 published on Zenodo. Both archived file checksums match the approved upload files. Archived files and previous edition remain unchanged.",
+  "publication_date": null,
+  "prepared_on": "2026-11-17",
+  "notes": "Version 0.2.0 prepared for publication. Edition DOI reserved by the author; publication and remote CI not yet verified. Previous archived releases remain unchanged.",
   "licenses": {
     "book_text_original_figures_data": "CC-BY-4.0",
     "code": "MIT",
     "status": "adopted by author on 2026-11-14"
   },
-  "doi_status": "published",
-  "record_url": "https://zenodo.org/records/24228810",
+  "doi_status": "reserved",
+  "record_url": "https://zenodo.org/records/24316420",
   "resource_type": "Publication / Book",
   "previous_edition": {
-    "version": "0.1.0",
-    "doi": "10.5281/zenodo.24209668",
-    "record_url": "https://zenodo.org/records/24209668"
-  }
+    "version": "0.1.1",
+    "doi": "10.5281/zenodo.24228810",
+    "record_url": "https://zenodo.org/records/24228810"
+  },
+  "concept_doi": "10.5281/zenodo.24209667",
+  "status_as_of": "2026-11-17 release preparation"
 }
