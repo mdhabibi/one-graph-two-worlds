@@ -1,11 +1,19 @@
-# Technical validation — version 0.2.0
+# Technical validation — version 0.2.1
 
 This page describes the scope of automated checks and retained experiments. It
 is not human peer review, production certification or a suitability assessment.
-The edition DOI is 10.5281/zenodo.24316420; publication status is recorded in
+The edition DOI is 10.5281/zenodo.24483542; publication status is recorded in
 [the release checklist](RELEASE-CHECKLIST.md).
 
 ## Current book and package
+
+This published 0.2.1 edition improves illustrations with unchanged baseline lab and
+research inputs. Zenodo publication and both uploaded file checksums were verified.
+Current execution summary is [release-validation.json](release-validation.json).
+SVG editing inputs are kept separate from generated exports. The new diagram
+scenarios and counterfactual were checked during illustration preparation;
+these checks are not independent human review or a reader study.
+
 
 The checked source contains 183 numbered review questions and answers across
 eight chapter review blocks, 75 glossary entries and 82 core-question references.
@@ -79,14 +87,14 @@ Use the same Python environment throughout, with pinned dependencies:
 ```sh
 python -m pip install -r requirements-build.txt -r lab/requirements.txt
 python scripts/check_package.py
-python scripts/check_rebuild.py capture --out /tmp/kg-020-snapshot.json
+python scripts/check_rebuild.py capture --out /tmp/kg-021-snapshot.json
 python scripts/build_pdf.py
 python scripts/export_web.py
-python scripts/check_rebuild.py compare --baseline /tmp/kg-020-snapshot.json --out /tmp/kg-020-comparison.json
+python scripts/check_rebuild.py compare --baseline /tmp/kg-021-snapshot.json --out /tmp/kg-021-comparison.json
 python scripts/check_package.py
 python lab/check_rdf.py
-python scripts/verify_release_validation.py --out /tmp/kg-020-validation-probes
-python scripts/verify_rebuild.py --out /tmp/kg-020-rebuild-probes
+python scripts/verify_release_validation.py --out /tmp/kg-021-validation-probes
+python scripts/verify_rebuild.py --out /tmp/kg-021-rebuild-probes
 ```
 
 Use fresh `--out` destinations; probe drivers refuse existing output directories.

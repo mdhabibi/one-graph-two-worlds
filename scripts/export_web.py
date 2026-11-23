@@ -52,7 +52,7 @@ pdf=fitz.open(ROOT/'dist/knowledge-graphs-tutorial.pdf')
 pdf[0].get_pixmap(matrix=fitz.Matrix(2,2),alpha=False).save(figdir/'cover.png')
 print(f'Exported {len(parts)} chapter files and {len(kinds)} original figures (SVG + PNG).')
 
-inputs=['book/manuscript.md','scripts/build_pdf.py','scripts/export_web.py','dist/knowledge-graphs-tutorial.pdf','publication/zenodo-record-draft.json']
+inputs=['book/manuscript.md','scripts/build_pdf.py','scripts/export_web.py','dist/knowledge-graphs-tutorial.pdf','publication/zenodo-record-draft.json',*['assets/figure-sources/'+p.name for p in sorted((ROOT/'assets/figure-sources').glob('*.svg'))]]
 outputs=[*sorted((ROOT/'book/chapters').glob('*.md')),ROOT/'book/index.md',*sorted(figdir.glob('*'))]
 report={'inputs':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},'outputs':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in outputs if p.is_file()},'chapters':len(parts),'numbered_sections':sum(len(sections) for part,sections in parts.items() if part.split('·')[0].strip() in roman)}
 (ROOT/'dist/web-export.json').write_text(json.dumps(report,indent=2)+'\n')

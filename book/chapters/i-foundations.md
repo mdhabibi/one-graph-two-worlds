@@ -1,6 +1,6 @@
 # I · Foundations
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 1.1 The running example and its questions
 
@@ -40,9 +40,9 @@ We have just met Maya and the learning catalog. Begin with one fact from that st
 A **graph** consists of **nodes** (also called vertices) and **edges**, the connections between them. In this drawing, Maya and Graph Basics are nodes; the completed arrow is an edge. A **directed edge** has a start and an end. Reading Maya → completed → Graph Basics makes sense for our fact. Reversing that arrow would say that the course completed the person, which is a different and unintended statement.
 
 ### Add enough connections to answer the question
-Now add Graph Search, the possible next course, and Graphs, the topic Maya likes. In the figure, boxes identify things; words beside arrows explain their connections. The arrow labeled “prerequisite of” goes from Graph Basics to Graph Search. It expresses the same requirement as “Graph Search requires Graph Basics,” read in the opposite direction.
+Now add Graph Search, the possible next course, and Graphs, the topic Maya likes. In the figure, boxes identify things; words beside arrows explain their connections. The requires arrow goes from Graph Search (c2) to Graph Basics (c1), matching ex:c2 ex:requires ex:c1 in the data.
 
-![Figure 1. The learning catalog as connected facts](../../assets/figures/running.svg)
+![Figure 2. The learning catalog as connected facts](../../assets/figures/running.svg)
 
 Read the figure as five sentences: Maya completed Graph Basics; Maya likes Graphs; both courses are about Graphs; and Graph Basics is a prerequisite of Graph Search. Together, these facts explain why Graph Search is a candidate. The full eligibility policy will be written as queries later.
 
@@ -135,7 +135,7 @@ A **SPARQL endpoint** is an address to which a client sends a query and from whi
 ### Read the implementation diagram by role
 In the figure below, the application sends a question to the server. The server evaluates the question using the stored RDF dataset and returns results. The arrows follow the query path; results return along the reverse route. This drawing describes one example implementation. OWL reasoning and SHACL validation are separate capabilities to configure; their presence is not implied simply by drawing a database box.
 
-![Figure 2. The application, RDF server, and storage engine](../../assets/figures/rdfstore.svg)
+![Figure 3. The application, RDF server, and storage engine](../../assets/figures/rdfstore.svg)
 
 This is an illustrative implementation, not the database used by the baseline lab and not a recommendation that it is best for every project. For an optional alternative framework, see the RDF4J repository documentation in reference [[35](xii-references.md#ref35)]; no additional product names are needed to follow this example.
 
@@ -196,7 +196,7 @@ A course record without duration may violate our data contract. SHACL can check 
 ### How to read the comparison diagram
 The diagram below is a **map of responsibilities**, not a data-flow chart. The left column names one of the five jobs. The middle column shows the RDF-side mechanism already introduced; the right column shows the LPG/Neo4j-side mechanism. Read across one row to compare the same job, then move to the next row. There are no arrows because the drawing does not prescribe an execution order.
 
-![Figure 3. Five responsibilities across the two approaches](../../assets/figures/stack.svg)
+![Figure 4. Five responsibilities across the two approaches](../../assets/figures/stack.svg)
 
 For example, read the querying row as “use SPARQL in the RDF route, or Cypher in this LPG route.” Read the quality row as a separate question about checking data. OWL appears in the meaning row because interpreting definitions is different from rejecting an incomplete submitted record.
 
@@ -235,7 +235,7 @@ Two courses can share a title. One course can change its title. Treating the tit
 
 In the figure, two independent source catalogs use local IDs c1 and 73 for the same course. Mapping both records to a canonical identifier is a reviewed identity decision; matching the strings alone would not establish it.
 
-![Figure 4. Reconcile local IDs to a canonical course](../../assets/figures/identity.svg)
+![Figure 5. Reconcile local IDs to a canonical course](../../assets/figures/identity.svg)
 
 An **IRI**, or Internationalized Resource Identifier, is a globally scoped identifier syntax. In RDF, `https://example.org/c1` identifies a resource; the text literal `"https://example.org/c1"` is a string value. These are different RDF terms. An IRI need not resolve to a web page to be a valid graph identifier, although publishing useful descriptions is often helpful. [[1](xii-references.md#ref1)]
 

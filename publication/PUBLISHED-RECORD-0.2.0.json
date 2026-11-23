@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "record_id": 24316420,
+  "state": "done",
+  "submitted": true,
+  "publication_date": "2026-11-17",
+  "edition_doi": "10.5281/zenodo.24316420",
+  "concept_doi": "10.5281/zenodo.24209667",
+  "record_url": "https://zenodo.org/records/24316420",
+  "record_updated": "2026-11-17T16:05:10.348123+00:00",
+  "verification_source": "https://zenodo.org/api/records/24316420",
+  "doi_resolution": {
+    "edition": "200 https://zenodo.org/records/24316420",
+    "all_versions": "200 https://zenodo.org/records/24316420"
+  },
+  "files": {
+    "Knowledge-Graphs-v0.2.0.pdf": {
+      "bytes": 615064,
+      "sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+      "zenodo_checksum": "md5:de09ecd5f25c022d4fc0d472338f2777",
+      "download_url": "https://zenodo.org/api/records/24316420/files/Knowledge-Graphs-v0.2.0.pdf/content"
+    },
+    "Knowledge-Graphs-Companion-v0.2.0.zip": {
+      "bytes": 3481091,
+      "sha256": "8880a57bb1a5dff8852b1b92f17836376ec6976f61ba4d09a90dd781ee483259",
+      "zenodo_checksum": "md5:e01e212c8755cd759aa972cc04200289",
+      "download_url": "https://zenodo.org/api/records/24316420/files/Knowledge-Graphs-Companion-v0.2.0.zip/content"
+    }
+  },
+  "archived_source_commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee",
+  "github_release": "https://github.com/mdhabibi/one-graph-two-worlds/releases/tag/v0.2.0",
+  "scope": "Published metadata and downloaded file identity checked; archived files unchanged. Main-branch publication metadata was added after the archived source commit.",
+  "github_tag_commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee",
+  "github_assets": {
+    "Knowledge-Graphs-Companion-v0.2.0.zip": {
+      "digest": "sha256:8880a57bb1a5dff8852b1b92f17836376ec6976f61ba4d09a90dd781ee483259",
+      "download_url": "https://github.com/mdhabibi/one-graph-two-worlds/releases/download/v0.2.0/Knowledge-Graphs-Companion-v0.2.0.zip"
+    },
+    "Knowledge-Graphs-v0.2.0.pdf": {
+      "digest": "sha256:fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+      "download_url": "https://github.com/mdhabibi/one-graph-two-worlds/releases/download/v0.2.0/Knowledge-Graphs-v0.2.0.pdf"
+    }
+  }
+}

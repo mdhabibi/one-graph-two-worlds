@@ -1,17 +1,17 @@
 # Knowledge Graphs: Semantic Graphs and Property Graphs
-Dr. Mahdi Habibi · Version 0.2.0 · Public review draft
+Dr. Mahdi Habibi · Version 0.2.1 · Public review draft
 
 === Reader guide | Edition, authorship, and review status
-### Version 0.2.0 — public review draft
-**Author: Dr. Mahdi Habibi. Version 0.2.0 — public review draft.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
+### Version 0.2.1 — public review draft
+**Author: Dr. Mahdi Habibi. Version 0.2.1 — public review draft.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
 
 ### Audience and promise
 The book is for a reader beginning with graph concepts who wants to understand RDF-based semantic systems and labeled property graphs, then reason about a practical architecture. It introduces concepts before syntax and uses one learning catalog throughout. Advanced chapters explain design issues and selected techniques; they are not a complete language specification or deployment manual.
 
 ### Version and citation status
-Version 0.2.0 extends the public review edition 0.1.1. Edition DOI: 10.5281/zenodo.24316420. Cite this version using https://doi.org/10.5281/zenodo.24316420. The new Chapter 10 material develops a conditional argument for the published recommendation queries and reports a bounded experiment. It does not change the baseline query pair or fixtures.
+Version 0.2.1 improves the illustrations and explanations of the public review edition 0.2.0. Edition DOI: 10.5281/zenodo.24483542. Cite this version using https://doi.org/10.5281/zenodo.24483542. The same catalog, baseline query pair, lab fixtures and retained bounded experiment remain unchanged. The new visual walkthroughs explain their scope; they do not establish general equivalence or personal suitability.
 
-The preceding edition is version 0.1.1, DOI 10.5281/zenodo.24228810. Its archived files remain unchanged. The repository is https://github.com/mdhabibi/one-graph-two-worlds. Independent paired reproduction of the new experiment remains open; the retained paired results were obtained in one project environment.
+The preceding edition is version 0.2.0, DOI 10.5281/zenodo.24316420. Its archived files remain unchanged. The repository is https://github.com/mdhabibi/one-graph-two-worlds. Independent paired reproduction remains open; the retained paired results were obtained in one project environment.
 
 ### Reuse and feedback
 Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.
@@ -45,6 +45,10 @@ The executable core targets RDF 1.1, Turtle, SPARQL 1.1, OWL 2, SHACL Core, and 
 All domain data, diagrams, decision scores, and scenarios are original teaching examples. No external organization is represented. Reference numbers point to primary specifications and documentation. Product behavior depends on release, configuration, and edition.
 
 === Reader guide | How to follow the examples
+The visual key distinguishes learner instances from classes; names and stable identifiers remain authoritative. Icons are reading aids, not additional assertions.
+
+@diagram symbolkey
+
 ### One story, several representations
 Throughout the tutorial, we return to the same question: what can Maya study next? The learning catalog is introduced in Foundations, after the optional setup guide. We first draw its facts, introduce the two representation approaches and their vocabulary, then work through RDF in detail and later rebuild the same facts as a labeled property graph. Changing representation does not mean that Maya or the courses have changed.
 
@@ -67,7 +71,7 @@ When an exercise changes a fact, start from a fresh baseline copy unless it expl
 
 === Reader guide | Running the examples
 ### Locate the companion files
-The book and companion package share edition DOI https://doi.org/10.5281/zenodo.24316420. The source repository is https://github.com/mdhabibi/one-graph-two-worlds. Extract the companion ZIP and open its top-level folder, or open the repository root. The lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. You can still read every explanation and predict the printed results without installing software.
+The book and companion package share edition DOI https://doi.org/10.5281/zenodo.24483542. The source repository is https://github.com/mdhabibi/one-graph-two-worlds. Extract the companion ZIP and open its top-level folder, or open the repository root. The lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. You can still read every explanation and predict the printed results without installing software.
 
 The commands below go into a terminal, not into a graph query editor. Open a terminal in the extracted lab folder. On macOS, use your terminal's New Terminal at Folder action if available, or type cd followed by a space and drag the lab folder into the terminal, then press Enter. Use a fresh copy of the lab for experiments. Python 3.10 or newer is needed for the RDF route; the Neo4j route additionally needs a working Docker installation. Installation of those tools is outside this tutorial.
 
@@ -165,7 +169,7 @@ We have just met Maya and the learning catalog. Begin with one fact from that st
 A **graph** consists of **nodes** (also called vertices) and **edges**, the connections between them. In this drawing, Maya and Graph Basics are nodes; the completed arrow is an edge. A **directed edge** has a start and an end. Reading Maya → completed → Graph Basics makes sense for our fact. Reversing that arrow would say that the course completed the person, which is a different and unintended statement.
 
 ### Add enough connections to answer the question
-Now add Graph Search, the possible next course, and Graphs, the topic Maya likes. In the figure, boxes identify things; words beside arrows explain their connections. The arrow labeled “prerequisite of” goes from Graph Basics to Graph Search. It expresses the same requirement as “Graph Search requires Graph Basics,” read in the opposite direction.
+Now add Graph Search, the possible next course, and Graphs, the topic Maya likes. In the figure, boxes identify things; words beside arrows explain their connections. The requires arrow goes from Graph Search (c2) to Graph Basics (c1), matching ex:c2 ex:requires ex:c1 in the data.
 
 @diagram running
 
@@ -459,7 +463,7 @@ RDF means **Resource Description Framework**. In RDF 1.1, a triple has a **subje
 
 **Worked fragment — describe one course.** This is an isolated syntax example, not the complete catalog. We use the prefix `ex:` as a short form of `https://example.org/`; consequently, `ex:c1` names c1, Graph Basics, and `ex:graphs` names the Graphs topic. The title is language-tagged here to introduce that notation; the later baseline uses plain string titles.
 
-Before reading this first Turtle block, use this symbol key. Section 2.2 will practice its abbreviations.
+Before reading this first Turtle block, use this Turtle syntax key. Section 2.2 will practice its abbreviations.
 - @prefix declares an abbreviation; angle brackets enclose a full IRI. Thus ex:c1 expands to https://example.org/c1.
 - xsd abbreviates XML Schema's datatype namespace, used here for integer values.
 - Quotation marks surround literal text. The ^^ marker attaches a datatype; @en supplies an English language tag.
@@ -776,6 +780,14 @@ ex:LearnerShape a sh:NodeShape ;
 
 A Course needs exactly one plain-string id, one plain-string title, and one positive integer duration; every recorded requires target must be a Course. This shape does not establish uniqueness across different course resources or reject prerequisite cycles. LearnerShape separately checks subjects of likesTopic or completed for Person membership; cross-record learner identity reconciliation remains an intake responsibility. `minCount` and `maxCount` count the values reached along the path. This title rule accepts plain strings, not language-tagged titles, whose datatype is `rdf:langString`. Choose a deliberate multilingual title policy rather than accidentally rejecting translations.
 
+
+Before reading the table, pause and write down which nodes CourseShape and LearnerShape select from the baseline catalog. Use their target declarations above; then compare your prediction below. Targets select nodes; they do not assert missing class membership.
+
+| Shape | Target | Baseline focus nodes | Selected checks |
+|---|---|---|---|
+| CourseShape | targetClass Course | c1, c2, c3, c4 | id, title, positive duration; requires points to Course |
+| LearnerShape | subjects of likesTopic or completed | Maya, Leo | class Person |
+
 The figure places the shape in an ingestion workflow: a candidate graph is checked before publication, and failing records produce a report or enter a repair queue. This is one architectural use of SHACL; the shape itself does not install the workflow.
 
 @diagram validation
@@ -784,6 +796,10 @@ SHACL does not inherently block every database write. A pipeline can validate be
 
 === II · RDF and semantic graphs | Validation and inference answer different questions
 We have now seen OWL describe meaning and SHACL inspect submitted records. The following counterexamples put them side by side. Their purpose is to show why an apparently reasonable ontology can still accept incomplete records, and why a shape can pass a logically inconsistent model.
+
+The following isolated variation makes both questions visible. RDFS reasoning and SHACL validation run separately on copies of the selected input; the SHACL branch uses inference="none".
+
+@diagram inferencecompare
 
 ### A small counterexample
 Imagine c2 has a title but no duration. An ontology can still consistently describe it as a Course. The CourseShape from the previous section reports a violation. Now imagine c2 has duration 90 and is also classified into two disjoint OWL classes. The simple shape may pass while the ontology is inconsistent. Neither mechanism replaces the other.
@@ -1119,6 +1135,14 @@ ORDER BY ?id
 
 Expected result: `c2 / Graph Search`. The first NOT EXISTS excludes c1. The nested condition checks c2's required course c1, finds Maya's completion, and therefore finds no unmet prerequisite. c3 and c4 fail the topic preference condition.
 
+The next figure traces variable bindings through logical conditions; it is not an engine execution plan. The same steps explain the Cypher query in Section 4.6.
+
+@diagram recommendtrace
+
+Change one recorded fact to test your understanding: without Maya’s completion of c1, c1 survives because no prerequisite is recorded for it, while c2 has an unmet prerequisite. The query still applies; the source snapshot changed. No recorded prerequisite is not evidence that every real-world prerequisite is known.
+
+@diagram countertrace
+
 ### Read the scope carefully
 `NOT EXISTS` is evaluated relative to the outer bindings and active dataset. It implements a dataset-level test, not an OWL negative assertion. This query is sound for the declared policy only if the selected catalog contains all prerequisites relevant to the decision and the completion records are sufficiently complete for the user. [4]
 
@@ -1340,7 +1364,7 @@ We now return to the same learners, courses, and recommendation question, but sw
 ### The model used by Neo4j
 A **labeled property graph**, or LPG, has nodes, directed relationships, and properties. A node can have multiple labels. A relationship has a type, a start node, an end node, and can carry properties. A **property** is a named stored value on a node or relationship. Cypher uses patterns that resemble small graph drawings. [6, 20]
 
-The figure shows the same c1-to-Graphs fact in two representations. The upper row uses an RDF predicate; the lower row uses an LPG relationship type. Course and Topic describe entity categories, while the connecting relation says the course is about that topic.
+The figure compares selected c1 facts in both representations: explicit RDF class-membership triples and a title literal alongside LPG labels and a title property. The about/ABOUT relation connects the same course and topic under the chosen mapping. Class resources and node labels have different model roles; the mapping states their correspondence.
 
 @diagram models
 
@@ -1573,6 +1597,8 @@ As in Section 3.5, c2 is eligible under the recorded catalog policy; personal su
 The topic match deliberately has no Topic type/label condition in either query. LearnerShape accepts subclass membership when the required subclass triples are present, but a positive recommendation from the raw queries requires Person membership in their query-visible data. If inferred memberships are intended, make them available consistently before querying. One distinction remains outside the Section 10.3 contract: two RDF titles produce two projected rows, whereas one LPG title property is a single value, possibly a list. Equivalent baseline results are not a guarantee of equivalence for arbitrary malformed data.
 
 Both versions depend on completion-data completeness and a reviewed prerequisite snapshot. Neither proves a person lacks an unrecorded real-world qualification. Both can return duplicate candidate rows before DISTINCT if multiple liked topics match one course. Both need additional policy for retired courses, course editions, evidence freshness, and access restrictions.
+
+The logical walkthrough in Section 3.5 also applies here under the stated alignment contract; matching icons do not by themselves establish equivalence.
 
 ### Build an explanation alongside the result
 Return a separate explanation structure containing the shared topic, the required course IDs, completion-event IDs, and evidence-document IDs. Do not rely on a generated natural-language explanation to reconstruct the reason later. Log a policy version and data snapshot so the decision can be reproduced.
@@ -1888,6 +1914,10 @@ This is an engineering decision guide, not a versioning policy mandated by OWL. 
 **Next, change what completed means.** The old provider used a Boolean for attendance; the new provider uses it for passing an assessment. Both values may be true, but they assert different things. Preserve the source definition and version. Model attendance and assessment outcomes separately, or record an explicitly qualified event interpretation, after domain review. Do not retroactively relabel historical attendance as passing. New terms and deprecation may be appropriate for incompatible meanings; not every compatible ontology edit requires new term IRIs.
 
 **Finally, change the passing rule.** In an isolated extension, Maya has a recorded assessment score of 65 percent. Policy p60 accepts scores of at least 60; policy p70 accepts scores of at least 70. If p70 takes effect on 1 November 2026 and the chosen rule uses decision time, a decision on 31 October passes and one on 1 November does not. The score fact stays 65. Preserve which policy was selected and which time basis selected it. A different organization may use assessment time or grandfather earlier attempts; that is a policy decision to state explicitly. These invented assessment facts do not alter the baseline completion of c1.
+
+The timeline separates a field rename, a change in meaning, and a dated policy decision. It summarizes the isolated assessment extension; the baseline completion fact remains unchanged.
+
+@diagram evolutiontimeline
 
 ### Preserve a reproducible release combination
 An ontology IRI can identify an ontology series, while a version IRI identifies a particular version. Pin dependencies to specific versions when reproducibility requires them, and retain retrievable historical documents. Changing the document available at a stable ontology IRI does not rewrite every term IRI, and a compatibility annotation is not a proof that all dependent queries remain correct. OWL defines identification and versioning mechanisms; teams must still establish their compatibility checks. [14]

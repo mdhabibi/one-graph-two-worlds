@@ -1,6 +1,6 @@
 # VIII · Graph RAG and analytics
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 8.1 What graph RAG adds to retrieval
 
@@ -18,7 +18,7 @@ Until now, a fixed query has returned course records. Imagine instead that a use
 
 Read the figure from the question to the structured policy query, then retrieve candidate text, expand relevant graph connections, filter and rank evidence, generate an answer, and verify it. Each box is a pipeline responsibility; neither RDF nor Neo4j supplies the complete pipeline merely by storing a graph.
 
-![Figure 13. Retrieve, expand, generate, and verify](../../assets/figures/rag.svg)
+![Figure 18. Retrieve, expand, generate, and verify](../../assets/figures/rag.svg)
 
 ### A question that benefits from structure
 “Which graph course can Maya take next, and why?” requires identity resolution, topic preferences, completions, prerequisites, and current course descriptions. A document-only answer may overlook a missing prerequisite. A graph-only answer may lack explanatory text from the source. A combined pipeline can use structured eligibility and retrieve supporting passages for the explanation.

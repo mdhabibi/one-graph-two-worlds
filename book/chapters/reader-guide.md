@@ -1,19 +1,19 @@
 # Reader guide
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## Edition, authorship, and review status
 
-### Version 0.2.0 — public review draft
-**Author: Dr. Mahdi Habibi. Version 0.2.0 — public review draft.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
+### Version 0.2.1 — public review draft
+**Author: Dr. Mahdi Habibi. Version 0.2.1 — public review draft.** This is an educational synthesis of established graph models, standards, and engineering practices. Its contribution is the teaching sequence, original running example, comparisons, and practical exercises. It does not claim a new graph algorithm or a universal performance result.
 
 ### Audience and promise
 The book is for a reader beginning with graph concepts who wants to understand RDF-based semantic systems and labeled property graphs, then reason about a practical architecture. It introduces concepts before syntax and uses one learning catalog throughout. Advanced chapters explain design issues and selected techniques; they are not a complete language specification or deployment manual.
 
 ### Version and citation status
-Version 0.2.0 extends the public review edition 0.1.1. Edition DOI: 10.5281/zenodo.24316420. Cite this version using https://doi.org/10.5281/zenodo.24316420. The new Chapter 10 material develops a conditional argument for the published recommendation queries and reports a bounded experiment. It does not change the baseline query pair or fixtures.
+Version 0.2.1 improves the illustrations and explanations of the public review edition 0.2.0. Edition DOI: 10.5281/zenodo.24483542. Cite this version using https://doi.org/10.5281/zenodo.24483542. The same catalog, baseline query pair, lab fixtures and retained bounded experiment remain unchanged. The new visual walkthroughs explain their scope; they do not establish general equivalence or personal suitability.
 
-The preceding edition is version 0.1.1, DOI 10.5281/zenodo.24228810. Its archived files remain unchanged. The repository is https://github.com/mdhabibi/one-graph-two-worlds. Independent paired reproduction of the new experiment remains open; the retained paired results were obtained in one project environment.
+The preceding edition is version 0.2.0, DOI 10.5281/zenodo.24316420. Its archived files remain unchanged. The repository is https://github.com/mdhabibi/one-graph-two-worlds. Independent paired reproduction remains open; the retained paired results were obtained in one project environment.
 
 ### Reuse and feedback
 Copyright © 2026 Dr. Mahdi Habibi. Original book text, illustrations, and synthetic example data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Original code is licensed under MIT; see LICENSE-CODE.txt in the companion repository. Bundled fonts and other third-party materials retain their own rights and notices. The full license scope is in LICENSE.md. Feedback should identify the section, the exact claim or confusing step, and a suggested correction or a reproducible counterexample.
@@ -49,6 +49,10 @@ All domain data, diagrams, decision scores, and scenarios are original teaching 
 
 ## How to follow the examples
 
+The visual key distinguishes learner instances from classes; names and stable identifiers remain authoritative. Icons are reading aids, not additional assertions.
+
+![Figure 1. Visual key for catalog entities and evidence](../../assets/figures/symbolkey.svg)
+
 ### One story, several representations
 Throughout the tutorial, we return to the same question: what can Maya study next? The learning catalog is introduced in Foundations, after the optional setup guide. We first draw its facts, introduce the two representation approaches and their vocabulary, then work through RDF in detail and later rebuild the same facts as a labeled property graph. Changing representation does not mean that Maya or the courses have changed.
 
@@ -72,7 +76,7 @@ When an exercise changes a fact, start from a fresh baseline copy unless it expl
 ## Running the examples
 
 ### Locate the companion files
-The book and companion package share edition DOI https://doi.org/10.5281/zenodo.24316420. The source repository is https://github.com/mdhabibi/one-graph-two-worlds. Extract the companion ZIP and open its top-level folder, or open the repository root. The lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. You can still read every explanation and predict the printed results without installing software.
+The book and companion package share edition DOI https://doi.org/10.5281/zenodo.24483542. The source repository is https://github.com/mdhabibi/one-graph-two-worlds. Extract the companion ZIP and open its top-level folder, or open the repository root. The lab folder sits beside book, scripts, dist, extensions, research, assets and README.md. The RDF data is lab/catalog.ttl; the property-graph loader is lab/catalog.cypher. You can still read every explanation and predict the printed results without installing software.
 
 The commands below go into a terminal, not into a graph query editor. Open a terminal in the extracted lab folder. On macOS, use your terminal's New Terminal at Folder action if available, or type cd followed by a space and drag the lab folder into the terminal, then press Enter. Use a fresh copy of the lab for experiments. Python 3.10 or newer is needed for the RDF route; the Neo4j route additionally needs a working Docker installation. Installation of those tools is outside this tutorial.
 

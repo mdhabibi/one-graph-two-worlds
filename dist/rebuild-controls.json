@@ -10,7 +10,7 @@
   "inputs": {
     "scripts/check_rebuild.py": "9fde418a0a222580a133e65f8deebd269ab1d1b8be7927cafb21e25ada94b329",
     "scripts/verify_rebuild.py": "d64f745b6d0bb57d0b28a7fc92b2411d681159b56705a48fdb51d67f196536f7",
-    "dist/knowledge-graphs-tutorial.pdf": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-    "dist/page-map.json": "87b9e789ea01ceaae74c44327109cecd8c3168d55a546605634ce006e4438e9b"
+    "dist/knowledge-graphs-tutorial.pdf": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
+    "dist/page-map.json": "eca27fe7e8c476fad7778ce1058ccda275381a8d9e1a1ddea79528e8b31f862d"
   }
 }

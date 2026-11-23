@@ -1,8 +1,8 @@
 {
   "status": "pass",
-  "pages": 173,
-  "baseline_pdf_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-  "rebuilt_pdf_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "pages": 179,
+  "baseline_pdf_sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
+  "rebuilt_pdf_sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
   "byte_equal": true,
   "scope": "Normalized page text, page map, outline, title, author and subject. Byte equality not required; not visual or accessibility equivalence."
 }

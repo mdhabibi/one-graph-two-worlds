@@ -18,7 +18,7 @@ def validate(root):
     source=(root/'book/manuscript.md').read_text();records=json.loads((root/'dist/page-map.json').read_text())
     require(len(records)==len(re.split(r'^=== ',source,flags=re.M))-1,'Section count differs from source')
     build=json.loads((root/'dist/build-inputs.json').read_text())
-    required_inputs={'book/manuscript.md','scripts/build_pdf.py','VERSION',*['assets/fonts/'+p.name for p in (root/'assets/fonts').glob('*.ttf')]}
+    required_inputs={'book/manuscript.md','scripts/build_pdf.py','VERSION',*['assets/fonts/'+p.name for p in (root/'assets/fonts').glob('*.ttf')],*['assets/figure-sources/'+p.name for p in (root/'assets/figure-sources').glob('*.svg')]}
     require(set(build['inputs'])==required_inputs,'Build input inventory mismatch')
     for name,digest in build['inputs'].items():require(hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,('Build input drift',name))
     require(hashlib.sha256((root/'dist/page-map.json').read_bytes()).hexdigest()==build['page_map_sha256'],'Page map differs from build')
@@ -30,7 +30,7 @@ def validate(root):
     version=(root/'VERSION').read_text().strip()
     require(f'(Version {version}, public review draft)' in doc.metadata.get('title',''),'PDF metadata lacks edition identity')
     require(f'Version {version}' in texts[0],'Cover version differs from VERSION')
-    require('10.5281/zenodo.24316420' in full,'Edition DOI missing from PDF')
+    require(json.loads((root/'publication/zenodo-record-draft.json').read_text())['doi'] in full,'Edition DOI missing from PDF')
     require('Unpublished working draft' not in full and 'No new edition number' not in full,'Obsolete draft identity in PDF')
     for i,text in enumerate(texts):
         require('Dr. Mahdi Habibi' in text,('Author missing',i+1))

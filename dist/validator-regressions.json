@@ -25,8 +25,8 @@
     "record-version": "rejected; no stale pass report",
     "doi-hyperlink": "rejected; no stale pass report"
   },
-  "validator_sha256": "0b6c56e5de18f91082260af4d64bad277eea5ac2f21ef7db03f4ac813020b2bd",
+  "validator_sha256": "1d0bd82a22a13ac64e6051c33e430725a8dd2548ae688bddeb9a4f112debb891",
   "editorial_checker_sha256": "066cb0f0c11a4d62915ba84c0cbc82c55dae4e85b0fee4c250baa94ea04a1740",
   "metadata_checker_sha256": "c7dbe6eb10a123fd31865ab23b23ce6f02a393f24850575ca621fbca6fddb916",
-  "driver_sha256": "9f182c24d8b1f14a95b0404904ab42fdfed3d582f267b8756c93651e1d3098ed"
+  "driver_sha256": "54421843795260ebf2324c7afcfadf9809adc309fb0d9c828651c7e59846f36c"
 }

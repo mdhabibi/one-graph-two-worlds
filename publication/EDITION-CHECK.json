@@ -1,7 +1,7 @@
 {
-  "version": "0.2.0",
-  "edition_doi": "10.5281/zenodo.24316420",
-  "pages": 173,
+  "version": "0.2.1",
+  "edition_doi": "10.5281/zenodo.24483542",
+  "pages": 179,
   "review_questions": {
     "I \u00b7 Foundations": 17,
     "II \u00b7 RDF and semantic graphs": 22,
@@ -15,20 +15,20 @@
   "total_review_questions": 183,
   "glossary_entries": 75,
   "chapter_7_review_pages": [
-    128,
-    132
+    134,
+    138
   ],
   "writing_task_pages": [
-    63,
-    82,
-    161
+    67,
+    87,
+    167
   ],
   "writing_solution_pages": [
-    64,
-    83,
-    162
+    68,
+    88,
+    168
   ],
-  "pdf_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "pdf_sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
   "page_metadata": "Regenerated from PDF text by scripts/check_package.py",
   "targeted_owl_dl_evidence": "Retained report inputs match; fresh targeted run recorded separately in publication/owl-0.2.0-validation.json",
   "scope": "Automated document, editorial and retained-input checks; no human peer review or production certification."

@@ -1,6 +1,6 @@
 # IV · Property graphs and Cypher
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 4.1 Labeled property graphs from first principles
 
@@ -11,9 +11,9 @@ We now return to the same learners, courses, and recommendation question, but sw
 ### The model used by Neo4j
 A **labeled property graph**, or LPG, has nodes, directed relationships, and properties. A node can have multiple labels. A relationship has a type, a start node, an end node, and can carry properties. A **property** is a named stored value on a node or relationship. Cypher uses patterns that resemble small graph drawings. [[6](xii-references.md#ref6), [20](xii-references.md#ref20)]
 
-The figure shows the same c1-to-Graphs fact in two representations. The upper row uses an RDF predicate; the lower row uses an LPG relationship type. Course and Topic describe entity categories, while the connecting relation says the course is about that topic.
+The figure compares selected c1 facts in both representations: explicit RDF class-membership triples and a title literal alongside LPG labels and a title property. The about/ABOUT relation connects the same course and topic under the chosen mapping. Class resources and node labels have different model roles; the mapping states their correspondence.
 
-![Figure 8. One fact in RDF and LPG representations](../../assets/figures/models.svg)
+![Figure 12. Selected c1 facts in RDF and LPG representations](../../assets/figures/models.svg)
 
 Cypher uses punctuation to draw a pattern. Parentheses enclose a node; square brackets inside an arrow enclose a relationship. A colon introduces a node label or a relationship type. This differs from the colon in RDF's ex:c1, which separates a prefix and local name. Braces hold key–value properties, and quoted text is a string. A name before a colon, as in (m:Person), is a query variable. The arrowhead gives direction. You can revisit the notation card in the reader guide at any point.
 
@@ -249,6 +249,8 @@ As in Section 3.5, c2 is eligible under the recorded catalog policy; personal su
 The topic match deliberately has no Topic type/label condition in either query. LearnerShape accepts subclass membership when the required subclass triples are present, but a positive recommendation from the raw queries requires Person membership in their query-visible data. If inferred memberships are intended, make them available consistently before querying. One distinction remains outside the Section 10.3 contract: two RDF titles produce two projected rows, whereas one LPG title property is a single value, possibly a list. Equivalent baseline results are not a guarantee of equivalence for arbitrary malformed data.
 
 Both versions depend on completion-data completeness and a reviewed prerequisite snapshot. Neither proves a person lacks an unrecorded real-world qualification. Both can return duplicate candidate rows before DISTINCT if multiple liked topics match one course. Both need additional policy for retired courses, course editions, evidence freshness, and access restrictions.
+
+The logical walkthrough in Section 3.5 also applies here under the stated alignment contract; matching icons do not by themselves establish equivalence.
 
 ### Build an explanation alongside the result
 Return a separate explanation structure containing the shared topic, the required course IDs, completion-event IDs, and evidence-document IDs. Do not rely on a generated natural-language explanation to reconstruct the reason later. Log a policy version and data snapshot so the decision can be reproduced.

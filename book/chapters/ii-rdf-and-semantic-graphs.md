@@ -1,6 +1,6 @@
 # II · RDF and semantic graphs
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 2.1 RDF statements, terms, and datasets
 
@@ -13,7 +13,7 @@ RDF means **Resource Description Framework**. In RDF 1.1, a triple has a **subje
 
 **Worked fragment — describe one course.** This is an isolated syntax example, not the complete catalog. We use the prefix `ex:` as a short form of `https://example.org/`; consequently, `ex:c1` names c1, Graph Basics, and `ex:graphs` names the Graphs topic. The title is language-tagged here to introduce that notation; the later baseline uses plain string titles.
 
-Before reading this first Turtle block, use this symbol key. Section 2.2 will practice its abbreviations.
+Before reading this first Turtle block, use this Turtle syntax key. Section 2.2 will practice its abbreviations.
 - @prefix declares an abbreviation; angle brackets enclose a full IRI. Thus ex:c1 expands to https://example.org/c1.
 - xsd abbreviates XML Schema's datatype namespace, used here for integer values.
 - Quotation marks surround literal text. The ^^ marker attaches a datatype; @en supplies an English language tag.
@@ -148,7 +148,7 @@ ex:c1 a ex:Course ; ex:about ex:graphs .
 
 The figure shows the category relationships just introduced. Course and Article point toward their more general category, LearningResource. It is a class hierarchy, not the course-prerequisite graph: no arrow here says which course Maya must study first.
 
-![Figure 5. A class hierarchy for learning resources](../../assets/figures/ontology.svg)
+![Figure 6. A class hierarchy for learning resources](../../assets/figures/ontology.svg)
 
 With RDFS entailment, c1 is a LearningResource because Course is a subclass of LearningResource. Also, the use of `ex:about` supports classifying its subject as a LearningResource and its object as a Topic. **Domain** describes the subject class implied by use of a property; **range** describes the object class. They are inference statements, not input rejection rules. [[11](xii-references.md#ref11)]
 
@@ -229,7 +229,7 @@ The **open-world assumption** permits facts that are not recorded to be true. If
 
 The figure follows one missing completion record through two interpretations. In this example, assume a consistent ontology entails neither that completion nor its negation; its real-world status remains unresolved. An application policy may treat the missing record as insufficient evidence for eligibility, provided it declares that decision rule.
 
-![Figure 6. A missing fact and an explicit decision policy](../../assets/figures/world.svg)
+![Figure 7. A missing fact and an explicit decision policy](../../assets/figures/world.svg)
 
 An unstated triple can nevertheless be entailed: the subclass example derives LearningResource membership without an explicit instance triple for it. “Not written” and “not entailed” are different tests. Under a consistent ontology, a proposition is unresolved when neither it nor its negation follows. Inconsistency is a separate issue, not another kind of missing field. [[15](xii-references.md#ref15)]
 
@@ -338,15 +338,27 @@ ex:LearnerShape a sh:NodeShape ;
 
 A Course needs exactly one plain-string id, one plain-string title, and one positive integer duration; every recorded requires target must be a Course. This shape does not establish uniqueness across different course resources or reject prerequisite cycles. LearnerShape separately checks subjects of likesTopic or completed for Person membership; cross-record learner identity reconciliation remains an intake responsibility. `minCount` and `maxCount` count the values reached along the path. This title rule accepts plain strings, not language-tagged titles, whose datatype is `rdf:langString`. Choose a deliberate multilingual title policy rather than accidentally rejecting translations.
 
+
+Before reading the table, pause and write down which nodes CourseShape and LearnerShape select from the baseline catalog. Use their target declarations above; then compare your prediction below. Targets select nodes; they do not assert missing class membership.
+
+| Shape | Target | Baseline focus nodes | Selected checks |
+|---|---|---|---|
+| CourseShape | targetClass Course | c1, c2, c3, c4 | id, title, positive duration; requires points to Course |
+| LearnerShape | subjects of likesTopic or completed | Maya, Leo | class Person |
+
 The figure places the shape in an ingestion workflow: a candidate graph is checked before publication, and failing records produce a report or enter a repair queue. This is one architectural use of SHACL; the shape itself does not install the workflow.
 
-![Figure 7. Validate before publishing a candidate graph](../../assets/figures/validation.svg)
+![Figure 8. Validate before publishing a candidate graph](../../assets/figures/validation.svg)
 
 SHACL does not inherently block every database write. A pipeline can validate before publishing, a store may integrate validation, or a batch job may report violations later. Define which arrangement you use and what happens to invalid data. Class targeting and validation results also depend on the graph supplied to the validator; explicitly decide how entailment and inferred types are handled. Class targets already include instances of subclasses when the relevant rdfs:subClassOf triples are present in the data graph, even without a separate inference pass. Types derived through other reasoning need explicit configuration or preprocessing. [[5](xii-references.md#ref5)]
 
 ## 2.10 Validation and inference answer different questions
 
 We have now seen OWL describe meaning and SHACL inspect submitted records. The following counterexamples put them side by side. Their purpose is to show why an apparently reasonable ontology can still accept incomplete records, and why a shape can pass a logically inconsistent model.
+
+The following isolated variation makes both questions visible. RDFS reasoning and SHACL validation run separately on copies of the selected input; the SHACL branch uses inference="none".
+
+![Figure 9. Separate an RDFS consequence from a SHACL violation](../../assets/figures/inferencecompare.svg)
 
 ### A small counterexample
 Imagine c2 has a title but no duration. An ontology can still consistently describe it as a Course. The CourseShape from the previous section reports a violation. Now imagine c2 has duration 90 and is also classified into two disjoint OWL classes. The simple shape may pass while the ontology is inconsistent. Neither mechanism replaces the other.

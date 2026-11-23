@@ -1,44 +1,26 @@
 {
-  "version": "0.2.0",
-  "record_id": 24316420,
+  "version": "0.2.1",
+  "record_id": 24483542,
   "state": "done",
   "submitted": true,
-  "publication_date": "2026-11-17",
-  "edition_doi": "10.5281/zenodo.24316420",
+  "publication_date": "2026-11-23",
+  "edition_doi": "10.5281/zenodo.24483542",
   "concept_doi": "10.5281/zenodo.24209667",
-  "record_url": "https://zenodo.org/records/24316420",
-  "record_updated": "2026-11-17T16:05:10.348123+00:00",
-  "verification_source": "https://zenodo.org/api/records/24316420",
-  "doi_resolution": {
-    "edition": "200 https://zenodo.org/records/24316420",
-    "all_versions": "200 https://zenodo.org/records/24316420"
-  },
+  "record_url": "https://zenodo.org/records/24483542",
+  "verification_source": "https://zenodo.org/api/records/24483542",
   "files": {
-    "Knowledge-Graphs-v0.2.0.pdf": {
-      "bytes": 615064,
-      "sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-      "zenodo_checksum": "md5:de09ecd5f25c022d4fc0d472338f2777",
-      "download_url": "https://zenodo.org/api/records/24316420/files/Knowledge-Graphs-v0.2.0.pdf/content"
+    "Knowledge-Graphs-v0.2.1.pdf": {
+      "bytes": 666726,
+      "sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
+      "zenodo_checksum": "md5:93d9dc0ffde2f353501a1883cec2b14c",
+      "download_url": "https://zenodo.org/api/records/24483542/files/Knowledge-Graphs-v0.2.1.pdf/content"
     },
-    "Knowledge-Graphs-Companion-v0.2.0.zip": {
-      "bytes": 3481091,
-      "sha256": "8880a57bb1a5dff8852b1b92f17836376ec6976f61ba4d09a90dd781ee483259",
-      "zenodo_checksum": "md5:e01e212c8755cd759aa972cc04200289",
-      "download_url": "https://zenodo.org/api/records/24316420/files/Knowledge-Graphs-Companion-v0.2.0.zip/content"
+    "Knowledge-Graphs-Companion-v0.2.1.zip": {
+      "bytes": 4296228,
+      "sha256": "89dd18dd006029ebbdae34f7b035f00fed88c6187f4737309a963014aa08954a",
+      "zenodo_checksum": "md5:d81d1bd729905420be83de74792f6fc3",
+      "download_url": "https://zenodo.org/api/records/24483542/files/Knowledge-Graphs-Companion-v0.2.1.zip/content"
     }
   },
-  "archived_source_commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee",
-  "github_release": "https://github.com/mdhabibi/one-graph-two-worlds/releases/tag/v0.2.0",
-  "scope": "Published metadata and downloaded file identity checked; archived files unchanged. Main-branch publication metadata was added after the archived source commit.",
-  "github_tag_commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee",
-  "github_assets": {
-    "Knowledge-Graphs-Companion-v0.2.0.zip": {
-      "digest": "sha256:8880a57bb1a5dff8852b1b92f17836376ec6976f61ba4d09a90dd781ee483259",
-      "download_url": "https://github.com/mdhabibi/one-graph-two-worlds/releases/download/v0.2.0/Knowledge-Graphs-Companion-v0.2.0.zip"
-    },
-    "Knowledge-Graphs-v0.2.0.pdf": {
-      "digest": "sha256:fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-      "download_url": "https://github.com/mdhabibi/one-graph-two-worlds/releases/download/v0.2.0/Knowledge-Graphs-v0.2.0.pdf"
-    }
-  }
+  "snapshot_boundary": "Archived companion was prepared before publication. This repository adds verified publication metadata; the PDF and protected lab/research inputs remain identical."
 }

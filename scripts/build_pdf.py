@@ -1,9 +1,9 @@
 from pathlib import Path
-import re, math, json, html, os, hashlib, platform, zlib
+import re, math, json, html, os, hashlib, platform, zlib, io
 from importlib.metadata import version as package_version
 from functools import partial
 from datetime import datetime, timezone
-os.environ.setdefault("SOURCE_DATE_EPOCH",str(int(datetime(2026,11,17,tzinfo=timezone.utc).timestamp())))
+os.environ.setdefault("SOURCE_DATE_EPOCH",str(int(datetime(2026,11,23,tzinfo=timezone.utc).timestamp())))
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Flowable, KeepTogether, Preformatted, CondPageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -14,14 +14,14 @@ from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parent.parent
 VERSION=(ROOT/'VERSION').read_text().strip()
-EDITION_DATE='17 November 2026'
+EDITION_DATE='23 November 2026'
 OUT=ROOT/'dist'
 OUT.mkdir(parents=True,exist_ok=True)
 FONT_DIR=ROOT/'assets'/'fonts'
 for name,file in [('Body','DejaVuSans.ttf'),('Bold','DejaVuSans-Bold.ttf'),('Serif','DejaVuSans.ttf'),('Mono','DejaVuSansMono.ttf')]:
     pdfmetrics.registerFont(TTFont(name,str(FONT_DIR/file)))
 pdfmetrics.registerFontFamily('Body',normal='Body',bold='Bold',italic='Body',boldItalic='Bold')
-NAVY=colors.HexColor('#132A46'); TEAL=colors.HexColor('#007F86'); ORANGE=colors.HexColor('#D9712B'); BLUE=colors.HexColor('#365CC6'); PURPLE=colors.HexColor('#7656AD'); INK=colors.HexColor('#203448'); MUTED=colors.HexColor('#526575'); LIGHT=colors.HexColor('#EEF5F8')
+NAVY=colors.HexColor('#132A46'); TEAL=colors.HexColor('#007F86'); ORANGE=colors.HexColor('#B4531A'); BLUE=colors.HexColor('#365CC6'); PURPLE=colors.HexColor('#7656AD'); INK=colors.HexColor('#203448'); MUTED=colors.HexColor('#526575'); LIGHT=colors.HexColor('#EEF5F8')
 W,H=595.276,841.89
 styles={
 'p':ParagraphStyle('p',fontName='Body',fontSize=10.0,leading=14.4,textColor=INK,spaceAfter=9,allowWidows=0,allowOrphans=0),
@@ -35,7 +35,7 @@ styles={
 styles['answer']=ParagraphStyle('answer',parent=styles['p'],fontSize=9.7,leading=14.1,backColor=LIGHT,borderPadding=5,leftIndent=7,rightIndent=7,spaceBefore=3,spaceAfter=13)
 refs={}
 FIGURE_LABELS={}
-FIGURE_TITLES={'running':'The learning catalog as connected facts','models':'One fact in RDF and LPG representations','stack':'Five responsibilities across the two approaches','identity':'Reconcile local IDs to a canonical course','ontology':'A class hierarchy for learning resources','world':'A missing fact and an explicit decision policy','validation':'Validate before publishing a candidate graph','event':'An identified completion occurrence with evidence','query':'Anchor, expand, and aggregate','hybrid':'A governed semantic source and application projection','rag':'Retrieve, expand, generate, and verify','decision':'Choose candidates by binding requirements','performance':'Selectivity, expansion, and output cost','rdfstore':'The application, RDF server, and storage engine'}
+FIGURE_TITLES={'countertrace':'Change one recorded completion and trace the answer','symbolkey':'Visual key for catalog entities and evidence','recommendtrace':'Trace Maya’s eligibility policy in both languages','inferencecompare':'Separate an RDFS consequence from a SHACL violation','evolutiontimeline':'Names, meanings and dated policies change differently','running':'The learning catalog as connected facts','models':'Selected c1 facts in RDF and LPG representations','stack':'Five responsibilities across the two approaches','identity':'Reconcile local IDs to a canonical course','ontology':'A class hierarchy for learning resources','world':'A missing fact and an explicit decision policy','validation':'Validate before publishing a candidate graph','event':'An identified completion occurrence with evidence','query':'Anchor, expand, and aggregate','hybrid':'A governed semantic source and application projection','rag':'Retrieve, expand, generate, and verify','decision':'Choose candidates by binding requirements','performance':'Selectivity, expansion, and output cost','rdfstore':'The application, RDF server, and storage engine'}
 
 def rich(s):
     anchor=re.match(r'^\[(\d+)\] ',s)
@@ -54,9 +54,32 @@ def rich(s):
 
 def P(s,sty='p'): return Paragraph(rich(s),styles[sty])
 
+SVG_KINDS={'inferencecompare', 'symbolkey', 'world', 'evolutiontimeline', 'hybrid', 'models', 'countertrace', 'recommendtrace', 'event'}
+
+SVG_SOURCE_BYTES={kind:(ROOT/'assets/figure-sources'/f'{kind}.svg').read_bytes() for kind in SVG_KINDS}
+if not all(SVG_SOURCE_BYTES.values()):raise RuntimeError('Empty editable SVG source')
+
 class Diagram(Flowable):
-    def __init__(self,kind): Flowable.__init__(self);self.kind=kind;self.width=483;self.height=310 if kind=='stack' else 180 if kind not in ['decision','rag'] else 292 if kind=='rag' else 240
+    def __init__(self,kind):
+        Flowable.__init__(self);self.kind=kind;self.width=483
+        if kind in SVG_KINDS:
+            import xml.etree.ElementTree as ET
+            root=ET.fromstring(SVG_SOURCE_BYTES[kind])
+            self.height=float(root.attrib['height'])*483/float(root.attrib['width'])+22
+        else:
+            self.height=310 if kind=='stack' else 180 if kind not in ['decision','rag'] else 292 if kind=='rag' else 240
     def draw(self):
+        if self.kind in SVG_KINDS:
+            from svglib.svglib import svg2rlg
+            from reportlab.graphics import renderPDF
+            drawing=svg2rlg(io.BytesIO(SVG_SOURCE_BYTES[self.kind]))
+            if drawing is None:raise RuntimeError('Unable to render editable SVG '+self.kind)
+            scale=self.width/drawing.width
+            drawing.scale(scale,scale)
+            renderPDF.draw(drawing,self.canv,0,18)
+            self.canv.setFillColor(MUTED);self.canv.setFont('Body',7)
+            self.canv.drawString(10,5,FIGURE_LABELS.get(self.kind,self.kind))
+            return
         c=self.canv; h=self.height
         c.setFillColor(colors.HexColor('#F5F8FB'));c.roundRect(0,0,self.width,h,9,fill=1,stroke=0)
         def box(x,y,w,t,sub='',col=TEAL):
@@ -69,13 +92,10 @@ class Diagram(Flowable):
             if label:c.setFont('Body',7.5);c.setFillColor(INK);c.drawCentredString((x+X)/2,(y+Y)/2+7,label)
         k=self.kind
         if k=='running':
-            box(20,103,90,'Maya','learner');box(197,103,105,'Graph Basics','course',BLUE);box(374,103,90,'Graphs','topic',PURPLE)
+            box(20,103,90,'Maya','learner');box(197,103,105,'Graph Basics','c1 / course',BLUE);box(374,103,90,'Graphs','topic',PURPLE)
             edge(110,124,197,124,'completed');edge(302,124,374,124,'about')
-            box(197,22,105,'Graph Search','course',BLUE);edge(249,103,249,64,'prerequisite of');edge(302,43,419,103,'about')
+            box(197,22,105,'Graph Search','c2 / course',BLUE);edge(249,64,249,103);c.setFont('Body',7.5);c.setFillColor(INK);c.drawString(259,84,'requires');edge(302,43,419,103,'about')
             c.setStrokeColor(MUTED);c.setLineWidth(1.2);c.line(65,145,65,165);c.line(65,165,419,165);edge(419,165,419,145);c.setFont('Body',7.5);c.setFillColor(INK);c.drawCentredString(240,170,'likes topic')
-        elif k=='models':
-            box(18,110,100,'RDF','statement graph');box(185,110,110,'ex:c1','resource',BLUE);box(365,110,100,'ex:graphs','resource',PURPLE);edge(295,131,365,131,'ex:about')
-            box(18,25,100,'Property graph','node + edge');box(185,25,110,'Course','id: c1',BLUE);box(365,25,100,'Topic','id: graphs',PURPLE);edge(295,46,365,46,'ABOUT')
         elif k=='stack':
             c.setFillColor(NAVY);c.setFont('Bold',9)
             c.drawCentredString(52,287,'SAME JOB')
@@ -97,14 +117,9 @@ class Diagram(Flowable):
         elif k=='identity':
             box(20,103,125,'Source A: c1','local identifier',TEAL);box(338,103,125,'Source B: 73','local identifier',BLUE);box(160,23,163,'Canonical course','https://example.org/c1',PURPLE);edge(82,103,200,65,'mapping');edge(400,103,285,65,'mapping')
         elif k=='ontology':
-            box(173,116,137,'Learning resource','general class',TEAL);box(38,24,137,'Course','specialization',BLUE);box(307,24,137,'Article','specialization',PURPLE);edge(107,66,205,116,'subclass of');edge(375,66,278,116,'subclass of')
-        elif k=='world':
-            box(20,103,126,'No completion fact','input');box(193,103,120,'OWL view','unknown',BLUE);box(348,103,115,'Policy view','not eligible',ORANGE);edge(146,124,193,124);edge(313,124,348,124)
-            c.setFillColor(INK);c.setFont('Body',9);c.drawCentredString(241,48,'An application decision needs an explicit completeness policy.');c.drawCentredString(241,30,'Missing evidence is not automatically evidence of absence.')
+            box(173,116,137,'Learning resource','general class',TEAL);box(38,24,137,'Course','specialization',BLUE);box(307,24,137,'Article','specialization',PURPLE);edge(107,66,205,116);edge(375,66,278,116);c.setFont('Body',7.5);c.setFillColor(INK);c.drawString(91,99,'subclass of');c.drawString(322,99,'subclass of')
         elif k=='validation':
-            box(15,103,125,'Incoming data','candidate graph');box(180,103,125,'SHACL validation','shape version 1',BLUE);box(345,103,122,'Accepted graph','publish',TEAL);edge(140,124,180,124);edge(305,124,345,124);box(180,20,125,'Report / quarantine','repair',ORANGE);edge(242,103,242,62)
-        elif k=='event':
-            box(20,107,107,'Maya','Person');box(186,107,112,'Completion e1','score: 0.9',ORANGE);box(356,107,107,'Graph Basics','Course',BLUE);edge(186,128,127,128,'learner');edge(298,128,356,128,'course');box(186,19,112,'Evidence d1','source / time',PURPLE);edge(242,107,242,61,'supported by')
+            box(15,103,125,'Incoming data','candidate graph');box(180,103,125,'SHACL validation','shape version 1',BLUE);box(345,103,122,'Accepted graph','publish',TEAL);edge(140,124,180,124);edge(305,124,345,124);box(180,20,125,'Validation report','violations',ORANGE);edge(242,103,242,62);c.setFont('Body',7);c.setFillColor(INK);c.drawString(308,149,'conforms');c.drawString(247,83,'nonconforms');c.drawString(12,165,'Application policy decides publication or quarantine.')
         elif k=='rdfstore':
             box(14,100,132,'Learning application','SPARQL client',TEAL)
             box(175,100,132,'Fuseki server','SPARQL endpoint',BLUE)
@@ -115,17 +130,15 @@ class Diagram(Flowable):
             c.drawCentredString(241,43,'The baseline Python lab uses RDFLib in memory instead.')
         elif k=='query':
             box(15,104,110,'Anchor','Maya by ID');box(184,104,115,'Expand','completed',BLUE);box(354,104,115,'Match','about topic',PURPLE);edge(125,125,184,125);edge(299,125,354,125);box(184,21,115,'Aggregate','distinct courses',ORANGE);edge(411,104,299,42)
-        elif k=='hybrid':
-            box(16,108,130,'Canonical RDF','identity + ontology');box(188,108,130,'Projection pipeline','mapping version',ORANGE);box(358,108,110,'Property graph','application',BLUE);edge(146,129,188,129);edge(318,129,358,129);box(188,22,130,'Reconciliation','counts + hashes',PURPLE);edge(248,108,248,64)
         elif k=='rag':
             items=[(14,224,'Question','user + permissions',TEAL),(181,224,'Policy query','reviewed facts',TEAL),(348,224,'Retrieve','authorized text',BLUE),(348,137,'Expand','bounded graph',PURPLE),(181,137,'Evidence','filter + rank',ORANGE),(181,50,'Generate','cite sources',BLUE),(14,50,'Verify','answer or abstain',TEAL)]
             for x,y,t,sub,col in items:box(x,y,121,t,sub,col)
-            edge(135,245,181,245);edge(302,245,348,245);edge(409,224,409,179);edge(348,158,302,158);edge(241,137,241,92);edge(181,71,135,71)
+            edge(135,245,181,245);edge(302,245,348,245);edge(409,224,409,179);edge(348,158,302,158);edge(241,137,241,92);edge(181,71,135,71);edge(241,224,241,179);c.setFont('Body',7);c.setFillColor(INK);c.drawString(249,199,'eligibility result')
         elif k=='decision':
             box(141,184,200,'What is the binding requirement?','Choose by evidence',NAVY);box(15,106,140,'Shared formal meaning','evaluate RDF / OWL',TEAL);box(328,106,140,'Application traversal','evaluate property graph',BLUE);edge(182,184,85,148);edge(300,184,398,148);box(141,29,200,'Benchmark + governance review','hybrid only if justified',ORANGE);edge(85,106,180,71);edge(398,106,300,71)
         elif k=='performance':
             for x,t,s,col in [(18,'Selectivity','few starting nodes',TEAL),(180,'Fan-out','bounded expansion',BLUE),(342,'Output','small result set',ORANGE)]:box(x,105,124,t,s,col)
-            edge(142,126,180,126);edge(304,126,342,126);c.setFont('Body',9);c.setFillColor(INK);c.drawCentredString(241,48,'Workload cost = access + joins / traversal + reasoning + transfer');c.drawCentredString(241,29,'A graph model alone does not determine latency.')
+            edge(142,126,180,126);edge(304,126,342,126);c.setFont('Body',9);c.setFillColor(INK);c.drawCentredString(241,48,'Cost factors: access, joins or traversal, reasoning, transfer');c.drawCentredString(241,29,'A graph model alone does not determine latency.')
         c.setFillColor(MUTED);c.setFont('Body',7);c.drawString(10,7,FIGURE_LABELS.get(self.kind,self.kind))
 
 class Title(Paragraph):
@@ -252,7 +265,7 @@ def parse(body):
                 i+=1
             n=len(rows[0]);widths=([104,189.5,189.5] if n==3 else [140,343] if n==2 else [483/n]*n)
             data=[[P(s,'headcell' if r==0 else 'cell') for s in row] for r,row in enumerate(rows)]
-            t=Table(data,colWidths=widths,hAlign='LEFT',repeatRows=1);t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),NAVY),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,LIGHT]),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),8),('RIGHTPADDING',(0,0),(-1,-1),8),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6),('LINEBELOW',(0,0),(-1,0),.8,TEAL)]));result.extend([t,Spacer(1,10)])
+            t=Table(data,colWidths=widths,hAlign='LEFT',repeatRows=1);t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),NAVY),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,LIGHT]),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),8),('RIGHTPADDING',(0,0),(-1,-1),8),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6),('LINEBELOW',(0,0),(-1,0),.8,TEAL)]));result.extend([KeepTogether(t) if rows[0]==['Shape','Target','Baseline focus nodes','Selected checks'] else t,Spacer(1,10)])
         elif line.startswith('- '):result.append(Paragraph('• '+rich(line[2:]),styles['p']));i+=1
         elif re.match(r'^\d+\. ',line):result.append(P(line));i+=1
         else:
@@ -315,9 +328,11 @@ def build():
         doc.record=[];doc.build(story,canvasmaker=partial(canvas.Canvas,invariant=1))
         records=doc.section_record
     (OUT/'page-map.json').write_text(json.dumps(records,indent=2))
-    inputs=['book/manuscript.md','scripts/build_pdf.py','VERSION',*['assets/fonts/'+p.name for p in sorted(FONT_DIR.glob('*.ttf'))]]
+    inputs=['book/manuscript.md','scripts/build_pdf.py','VERSION',*['assets/figure-sources/'+p.name for p in sorted((ROOT/'assets/figure-sources').glob('*.svg'))],*['assets/fonts/'+p.name for p in sorted(FONT_DIR.glob('*.ttf'))]]
     metadata={'inputs':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},'pdf_sha256':hashlib.sha256((OUT/'knowledge-graphs-tutorial.pdf').read_bytes()).hexdigest(),'page_map_sha256':hashlib.sha256((OUT/'page-map.json').read_bytes()).hexdigest()}
     metadata['environment']={'python':platform.python_version(),'platform':platform.platform(),'zlib_compile':zlib.ZLIB_VERSION,'zlib_runtime':zlib.ZLIB_RUNTIME_VERSION,'reportlab':package_version('reportlab'),'source_date_epoch':os.environ['SOURCE_DATE_EPOCH']}
+    for kind,data in SVG_SOURCE_BYTES.items():
+        if data!=(ROOT/'assets/figure-sources'/f'{kind}.svg').read_bytes():raise RuntimeError('SVG changed during build: '+kind)
     (OUT/'build-inputs.json').write_text(json.dumps(metadata,indent=2)+'\n')
     reader=PdfReader(OUT/'knowledge-graphs-tutorial.pdf')
     print(json.dumps({'pages':len(reader.pages),'sections':len(sections),'bytes':(OUT/'knowledge-graphs-tutorial.pdf').stat().st_size,'section_pages':[(r[0],r[1]) for r in records]},indent=2))

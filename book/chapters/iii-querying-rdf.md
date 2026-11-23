@@ -1,6 +1,6 @@
 # III · Querying RDF
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 3.1 SPARQL patterns and variable bindings
 
@@ -203,6 +203,14 @@ ORDER BY ?id
 ```
 
 Expected result: `c2 / Graph Search`. The first NOT EXISTS excludes c1. The nested condition checks c2's required course c1, finds Maya's completion, and therefore finds no unmet prerequisite. c3 and c4 fail the topic preference condition.
+
+The next figure traces variable bindings through logical conditions; it is not an engine execution plan. The same steps explain the Cypher query in Section 4.6.
+
+![Figure 10. Trace Maya’s eligibility policy in both languages](../../assets/figures/recommendtrace.svg)
+
+Change one recorded fact to test your understanding: without Maya’s completion of c1, c1 survives because no prerequisite is recorded for it, while c2 has an unmet prerequisite. The query still applies; the source snapshot changed. No recorded prerequisite is not evidence that every real-world prerequisite is known.
+
+![Figure 11. Change one recorded completion and trace the answer](../../assets/figures/countertrace.svg)
 
 ### Read the scope carefully
 `NOT EXISTS` is evaluated relative to the outer bindings and active dataset. It implements a dataset-level test, not an OWL negative assertion. This query is sound for the declared policy only if the selected catalog contains all prerequisites relevant to the decision and the completion records are sufficiently complete for the user. [[4](xii-references.md#ref4)]

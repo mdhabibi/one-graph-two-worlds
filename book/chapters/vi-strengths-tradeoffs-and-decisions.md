@@ -1,6 +1,6 @@
 # VI · Strengths, tradeoffs, and decisions
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 6.1 Comparison: model and semantics
 
@@ -59,7 +59,7 @@ A **hard requirement** is a condition a candidate must satisfy; a weighted score
 
 Read the figure as a first branching question, not an automatic verdict. Shared formal meaning makes the semantic candidate worth evaluating; application traversal makes the LPG candidate worth evaluating. Both branches still require benchmarks and an operational review.
 
-![Figure 11. Choose candidates by binding requirements](../../assets/figures/decision.svg)
+![Figure 16. Choose candidates by binding requirements](../../assets/figures/decision.svg)
 
 ### Ask these questions in order
 1. Which questions and transactions must the system execute? Specify outputs, volumes, update rates, and concurrency.

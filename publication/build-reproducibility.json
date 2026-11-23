@@ -1,27 +1,36 @@
 {
-  "edition": "0.2.0",
+  "edition": "0.2.1",
   "same_environment_rebuild": "pass",
-  "sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-  "first_rebuild_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
-  "second_rebuild_sha256": "fb10937cc93d20ed408bb440c4df202efe780034c3761960924f737f76eb16a2",
+  "sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
+  "first_rebuild_sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
+  "second_rebuild_sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
   "byte_equal": true,
-  "matches_tracked_pdf": true,
+  "matches_packaged_pdf": true,
   "environment": {
-    "python": "3.12.14",
-    "platform": "macOS-15.0.1-arm64-arm-64bit",
+    "python": "3.15.0",
+    "platform": "macOS-15.0.1-arm64-arm-64bit-Mach-O",
     "zlib_compile": "1.2.12",
     "zlib_runtime": "1.2.12",
     "reportlab": "4.4.9",
-    "source_date_epoch": "1794873600"
+    "source_date_epoch": "1795392000"
   },
   "input_sha256": {
-    "book/manuscript.md": "eb45493a6cdf0bd6ea0f34943f6ec3f350cf6900b0350228fe2111daa36b8e71",
-    "scripts/build_pdf.py": "371eb9cbfc551d52afdd224c1ee1191a02c9f2cce1159b12ef8010ea32d50e4b",
-    "VERSION": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
+    "book/manuscript.md": "32b7984a72378607bdd57ef8759ec6d42bb1779149c1091a427c853911947811",
+    "scripts/build_pdf.py": "cde551c2f3f41876066c958037da09082f5e1275f864786012ed2a4bbc4188e5",
+    "VERSION": "71015c979ccb0fc8a0be7ca0ae83046ab045cdc2c8faa09fb2f0f7e440f9b4a6",
+    "assets/figure-sources/countertrace.svg": "5d1cfaeaf846fedd04135b0a69a0f43e96f395f6f3805e4cc2ce9369e40369ac",
+    "assets/figure-sources/event.svg": "7ce501793fb2fa423d76eb8567d6ce835b62f419462f6753b44108b5a1680f82",
+    "assets/figure-sources/evolutiontimeline.svg": "a7eed06528a8a2e958902d76e357538e6a142910995e95ed3fb1942830398166",
+    "assets/figure-sources/hybrid.svg": "f879902e0062118bb530afc9b1e1a468ec06a72432684eef30b0c326aa84d493",
+    "assets/figure-sources/inferencecompare.svg": "c79a03b6654e072135727ef3c8582fe27e486a19ab4e95e07df4c8254d0a9f69",
+    "assets/figure-sources/models.svg": "3731ef2b67096318396c9a93f81571b407f5f2d6529be1e664afeb14491a3a1c",
+    "assets/figure-sources/recommendtrace.svg": "34ec14e3a4051a4fa774a01d7508ccebdaaaa554631254001d155f2aa2056471",
+    "assets/figure-sources/symbolkey.svg": "3cc615d786b279d49b2d77792e6dab5045d3ddb2e46be1083343e26512e8c88d",
+    "assets/figure-sources/world.svg": "8d3df12c250a50322efbd6747e9e3dbd12bd8008f8cc6e2d286b618343efea40",
     "assets/fonts/DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
     "assets/fonts/DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
     "assets/fonts/DejaVuSansMono.ttf": "b4a6c3e4faab8773f4ff761d56451646409f29abedd68f05d38c2df667d3c582",
-    "requirements-build.txt": "9e4f38737dbb10ea55353019a2c7fd199687ae202cfe3ab9fae76dc5ce14cd9c"
+    "requirements-build.txt": "733f03b996fc1ef27073b8508dcfb41fe6c5cc6bdff7b6fd25039e6cda1def77"
   },
-  "scope": "Two local renderer processes with the same sources, fonts, installed dependencies and fixed timestamp. Normalized page text/map/outline/selected metadata also match. Cross-platform byte equality and visual/accessibility equivalence are not asserted."
+  "scope": "Two local renderer processes with identical sources, fonts, dependencies and fixed timestamp. Normalized text, map, outline and selected metadata match. No cross-platform, visual or accessibility equivalence claim."
 }

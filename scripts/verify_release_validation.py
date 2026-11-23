@@ -75,7 +75,7 @@ def main():
     def review_number(root):
         source_edit(root,lambda text:text.replace('### Review 5 · Choose the right test','### Review 6 · Choose the right test',1))
     def web_label(root):
-        p=root/'book/chapters/reader-guide.md';p.write_text(p.read_text().replace('Version 0.2.0 · Public review draft','REMOVED-EDITION-LABEL',1))
+        p=root/'book/chapters/reader-guide.md';p.write_text(p.read_text().replace('Version '+(root/'VERSION').read_text().strip()+' · Public review draft','REMOVED-EDITION-LABEL',1))
     def web_code(root):
         p=root/'book/chapters/reader-guide.md';text=p.read_text();match=re.search(r'```[^\n]*\n',text)
         if match is None:raise RuntimeError('No exported code fence to change')
@@ -92,14 +92,14 @@ def main():
         def edit(doc):
             for page in doc:
                 for link in page.get_links():
-                    if link.get('uri')=='https://doi.org/10.5281/zenodo.24316420':
+                    if link.get('uri')=='https://doi.org/'+json.loads((root/'publication/zenodo-record-draft.json').read_text())['doi']:
                         page.update_link({'xref':link['xref'],'kind':fitz.LINK_URI,'uri':link['uri']+'.','from':link['from']});return
             raise RuntimeError('No edition DOI link found')
         edit_pdf(root,edit)
     def citation_version(root):
-        p=root/'CITATION.cff';p.write_text(p.read_text().replace('version: "0.2.0"','version: "0.1.1"',1))
+        p=root/'CITATION.cff';p.write_text(p.read_text().replace('version: "'+(root/'VERSION').read_text().strip()+'"','version: "0.1.1"',1))
     def bib_doi(root):
-        p=root/'publication/citation.bib';p.write_text(p.read_text().replace('24316420','24228810'))
+        p=root/'publication/citation.bib';p.write_text(p.read_text().replace(json.loads((root/'publication/zenodo-record-draft.json').read_text())['doi'],'10.5281/zenodo.24228810'))
     def record_version(root):
         p=root/'publication/zenodo-record-draft.json';data=json.loads(p.read_text());data['version']='0.1.1';p.write_text(json.dumps(data))
     for name,mutation,expected in [('margin',margin,'Margin violations'),('draft-label',label,'Edition label missing'),('citation-target',citation,'Citation target mismatch'),('syntax',syntax,'ParseException'),('local-link',local,'Missing local link'),('chapter-cover-label',cover_label,'Edition label missing'),('citation-coverage',missing_citation,'Unlinked rendered citation'),('stale-manuscript',stale_source,'Build input drift'),('extension-replay',extension_replay,'Semantic evolution exercise failed'),('missing-shape',missing_shape,'Extension failed'),('identity-locator',identity_span,'Extension failed'),('web-drift',web_drift,'Web export drift'),('glossary-order',glossary,'Glossary ordering'),('core-reference',core_reference,'Core-question reference missing'),('answer-placement',misplaced_answer,'Question missing its answer'),('review-numbering',review_number,'Review heading numbering'),('web-label',web_label,'Web chapter edition label missing'),('web-code',web_code,'Exported code fence differs'),('pdf-outline',outline,'PDF section outline differs'),('citation-version',citation_version,'Citation version mismatch'),('bibtex-doi',bib_doi,'BibTeX DOI mismatch'),('record-version',record_version,'Release metadata version mismatch'),('doi-hyperlink',doi_hyperlink,'Edition DOI hyperlink mismatch')]:

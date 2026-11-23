@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.1 — public review draft, published 2026-11-23
+
+- Published on Zenodo with edition DOI 10.5281/zenodo.24483542.
+- Repository publication links and citation dates were synchronized after the immutable archive; archived PDF/ZIP bytes are preserved.
+- Added a visual key, parallel inference/validation example, recommendation
+  binding trace and changed-fact panel, and semantic-evolution timeline.
+- Clarified model correspondence, prerequisite direction, event time/evidence,
+  validation targets/branches, policy evidence, reconciliation and contrast.
+- Separated editable SVG sources from browser exports and verified repeat builds
+  do not accumulate captions. Pinned the additional SVG rendering dependency.
+- Baseline fixtures, query listings, retained research and prior archives unchanged.
+- No new independent reproduction, performance or personal-suitability claim.
+
 ## 0.2.0 — public review edition, published 2026-11-17
 
 - Expanded Chapter 10 with a conditional recommendation-query equivalence

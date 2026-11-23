@@ -1,64 +1,22 @@
 {
-  "version": "0.2.0",
-  "executed_on": "2026-11-17",
-  "status": "pass",
-  "rdf_lab": {
-    "result": "PASS: 6 SPARQL queries, baseline and negative SHACL cases, policy changes, malformed-input review cases, subclass targeting, RDFS inference.\nOWL: this basic script parses syntax; the separate owl_dl checker executes targeted DL reasoning.",
-    "inputs": {
-      "lab/01_graph_courses.rq": "b5b7d84f36ba63ad7935bfc8f1d096a73ae08e3e3d3696814c78df0af09ed1f1",
-      "lab/02_optional_summary.rq": "ac839a372f75c3b73ae15735c1a1a2ffdefa1df6f741834fb1cf49765fb6c03f",
-      "lab/03_topic_counts.rq": "cd95d416cfa765926b952b657e50271d3c53c9249689089f997d3c81eb530fef",
-      "lab/04_recommend.rq": "eaf1292fe6d2c9038b67c251cc138619db96c43dc09496faa6b7d3fa8cb47ec1",
-      "lab/05_prerequisites.rq": "01199ba7a5b9f3988afa31da9b739e17cca3c13dca01cc4f91334f50d04d4799",
-      "lab/06_short_courses.rq": "e68f7f8c5f2aee4fd729f0df8250583e4c895cb689350eea946d6db708501d78",
-      "lab/README.md": "5670049ed491180c5b6c7f811e38be23324473d76d4f2beb739704306d6cb8aa",
-      "lab/catalog.cypher": "db33d76efb531f674ca91090e25863874eb69806b0dace218f82d04146277b2b",
-      "lab/catalog.ttl": "662a1ab6d6629394ca3bb3b6f08041fb6d9a7dd52a036182ccf617a57e3832dd",
-      "lab/check_cypher.py": "cff70ed857ddd23ee88a98ac498aeb037306184ff8168d05c9c825816d2567e9",
-      "lab/check_rdf.py": "59d769674787aaa9ddd465a6aeb24432fd5d1f8a1307bc5d7470780a34cb505e",
-      "lab/ontology.ttl": "8c0d3d4c460c611276468e15fac3df49050e047c839454d6212584379cdfdf8c",
-      "lab/owl_dl/CheckOwlDl.java": "454702aa91c86459f13e905dc38c56b51643dacdfeaf515a8764b308df34d35f",
-      "lab/owl_dl/README.md": "c3061dd074babaa53f887fba2bdebe469adf7de4c7928f310228f498ebd90ac2",
-      "lab/owl_dl/check_owl_dl.py": "2e2c9458dbc8768da335e80faacf950b12f3cef64ee38d77c2a24e9d2830986e",
-      "lab/owl_dl/fetch_hermit.py": "2d8d36e664a5fc998c81bf3feafe53798ffef9c1519baf14722b2d6aa153d11a",
-      "lab/owl_dl/fixtures/contradiction.rdf": "60dc69b2a2e485218fa97d768419afc836c8bf841afe249cdbeb3d796be8e355",
-      "lab/owl_dl/fixtures/graduate.rdf": "0ad4e6c3a6d5ce8083f1c09291073fc0c9a67774368b9385ee0289b728c8ef02",
-      "lab/owl_dl/fixtures/without-about.rdf": "5f3c42123797be598cae5b7f30c00ce8e0eb173c8316b63e15bfef51205a07ea",
-      "lab/owl_dl/fixtures/without-disjointness.rdf": "f9687fb92cd12840fd846cd81b29d182fb5181c2f4e4606431540b7327c5bdab",
-      "lab/practice.rq": "b5b7d84f36ba63ad7935bfc8f1d096a73ae08e3e3d3696814c78df0af09ed1f1",
-      "lab/practice_queries.cypher": "823c4aba0a1af92b32bf0b2aca5a08cf5467be0b451b359d5a3953c38acbabb3",
-      "lab/practice_queries.rq": "a06263262f11f740c88422db0cc60eecd73906fba2ce7f0e74b736fe808591c6",
-      "lab/queries.cypher": "29fc2eddf9bffff458dfc73937925ffa02150e849760ec05ceae90d1f4922747",
-      "lab/requirements.txt": "d63550d95befa6d02403729c616cdc948ddb8990280ffa05e6cd805d11436045",
-      "lab/run_query.py": "f082c96a05acc38456f3fa761b4009e7879afe0c477c95622790fd6612f199a0",
-      "lab/shapes.ttl": "65190938ce942b73fc892930e1ba820733573c2c8584d94d3373358431cfcf5b"
-    }
-  },
-  "cypher": {
-    "report": "cypher-0.2.0-validation.json",
-    "engine": {
-      "version": "5.26.30",
-      "edition": "community"
-    },
-    "image_identity": "sha256:ca995114ec70d82cf52856a7c68f8024a75ff0667eccfce88b900d928c07ec10 [\"neo4j@sha256:3388e05ee53c8313d01acdf33e63ad175af95a92226dc8551160564439ce2c8c\"]"
-  },
-  "owl": {
-    "report": "owl-0.2.0-validation.json",
-    "reasoner": "HermiT",
-    "version": "1.3.8.1099",
-    "jar_sha256": "97e53f519720a0a2e328556e03b806aa239347c85e57637a935e6433ed2ad3a8"
-  },
-  "document_defect_controls": 23,
+  "version": "0.2.1",
+  "prepared_on": "2026-11-23",
+  "status": "published archive verified; repository synchronization",
+  "edition_doi": "10.5281/zenodo.24483542",
+  "doi_status": "published",
+  "pdf_sha256": "991adf88dfee9a76378cec90f4870eae673a2186a024f7efe9bb8a87036829cd",
+  "pages": 179,
+  "figures": 18,
+  "rdf_lab": "pass; fresh baseline RDFLib and SHACL checks",
+  "document_validation": "pass",
+  "document_negative_controls": 23,
   "rebuild_controls": 5,
-  "independent_paired_reproduction": "open; not run in this release preparation",
-  "remote_ci": {
-    "status": "success",
-    "commit": "9d3e9e259d1743804ce3efe6aec1c45122d637ee",
-    "url": "https://github.com/mdhabibi/one-graph-two-worlds/actions/runs/44120988200",
-    "jobs": {
-      "book-and-rdf": "success",
-      "cypher": "success"
-    }
-  },
-  "scope": "Local automated release checks; fresh engine runs are not independent reproduction or general scientific/production validation."
+  "repeat_build_byte_equal": true,
+  "visual_inspection": "Cover, front matter, SHACL table and all figure-page contact sheets; not print/accessibility certification or a reader study",
+  "cypher": "not rerun for 0.2.1; unchanged inputs, retained historical evidence",
+  "owl": "not rerun for 0.2.1; unchanged inputs, retained historical evidence",
+  "independent_paired_reproduction": "open",
+  "remote_ci": "pending this repository synchronization",
+  "publication": "Zenodo public API metadata and both file checksums verified",
+  "publication_date": "2026-11-23"
 }

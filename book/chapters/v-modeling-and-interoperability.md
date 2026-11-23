@@ -1,6 +1,6 @@
 # V · Modeling and interoperability
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 5.1 Model events when relationships have a lifecycle
 
@@ -15,7 +15,7 @@ A **binary relationship** connects two entities. An **n-ary relationship** invol
 
 In this extension, e1 identifies Maya's particular completion of c1. The figure separates that occurrence from the learner and course, then links it to evidence d1. Its arrows leave event e1 toward its learner, course, and evidence. This is a different structure from the earlier direct person-to-course completion link. The two code fragments below show RDF and LPG representations of the event structure.
 
-![Figure 9. An identified completion occurrence with evidence](../../assets/figures/event.svg)
+![Figure 13. An identified completion occurrence with evidence](../../assets/figures/event.svg)
 
 **RDF model extension — describe event e1.** The learner and course IRIs still identify the existing entities. The new event holds the score, event time, and a link to evidence d1.
 
@@ -137,6 +137,10 @@ This is an engineering decision guide, not a versioning policy mandated by OWL. 
 
 **Finally, change the passing rule.** In an isolated extension, Maya has a recorded assessment score of 65 percent. Policy p60 accepts scores of at least 60; policy p70 accepts scores of at least 70. If p70 takes effect on 1 November 2026 and the chosen rule uses decision time, a decision on 31 October passes and one on 1 November does not. The score fact stays 65. Preserve which policy was selected and which time basis selected it. A different organization may use assessment time or grandfather earlier attempts; that is a policy decision to state explicitly. These invented assessment facts do not alter the baseline completion of c1.
 
+The timeline separates a field rename, a change in meaning, and a dated policy decision. It summarizes the isolated assessment extension; the baseline completion fact remains unchanged.
+
+![Figure 14. Names, meanings and dated policies change differently](../../assets/figures/evolutiontimeline.svg)
+
 ### Preserve a reproducible release combination
 An ontology IRI can identify an ontology series, while a version IRI identifies a particular version. Pin dependencies to specific versions when reproducibility requires them, and retain retrievable historical documents. Changing the document available at a stable ontology IRI does not rewrite every term IRI, and a compatibility annotation is not a proof that all dependent queries remain correct. OWL defines identification and versioning mechanisms; teams must still establish their compatibility checks. [[14](xii-references.md#ref14)]
 
@@ -185,7 +189,7 @@ A **canonical model** is the authoritative representation for a defined concern.
 
 The figure illustrates the semantic-primary option: canonical RDF feeds a derived application graph through a versioned mapping. Reconciliation checks whether the projection still agrees with its source. This is one choice, not a requirement to maintain two stores.
 
-![Figure 10. A governed semantic source and application projection](../../assets/figures/hybrid.svg)
+![Figure 15. A governed semantic source and application projection](../../assets/figures/hybrid.svg)
 
 - **Semantic primary:** maintain canonical identities, vocabulary, and assertions as RDF; serve SPARQL directly or publish derived application views.
 - **Application primary:** maintain operational entities and events in an LPG; export RDF where interoperability and vocabulary alignment are required.

@@ -1,6 +1,6 @@
 # VII · Performance and operations
 
-**Version 0.2.0 · Public review draft · Edition DOI: 10.5281/zenodo.24316420**
+**Version 0.2.1 · Public review draft · Edition DOI: 10.5281/zenodo.24483542**
 
 ## 7.1 Performance: measure the workload, not the slogan
 
@@ -13,7 +13,7 @@ An architecture choice needs operational evidence, not just an attractive model.
 
 The figure follows three contributors to query cost: find starting entities, expand relationships, and produce results. For Maya's question, that means finding her record, examining relevant courses and prerequisites, and returning a small set of eligible courses.
 
-![Figure 12. Selectivity, expansion, and output cost](../../assets/figures/performance.svg)
+![Figure 17. Selectivity, expansion, and output cost](../../assets/figures/performance.svg)
 
 ### RDF execution considerations
 A store may use multiple triple or quad index orders, statistics, join planning, and specialized path processing. Selective patterns reduce intermediate results. Named-graph filters, optional patterns, broad joins, reasoning closure, and remote SERVICE calls can affect cost. A formal ontology is not itself a performance problem; the executed reasoning tasks and data distribution determine the work.

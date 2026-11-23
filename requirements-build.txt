@@ -4,3 +4,4 @@ PyMuPDF==1.25.5
 rdflib==7.1.4
 pyshacl==0.30.1
 owlrl==7.1.4
+svglib==2.4.0
